@@ -1,7 +1,6 @@
 import { Notifications } from 'expo';
 import React from 'react';
 import { StackNavigator } from 'react-navigation';
-
 import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 
@@ -29,9 +28,6 @@ export default class RootNavigator extends React.Component {
     this._notificationSubscription && this._notificationSubscription.remove();
   }
 
-  render() {
-    return <RootStackNavigator />;
-  }
 
   _registerForPushNotifications() {
     // Send our push token over to our backend so we can receive notifications
@@ -47,4 +43,8 @@ export default class RootNavigator extends React.Component {
   _handleNotification = ({ origin, data }) => {
     console.log(`Push notification ${origin} with data: ${JSON.stringify(data)}`);
   };
+
+  render() {
+    return <RootStackNavigator />;
+  }
 }
