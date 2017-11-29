@@ -13,13 +13,24 @@
   "dependencies": {
     "@expo/samples": "2.1.1",
     "@expo/vector-icons": "^6.2.0",
+    "add-graphql-subscriptions": "^1.0.1",
+    "apollo-cache-inmemory": "^1.1.1",
+    "apollo-client": "^2.0.3",
+    "apollo-link": "^1.0.3",
+    "apollo-link-http": "^1.2.0",
     "expo": "^23.0.0",
+    "graphql": "^0.11.7",
     "native-base": "^2.3.3",
     "prop-types": "^15.6.0",
     "react": "16.0.0",
+    "react-apollo": "^2.0.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
     "react-native-easy-grid": "^0.1.15",
-    "react-navigation": "^1.0.0-beta.19"
+    "react-navigation": "^1.0.0-beta.19",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-form": "^7.2.0",
+    "subscriptions-transport-ws": "^0.9.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
