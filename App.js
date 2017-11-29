@@ -3,14 +3,14 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
-import RootNavigation from './navigation/RootNavigation';
-import robotDev from './assets/images/robot-dev.png';
-import robotProd from './assets/images/robot-prod.png';
-import spaceMono from './assets/fonts/SpaceMono-Regular.ttf';
-import allerLight from './assets/fonts/aller-light.ttf';
-import OpenSansLight from './assets/fonts/OpenSans-Light.ttf';
-import SinkinSans100Thin from './assets/fonts/SinkinSans-100Thin.ttf';
-import SinkinSans200XLight from './assets/fonts/SinkinSans-200XLight.ttf';
+import RootNavigation from './app/navigation/RootNavigation';
+import robotDev from './app/assets/images/robot-dev.png';
+import robotProd from './app/assets/images/robot-prod.png';
+import spaceMono from './app/assets/fonts/SpaceMono-Regular.ttf';
+import allerLight from './app/assets/fonts/aller-light.ttf';
+import OpenSansLight from './app/assets/fonts/OpenSans-Light.ttf';
+import SinkinSans100Thin from './app/assets/fonts/SinkinSans-100Thin.ttf';
+import SinkinSans200XLight from './app/assets/fonts/SinkinSans-200XLight.ttf';
 
 const styles = StyleSheet.create({
   container: {
