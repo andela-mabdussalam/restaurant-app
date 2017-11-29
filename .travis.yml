@@ -3,7 +3,6 @@ language: node_js
 node_js: "6.9"
 
 addons:
-  artifacts: true
   code_climate:
     repo_token: 01f5e873ab4d0e3a0dc14c8270615409e6589ebe339339e1b355bacf1d770257
 
