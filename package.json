@@ -1,0 +1,38 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "private": true,
+  "scripts": {
+    "test": "node ./node_modules/jest/bin/jest.js"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(react-native|fbjs|@expo|react-navigation|react-native-tab-view|react-native-platform-touchable|react-native-platform-touchable|react-native-keyboard-aware-scroll-view|react-native-vector-icons|react-native-drawer|react-native-easy-grid|native-base-shoutem-theme|jest-runtime|native-base|expo|react-native-button)/)"
+    ]
+  },
+  "dependencies": {
+    "@expo/samples": "2.1.1",
+    "@expo/vector-icons": "^6.2.0",
+    "expo": "^23.0.0",
+    "native-base": "^2.3.3",
+    "prop-types": "^15.6.0",
+    "react": "16.0.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
+    "react-native-easy-grid": "^0.1.15",
+    "react-navigation": "^1.0.0-beta.19"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.2",
+    "babel-jest": "^21.2.0",
+    "eslint": "^4.12.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.5.1",
+    "jest": "^21.2.1",
+    "jest-expo": "^23.0.0",
+    "react-test-renderer": "^16.1.1",
+    "regenerator-runtime": "^0.11.0"
+  }
+}
