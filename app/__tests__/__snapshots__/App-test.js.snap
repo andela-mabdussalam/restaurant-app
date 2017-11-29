@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the loading screen 1`] = `<ExponentAppLoading />`;
+
+exports[`renders the root without loading screen 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+    }
+  }
+>
+  <RootNavigation />
+</View>
+`;
