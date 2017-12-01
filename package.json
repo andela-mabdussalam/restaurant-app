@@ -2,7 +2,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "test": "nyc --reporter=lcov node ./node_modules/jest/bin/jest.js"
+    "test": "node ./node_modules/jest/bin/jest.js --coverage"
   },
   "jest": {
     "preset": "jest-expo",
@@ -39,6 +39,7 @@
     "babel-eslint": "^8.0.2",
     "babel-jest": "^21.2.0",
     "babel-plugin-istanbul": "^4.1.5",
+    "coveralls": "^3.0.0",
     "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
