@@ -2,7 +2,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text-lcov node ./node_modules/jest/bin/jest.js"
+    "test": "nyc --reporter=lcov node ./node_modules/jest/bin/jest.js"
   },
   "jest": {
     "preset": "jest-expo",
