@@ -2,7 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/andela-mabdussalam/restaurant-app/badge.svg?branch=chore%2Fadd-hound-travis-coveralls)](https://coveralls.io/github/andela-mabdussalam/restaurant-app?branch=chore%2Fadd-hound-travis-coveralls)
 
 # Restaurant App
-A full stack System that a user order for food from a restaurant.
+A full stack System that allows a user order for food from a restaurant.
 
 
 ## Technologies Used
@@ -37,11 +37,11 @@ The frontend was built with the [React-Native](https://facebook.github.io/react/
 
 #### Key Application Features
 A user can:
-    - Create an account
-    - Login
-    - Search for a meal
-    - Order a meal
-    - Logout.
+- Create an account
+- Login
+- Search for a meal
+- Order a meal
+- Logout.
 
 **Authentication**:
 Users are authenticated and validated using JSON web token (JWT) stored in the AsynStorage.
@@ -50,7 +50,3 @@ Users are authenticated and validated using JSON web token (JWT) stored in the A
 - Download expo from the play store
 - Search for restaurant-app
 
-
-## Limitations
-- Pagination is not integrated yet, and so as the documents grow in numbers, locating them becomes a difficult process
-- A non-admin user cannot request to be upgraded to an admin
