@@ -1,18 +1,14 @@
-/* eslint no-undef: 0 */
 import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from '../../App';
-
-jest.mock('../navigation/RootNavigation', () => 'RootNavigation');
-
+import { HomeScreen, LinksScreen } from '../screens';
 
 it('renders the loading screen', async () => {
-  const tree = renderer.create(<App />).toJSON();
+  const tree = renderer.create(<HomeScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 it('renders the root without loading screen', async () => {
-  const tree = renderer.create(<App skipLoadingScreen />).toJSON();
+  const tree = renderer.create(<LinksScreen />).toJSON();
   expect(tree).toMatchSnapshot();
 });
