@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the input 1`] = `
+exports[`renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -79,4 +79,4 @@ exports[`renders the input 1`] = `
 </View>
 `;
 
-exports[`renders the input 2`] = `<validate />`;
+exports[`renders correctly 2`] = `<validate />`;

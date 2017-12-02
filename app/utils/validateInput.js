@@ -17,10 +17,15 @@ export const validate = (values) => {
   }
   if (!values.password) {
     errors.password = 'Password is required';
+  } else if (values.password.length < 6) {
+    errors.password = 'Password too short';
   }
   if (!values.passwordConfirm) {
-    errors.passwordConfirm = 'Passwords don\'t match';
+    errors.passwordConfirm = 'Password Confirm is required';
+  } else if (values.password !== values.passwordConfirm) {
+    errors.passwordConfirm = 'Passwords do not match';
   }
+
   if (!values.phoneNum) {
     errors.phoneNum = 'Phone Number is required';
   }
