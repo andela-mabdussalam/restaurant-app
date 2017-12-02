@@ -11,12 +11,22 @@ import {
   Button,
   Icon,
 } from 'native-base';
+import PropTypes from 'prop-types';
 import { HomeScreenStyles as styles } from '../styles/styles';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  static propTypes = {
+    navigation: PropTypes.object
+  };
+
+  handleSignupPress = () => {
+    const { navigate } = this.props.navigation;
+    navigate('SignupPage');
+  }
 
   render() {
     return (
@@ -45,7 +55,9 @@ export default class HomeScreen extends React.Component {
             <View>
               <View style={{ flexDirection: 'row' }}>
                 <Text style={styles.forgotPassword}>Do not have account?  </Text>
-                <TouchableOpacity>
+                <TouchableOpacity
+                onPress={this.handleSignupPress}
+                >
                   <Text style={styles.signUpText}>Sign Up here</Text>
                   </TouchableOpacity>
               </View>
