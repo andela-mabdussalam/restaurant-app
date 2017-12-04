@@ -78,5 +78,3 @@ exports[`renders correctly 1`] = `
   />
 </View>
 `;
-
-exports[`renders correctly 2`] = `<validate />`;

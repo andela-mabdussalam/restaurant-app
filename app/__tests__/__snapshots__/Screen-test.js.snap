@@ -1,6 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the loading screen 1`] = `
+exports[`renders the home screen 1`] = `undefined`;
+
+exports[`renders the home screen 2`] = `
 <View
   style={
     Object {
@@ -519,7 +521,7 @@ exports[`renders the loading screen 1`] = `
 </View>
 `;
 
-exports[`renders the root without loading screen 1`] = `
+exports[`renders the links screen 1`] = `
 <RCTScrollView
   style={
     Object {
@@ -783,7 +785,7 @@ exports[`renders the root without loading screen 1`] = `
 </RCTScrollView>
 `;
 
-exports[`renders the root without loading screen 2`] = `
+exports[`renders the signup screen 1`] = `
 <View
   style={
     Object {
