@@ -37,7 +37,8 @@
   },
   "globals": {
     "sinon": true,
-    "expect": true
+    "expect": true,
+    "jest": true
   },
   "rules": {
     "import/no-unresolved": [0],
