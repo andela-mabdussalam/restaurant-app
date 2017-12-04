@@ -59,7 +59,7 @@ export default class HomeScreen extends React.Component {
                 onPress={this.handleSignupPress}
                 >
                   <Text style={styles.signUpText}>Sign Up here</Text>
-                  </TouchableOpacity>
+                </TouchableOpacity>
               </View>
             </View>
           </View>
