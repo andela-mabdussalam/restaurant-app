@@ -1,5 +1,32 @@
 import { StyleSheet } from 'react-native';
 
+export const ShopStyles = StyleSheet.create({
+  shopView: {
+    flexDirection: 'row',
+    flex: 1,
+    padding: 15,
+    backgroundColor: 'white',
+  },
+  fontFamily: {
+    fontFamily: 'SinkinSans-200XLight',
+    textAlign: 'center',
+    fontSize: 11,
+  },
+  headerText: {
+    width: '50%',
+    borderWidth: 0.5,
+    borderColor: '#F6E2B8',
+    padding: 5,
+    textAlign: 'center',
+    fontFamily: 'SinkinSans-200XLight'
+  },
+  fiText: {
+    textAlign: 'center',
+    fontFamily: 'SinkinSans-200XLight',
+    marginBottom: 10
+  }
+});
+
 export const HomeScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
