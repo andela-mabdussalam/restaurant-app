@@ -20,10 +20,29 @@ export const ShopStyles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'SinkinSans-200XLight'
   },
+  foodItems: {
+    width: '100%',
+    alignItems: 'center'
+  },
   fiText: {
     textAlign: 'center',
     fontFamily: 'SinkinSans-200XLight',
     marginBottom: 10
+  },
+  Image: {
+    width: 160,
+    height: 150,
+    marginTop: 15
+  },
+  viewBody: {
+    flexDirection: 'row',
+    flex: 1,
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  tabs: {
+    width: '100%',
+    flexDirection: 'row'
   }
 });
 
