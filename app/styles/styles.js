@@ -27,14 +27,36 @@ export const HomeScreenStyles = StyleSheet.create({
     fontSize: 14,
     color: 'white',
   },
+  errorStyle: {
+    borderColor: 'red',
+  },
   textInputStyle: {
     fontFamily: 'SinkinSans-200XLight',
     fontSize: 12,
   },
   inputView: {
-    marginTop: '2%',
+    marginTop: '3%',
     backgroundColor: '#E0956D',
     height: 40,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  searchIcon: {
+    padding: 10,
+    fontSize: 12,
+    color: 'red'
+  },
+  input: {
+    flex: 1,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 0,
+    color: '#424242',
+    fontFamily: 'SinkinSans-200XLight',
+    fontSize: 12,
   },
   button: {
     backgroundColor: '#F7C04C',

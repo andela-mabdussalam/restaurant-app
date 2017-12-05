@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#E0956D",
+      "borderBottomWidth": 1,
+      "borderColor": "red",
+      "borderLeftWidth": 0,
+      "borderRightWidth": 0,
+      "borderTopWidth": 0,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 40,
+      "justifyContent": "center",
+      "marginLeft": 2,
+      "marginTop": "3%",
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  />
+  <TextInput
+    allowFontScaling={true}
+    editable={true}
+    onChangeText={[Function]}
+    placeholder={undefined}
+    placeholderTextColor="white"
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 17,
+          "height": 50,
+          "lineHeight": 24,
+          "paddingLeft": 5,
+          "paddingRight": 5,
+          "top": 1.5,
+        },
+        Object {
+          "color": "#424242",
+          "flex": 1,
+          "fontFamily": "SinkinSans-200XLight",
+          "fontSize": 12,
+          "paddingBottom": 10,
+          "paddingLeft": 0,
+          "paddingRight": 10,
+          "paddingTop": 10,
+        },
+      ]
+    }
+    underlineColorAndroid="rgba(0,0,0,0)"
+    virtual={undefined}
+  />
+</View>
+`;

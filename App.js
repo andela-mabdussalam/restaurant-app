@@ -8,11 +8,8 @@ import ApolloClient from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { reducer as formReducer } from 'redux-form';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { SubscriptionClient } from 'subscriptions-transport-ws';
-import { addGraphQLSubscriptions } from 'add-graphql-subscriptions';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
-import WebSocket from 'ws';
 import RootNavigation from './app/navigation/RootNavigation';
 import robotDev from './app/assets/images/robot-dev.png';
 import robotProd from './app/assets/images/robot-prod.png';
@@ -33,22 +30,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cja8r6dcn33ui0154xhdkhlel', {
-  reconnect: true,
-  connectionParams: {
-  }
-}, WebSocket);
 const uri = 'https://api.graph.cool/simple/v1/cja8r6dcn33ui0154xhdkhlel';
 
 const httpLink = new HttpLink({ uri });
 
-const linkWithSubscriptions = addGraphQLSubscriptions(
-  httpLink,
-  wsClient
-);
-
 const client = new ApolloClient({
-  link: linkWithSubscriptions,
+  link: httpLink,
   cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
 });
 
