@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { View, Image, Text, ScrollView, TouchableHighlight } from 'react-native';
 import Papa from 'papaparse';
+import gql from 'graphql-tag';
+import { graphql, compose } from 'react-apollo';
 import { ShopStyles as styles } from '../styles/styles';
+
 /*
 * Stories component
 */
-export default class ShopScreen extends Component {
+class ShopScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +35,10 @@ export default class ShopScreen extends Component {
     const { navigate } = this.props.navigation;
     navigate('ProductScreen', data);
   }
+
+  _isLoggedIn = () =>
+    this.props.data.loggedInUser && this.props.data.loggedInUser.id !== ''
+
   sortData(data) {
     const dataArray = [];
     data.forEach((element) => {
@@ -79,3 +86,13 @@ export default class ShopScreen extends Component {
     );
   }
 }
+const LOGGED_IN_USER = gql`
+query LoggedInUser {
+  loggedInUser {
+    id
+  }
+}`;
+
+const ShopWithQuery = compose(graphql(LOGGED_IN_USER, { options: { fetchPolicy: 'network-only' } }))(ShopScreen);
+
+export default ShopWithQuery;
