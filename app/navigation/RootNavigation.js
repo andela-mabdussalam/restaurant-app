@@ -5,6 +5,7 @@ import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SignupScreen from '../screens/SignupScreen';
 import ShopScreen from '../screens/ShopScreen';
+import ProductScreen from '../screens/ProductScreen';
 
 const RootStackNavigator = StackNavigator(
   {
@@ -16,6 +17,9 @@ const RootStackNavigator = StackNavigator(
     },
     ShopScreen: {
       screen: ShopScreen
+    },
+    ProductScreen: {
+      screen: ProductScreen
     }
   },
   {
@@ -23,12 +27,12 @@ const RootStackNavigator = StackNavigator(
       headerTitleStyle: {
         fontWeight: 'normal',
         color: 'white',
-        textAlign: 'center',
-        marginHorizontal: 110
+        marginHorizontal: 80
       },
       headerStyle: {
         backgroundColor: '#D57E56'
       },
+      headerTintColor: 'white',
       title: 'Shop',
       headerBackTitleStyle: {
         color: 'white'
