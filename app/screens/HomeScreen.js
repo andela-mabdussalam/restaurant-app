@@ -4,31 +4,55 @@ import {
   Text,
   TouchableOpacity,
   View,
+  AsyncStorage
 } from 'react-native';
 import {
-  Item,
-  Input,
   Button,
   Icon,
 } from 'native-base';
 import PropTypes from 'prop-types';
+import { reduxForm, Field } from 'redux-form';
+import gql from 'graphql-tag';
+import { graphql, compose } from 'react-apollo';
+import { validate } from '../utils';
 import { HomeScreenStyles as styles } from '../styles/styles';
+import RenderInput from '../components/RenderInput';
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
   static propTypes = {
+    login: PropTypes.func,
+    input: PropTypes.object,
+    handleSubmit: PropTypes.func,
+    authenticateUserMutation: PropTypes.func,
     navigation: PropTypes.object
-  };
+  }
 
+  loginUser = async (values) => {
+    const { email, password } = values;
+    try {
+      const response = await
+        this.props.authenticateUserMutation({ variables: { email, password } });
+      const { navigate } = this.props.navigation;
+      const tokenToString = response.data.authenticateUser.token.toString();
+      this.storeAuthTokensLocally(tokenToString);
+      navigate('ShopScreen');
+    } catch (e) {
+      console.log('An error occurred: ', e);
+    }
+  }
   handleSignupPress = () => {
     const { navigate } = this.props.navigation;
     navigate('SignupPage');
   }
+  storeAuthTokensLocally = async (graphcoolToken) => {
+    await AsyncStorage.setItem('graphcoolToken', graphcoolToken);
+  }
 
   render() {
+    const { handleSubmit } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
@@ -37,13 +61,18 @@ export default class HomeScreen extends React.Component {
               <Text style={styles.largeText}>Sign  In</Text>
               <Text style={styles.logoText}>Restaurant</Text>
             </View>
-            <Item style={styles.inputView}>
-              <Input style={styles.textInputStyle} placeholder="Username" placeholderTextColor="white" />
-            </Item>
-            <Item style={styles.inputView}>
-              <Input style={styles.textInputStyle} placeholder="Password" placeholderTextColor="white"/>
-            </Item>
-            <Button color="#F7C04C" style={styles.button} block iconLeft>
+            <Field
+              name="email"
+              component={RenderInput}
+              placeholder="E-mail"
+            />
+            <Field
+              name="password"
+              component={RenderInput}
+              placeholder="Password"
+              secureTextEntry
+            />
+            <Button onPress={handleSubmit(this.loginUser)} color="#F7C04C" style={styles.button} block iconLeft>
               <Icon name='md-checkmark'/>
               <Text style={styles.buttonText}>    Login</Text>
             </Button>
@@ -88,3 +117,21 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
+
+const AUTHENTICATE_EMAIL_USER = gql`
+mutation AuthenticateUser($email: String!, $password: String!) {
+  authenticateUser(email: $email, password: $password) {
+    token
+  }
+}
+`;
+
+
+const LoginForm = reduxForm({
+  form: 'login',
+  validate,
+})(HomeScreen);
+
+const LoginWithMutation = compose(graphql(AUTHENTICATE_EMAIL_USER, { name: 'authenticateUserMutation' }))(LoginForm);
+
+export default LoginWithMutation;
