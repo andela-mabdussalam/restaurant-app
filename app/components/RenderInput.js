@@ -6,6 +6,7 @@ import { HomeScreenStyles as styles } from '../styles/styles';
 const RenderInput = ({
   placeholder,
   meta: { touched, error },
+  secureTextEntry,
   input: { onChange, ...restInput }
 }) =>
     <Item style={(touched && error) ?
@@ -14,6 +15,7 @@ const RenderInput = ({
       <Input
       style={styles.input}
       onChangeText={onChange}
+      secureTextEntry={secureTextEntry}
       {...restInput}
       placeholder={placeholder}
       placeholderTextColor="white"/>
@@ -28,6 +30,7 @@ RenderInput.propTypes = {
   input: PropTypes.object,
   placeholder: PropTypes.string,
   onChangeText: PropTypes.func,
+  secureTextEntry: PropTypes.bool
 };
 
 export default RenderInput;
