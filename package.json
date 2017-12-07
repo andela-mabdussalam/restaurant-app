@@ -7,7 +7,7 @@
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|fbjs|@expo|react-navigation|react-native-tab-view|react-native-platform-touchable|react-native-platform-touchable|react-native-keyboard-aware-scroll-view|react-native-vector-icons|react-native-drawer|react-native-easy-grid|native-base-shoutem-theme|jest-runtime|native-base|expo|react-native-button)/)"
+      "node_modules/(?!(react-native|react-native-star-rating|fbjs|@expo|react-navigation|react-native-tab-view|react-native-platform-touchable|react-native-platform-touchable|react-native-keyboard-aware-scroll-view|react-native-vector-icons|react-native-drawer|react-native-easy-grid|native-base-shoutem-theme|jest-runtime|native-base|expo|react-native-button)/)"
     ]
   },
   "dependencies": {
@@ -33,6 +33,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
     "react-native-easy-grid": "^0.1.15",
     "react-native-level-fs": "^3.0.0",
+    "react-native-star-rating": "^1.0.8",
     "react-native-udp": "^2.3.0",
     "react-navigation": "^1.0.0-beta.19",
     "react-redux": "^5.0.6",
