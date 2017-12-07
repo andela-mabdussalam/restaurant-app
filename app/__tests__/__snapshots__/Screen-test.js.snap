@@ -785,6 +785,447 @@ exports[`renders the links screen 1`] = `
 </RCTScrollView>
 `;
 
+exports[`renders the links screen 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "row",
+      "padding": 15,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "SinkinSans-200XLight",
+                "marginBottom": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            Food Items
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "borderColor": "#F6E2B8",
+                "borderWidth": 0.5,
+                "fontFamily": "SinkinSans-200XLight",
+                "padding": 5,
+                "textAlign": "center",
+                "width": "50%",
+              }
+            }
+          >
+             Latest 
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "borderColor": "#F6E2B8",
+                "borderWidth": 0.5,
+                "fontFamily": "SinkinSans-200XLight",
+                "padding": 5,
+                "textAlign": "center",
+                "width": "50%",
+              }
+            }
+          >
+             New 
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders the links screen 3`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "height": "100%",
+      "padding": 4,
+    }
+  }
+>
+  <View>
+    <Image
+      source={
+        Object {
+          "uri": undefined,
+        }
+      }
+      style={
+        Object {
+          "height": 0,
+          "width": 0,
+        }
+      }
+    />
+  </View>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontFamily": "SinkinSans-200XLight",
+          "fontSize": 17,
+          "marginTop": 10,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+      }
+    }
+  >
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "#848482",
+            "fontFamily": "SinkinSans-200XLight",
+            "fontSize": 12,
+            "marginTop": 12,
+          }
+        }
+      >
+        Price: N
+      </Text>
+      <View
+        style={
+          Object {
+            "marginTop": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            accessibilityComponentType="button"
+            accessibilityLabel={undefined}
+            accessibilityTraits="button"
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+          </View>
+          <View
+            accessibilityComponentType="button"
+            accessibilityLabel={undefined}
+            accessibilityTraits="button"
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+          </View>
+          <View
+            accessibilityComponentType="button"
+            accessibilityLabel={undefined}
+            accessibilityTraits="button"
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+          </View>
+          <View
+            accessibilityComponentType="button"
+            accessibilityLabel={undefined}
+            accessibilityTraits="button"
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+          </View>
+          <View
+            accessibilityComponentType="button"
+            accessibilityLabel={undefined}
+            accessibilityTraits="button"
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#F7C04C",
+            "borderColor": "rgba(0,0,0,0.2)",
+            "borderRadius": 100,
+            "borderWidth": 1,
+            "height": 50,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 50,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 30,
+                },
+                Object {
+                  "color": "#000",
+                  "fontSize": 30,
+                },
+              ],
+              Object {
+                "fontFamily": "ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "borderTopColor": "#848482",
+        "borderTopWidth": 0.5,
+        "marginBottom": 5,
+        "marginTop": 15,
+      }
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontFamily": "SinkinSans-200XLight",
+        "fontSize": 15,
+      }
+    }
+  >
+     Description 
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "color": "#848482",
+        "fontFamily": "SinkinSans-200XLight",
+        "fontSize": 12,
+        "lineHeight": 22,
+        "marginTop": 10,
+      }
+    }
+  />
+</View>
+`;
+
 exports[`renders the signup screen 1`] = `
 <View
   style={
