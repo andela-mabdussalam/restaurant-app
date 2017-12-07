@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { View, Image, Text, ScrollView } from 'react-native';
+import { View, Image, Text, ScrollView, TouchableHighlight } from 'react-native';
 import Papa from 'papaparse';
 import { ShopStyles as styles } from '../styles/styles';
 /*
@@ -28,13 +28,18 @@ export default class ShopScreen extends Component {
         });
   }
 
+  onClickImage = (data) => {
+    const { navigate } = this.props.navigation;
+    navigate('ProductScreen', data);
+  }
   sortData(data) {
     const dataArray = [];
     data.forEach((element) => {
       const dataObj = {
         Name: element[0],
         Price: element[1],
-        ImageUrl: element[2]
+        ImageUrl: element[2],
+        Description: element[3]
       };
       dataArray.push(dataObj);
     });
@@ -43,7 +48,6 @@ export default class ShopScreen extends Component {
   }
   render() {
     const { data } = this.state;
-
     return (
       <View style={styles.shopView}>
         <ScrollView>
@@ -59,7 +63,9 @@ export default class ShopScreen extends Component {
         {data.map((tile, index) => (
           <View key={index} >
                 <View>
-                <Image source={{ uri: tile.ImageUrl }} style={styles.Image} />
+                <TouchableHighlight onPress={() => this.onClickImage(tile)}>
+                  <Image source={{ uri: tile.ImageUrl }} style={styles.Image} />
+                </TouchableHighlight>
                 </View>
                 <View>
                   <Text style={styles.fontFamily}>{tile.Name}</Text>
