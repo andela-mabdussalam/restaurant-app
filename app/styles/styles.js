@@ -7,6 +7,39 @@ export const ShopStyles = StyleSheet.create({
     padding: 15,
     backgroundColor: 'white',
   },
+  productView: {
+    padding: 4,
+    backgroundColor: 'white',
+    height: '100%'
+  },
+  productName: {
+    fontSize: 17,
+    marginTop: 10,
+    fontFamily: 'SinkinSans-200XLight',
+  },
+  productPrice: {
+    fontSize: 12,
+    marginTop: 12,
+    color: '#848482',
+    fontFamily: 'SinkinSans-200XLight',
+  },
+  description: {
+    fontSize: 15,
+    fontFamily: 'SinkinSans-200XLight'
+  },
+  descriptionText: {
+    fontSize: 12,
+    fontFamily: 'SinkinSans-200XLight',
+    marginTop: 10,
+    color: '#848482',
+    lineHeight: 22
+  },
+  hr: {
+    borderTopWidth: 0.5,
+    borderTopColor: '#848482',
+    marginTop: 15,
+    marginBottom: 5
+  },
   fontFamily: {
     fontFamily: 'SinkinSans-200XLight',
     textAlign: 'center',
