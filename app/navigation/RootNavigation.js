@@ -4,6 +4,8 @@ import { StackNavigator } from 'react-navigation';
 import MainTabNavigator from './MainTabNavigator';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SignupScreen from '../screens/SignupScreen';
+import ShopScreen from '../screens/ShopScreen';
+import ProductScreen from '../screens/ProductScreen';
 
 const RootStackNavigator = StackNavigator(
   {
@@ -12,13 +14,29 @@ const RootStackNavigator = StackNavigator(
     },
     SignupPage: {
       screen: SignupScreen
+    },
+    ShopScreen: {
+      screen: ShopScreen
+    },
+    ProductScreen: {
+      screen: ProductScreen
     }
   },
   {
     navigationOptions: () => ({
       headerTitleStyle: {
         fontWeight: 'normal',
+        color: 'white',
+        marginHorizontal: 80
       },
+      headerStyle: {
+        backgroundColor: '#D57E56'
+      },
+      headerTintColor: 'white',
+      title: 'Shop',
+      headerBackTitleStyle: {
+        color: 'white'
+      }
     }),
   }
 );

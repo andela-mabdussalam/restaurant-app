@@ -6,8 +6,12 @@
   },
   "jest": {
     "preset": "jest-expo",
+    "setupTestFrameworkScriptFile": "<rootDir>/_universe/config.js",
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|fbjs|@expo|react-navigation|react-native-tab-view|react-native-platform-touchable|react-native-platform-touchable|react-native-keyboard-aware-scroll-view|react-native-vector-icons|react-native-drawer|react-native-easy-grid|native-base-shoutem-theme|jest-runtime|native-base|expo|react-native-button)/)"
+      "node_modules/(?!(react-native|enzyme-adapter-react-15|react-native-modal-dropdown|react-native-animatable|react-native-modal|react-native-star-rating|fbjs|@expo|react-navigation|react-native-tab-view|react-native-platform-touchable|react-native-platform-touchable|react-native-keyboard-aware-scroll-view|react-native-vector-icons|react-native-drawer|react-native-easy-grid|native-base-shoutem-theme|jest-runtime|native-base|expo|react-native-button)/)"
+    ],
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
     ]
   },
   "dependencies": {
@@ -18,10 +22,13 @@
     "apollo-client": "^2.0.3",
     "apollo-link": "^1.0.3",
     "apollo-link-http": "^1.2.0",
+    "axios": "^0.17.1",
     "events": "^1.1.1",
     "expo": "^23.0.0",
     "graphql": "^0.11.7",
+    "graphql-tag": "^2.6.0",
     "native-base": "^2.3.3",
+    "papaparse": "^4.3.6",
     "path-browserify": "0.0.0",
     "process": "^0.11.10",
     "prop-types": "^15.6.0",
@@ -31,11 +38,15 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
     "react-native-easy-grid": "^0.1.15",
     "react-native-level-fs": "^3.0.0",
+    "react-native-modal": "^4.1.1",
+    "react-native-modal-dropdown": "^0.5.0",
+    "react-native-star-rating": "^1.0.8",
     "react-native-udp": "^2.3.0",
     "react-navigation": "^1.0.0-beta.19",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-form": "^7.2.0",
+    "redux-thunk": "^2.2.0",
     "subscriptions-transport-ws": "^0.9.1"
   },
   "devDependencies": {
@@ -45,6 +56,9 @@
     "babel-plugin-istanbul": "^4.1.5",
     "codeclimate-test-reporter": "^0.5.0",
     "coveralls": "^3.0.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "enzyme-to-json": "^3.2.2",
     "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
@@ -53,8 +67,11 @@
     "jest": "^21.2.1",
     "jest-expo": "^23.0.0",
     "nyc": "^11.3.0",
+    "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.1.1",
+    "redux-devtools-extension": "^2.13.2",
     "redux-mock-store": "^1.3.0",
-    "regenerator-runtime": "^0.11.0"
+    "regenerator-runtime": "^0.11.0",
+    "remote-redux-devtools": "^0.5.12"
   }
 }

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const uri = 'https://api.graph.cool/simple/v1/cja8r6dcn33ui0154xhdkhlel';
+const uri = 'https://api.graph.cool/simple/v1/cjawabjc1002t0192hxqdy4uf';
 
 const httpLink = new HttpLink({ uri });
 

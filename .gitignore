@@ -1,3 +1,4 @@
 node_modules/**/*
 .expo/**/*
 coverage
+server/node_modules/
