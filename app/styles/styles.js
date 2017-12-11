@@ -142,9 +142,38 @@ export const HomeScreenStyles = StyleSheet.create({
     marginTop: '4%',
     height: 40
   },
+  logoutButton: {
+    backgroundColor: '#F7C04C',
+    borderColor: '#F7C04C',
+    borderWidth: 0.5,
+    marginTop: '4%',
+    height: 35
+  },
+  cancelButton: {
+    backgroundColor: 'white',
+    borderColor: '#F7C04C',
+    borderWidth: 0.5,
+    marginTop: '4%',
+    height: 35
+  },
   buttonText: {
     color: 'white',
     fontSize: 12
+  },
+  logoutText: {
+    color: 'white',
+    fontSize: 14,
+    fontFamily: 'SinkinSans-200XLight',
+  },
+  logoutBody: {
+    fontSize: 14,
+    fontFamily: 'SinkinSans-200XLight',
+    marginBottom: 20
+  },
+  cancelText: {
+    color: '#F7C04C',
+    fontSize: 14,
+    fontFamily: 'SinkinSans-200XLight',
   },
   largeText: {
     fontSize: 30,
@@ -188,5 +217,140 @@ export const HomeScreenStyles = StyleSheet.create({
     borderBottomColor: '#BEB5B2',
     width: 100,
     margin: 7,
+  }
+});
+export const ModalStyle = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    backgroundColor: 'lightblue',
+    padding: 12,
+    margin: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 22,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    borderColor: 'rgba(0, 0, 0, 0.1)',
+  },
+  bottomModal: {
+    justifyContent: 'flex-end',
+    margin: 0,
+  },
+  heading: {
+    fontFamily: 'SinkinSans-200XLight',
+    fontSize: 16
+  },
+  okButton: {
+    backgroundColor: '#F7C04C',
+    marginTop: '4%',
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
+  buttonText: {
+    color: 'white',
+    fontFamily: 'SinkinSans-200XLight'
+  }
+});
+export const CartScreenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 7,
+    backgroundColor: 'white'
+  },
+  button: {
+    backgroundColor: '#F7C04C',
+    marginTop: '4%',
+    height: 40
+  },
+  Image: {
+    width: 40,
+    height: 40,
+    marginTop: 5
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 14,
+    fontFamily: 'SinkinSans-100Thin',
+    fontWeight: 'bold',
+  },
+  cartProductName: {
+    fontSize: 12,
+    marginTop: 15,
+    marginLeft: 10
+  },
+  cartBody: {
+    fontSize: 12,
+    marginTop: 15,
+  },
+  pickerStyle: {
+    width: 90,
+  },
+  cardItem: {
+    paddingLeft: 0,
+    paddingBottom: 0,
+    paddingTop: 0
+  },
+  cardItemView: {
+    width: '50%',
+    borderRightWidth: 0.5,
+    borderRightColor: '#B2BEB5',
+    padding: 6
+  },
+  quantity: {
+    width: '15%'
+  },
+  price: {
+    width: '15%'
+  },
+  subTotal: {
+    width: '20%',
+    height: '100%',
+    padding: 6,
+    borderRightWidth: 0,
+  },
+  cardContent: {
+    width: '15%',
+    height: '100%',
+    borderRightWidth: 0.5,
+    borderRightColor: '#f5f5f5',
+    padding: 6
+  },
+  content: {
+    width: '50%',
+    borderRightWidth: 0.5,
+    borderRightColor: '#f5f5f5',
+    padding: 6,
+    flex: 1,
+    flexDirection: 'row'
+  },
+  font12: {
+    fontSize: 12
+  },
+  modal: {
+    borderWidth: 0.5,
+    borderColor: '#B2BEB5',
+    padding: 3,
+    marginTop: 10
+  },
+  modalText: {
+    fontFamily: 'SinkinSans-100Thin',
+    fontSize: 14
+  },
+  dropdownText: {
+    fontFamily: 'SinkinSans-100Thin',
+    fontSize: 14,
+    padding: 3
   }
 });
