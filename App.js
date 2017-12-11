@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import { ApolloProvider } from 'react-apollo';
 import ApolloClient from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { reducer as formReducer } from 'redux-form';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import PropTypes from 'prop-types';
 import RootNavigation from './app/navigation/RootNavigation';
 import robotDev from './app/assets/images/robot-dev.png';
@@ -18,6 +20,7 @@ import allerLight from './app/assets/fonts/aller-light.ttf';
 import OpenSansLight from './app/assets/fonts/OpenSans-Light.ttf';
 import SinkinSans100Thin from './app/assets/fonts/SinkinSans-100Thin.ttf';
 import SinkinSans200XLight from './app/assets/fonts/SinkinSans-200XLight.ttf';
+import { CartReducer } from './app/reducers/CartReducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -39,9 +42,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
 });
 
+const middleware = [thunk];
+
 const store = createStore(combineReducers({
-  form: formReducer
-}));
+  form: formReducer,
+  cart: CartReducer,
+}), composeWithDevTools(), applyMiddleware(...middleware));
 export default class App extends Component {
   static propTypes = {
     skipLoadingScreen: PropTypes.bool,

@@ -1,8 +1,13 @@
 import React from 'react';
 import { Text } from 'react-native';
+import PropTypes from 'prop-types';
 
-export class MonoText extends React.Component {
-  render() {
-    return <Text {...this.props} style={[this.props.style, { fontFamily: 'space-mono' }]} />;
-  }
-}
+export const StyledText = props =>
+  <Text
+  {...props}
+    style={[props.style, { fontFamily: 'SinkinSans-200XLight' }]}
+  />;
+
+StyledText.propTypes = {
+  style: PropTypes.object
+};

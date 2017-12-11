@@ -22,10 +22,6 @@ const RenderInput = ({
     </Item>;
 
 RenderInput.propTypes = {
-  placeholder: PropTypes.string,
-};
-
-RenderInput.propTypes = {
   meta: PropTypes.object,
   input: PropTypes.object,
   placeholder: PropTypes.string,
