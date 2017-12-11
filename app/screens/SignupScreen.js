@@ -1,19 +1,12 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  ScrollView,
-  AsyncStorage
-} from 'react-native';
-import { Button, Icon } from 'native-base';
+import { AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm } from 'redux-form';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
-import RenderInput from '../components/RenderInput';
 import { validate } from '../utils';
-import { HomeScreenStyles as styles } from '../styles/styles';
+import Signup from '../components/Signup';
 
 export class SignupPage extends Component {
   static navigationOptions = {
@@ -33,7 +26,6 @@ export class SignupPage extends Component {
     const {
       firstName, lastName, email, password, phoneNum
     } = values;
-    console.log(email, password);
     try {
       const response = await this.props.signupUserMutation({
         variables: {
@@ -56,49 +48,7 @@ export class SignupPage extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-         <View style={styles.main}>
-            <Icon name='md-person-add' style={{ color: 'white', fontSize: 60 }}/>
-            <Field
-              name="firstName"
-              component={RenderInput}
-              placeholder="First Name"
-            />
-            <Field
-              name="lastName"
-              component={RenderInput}
-              placeholder="Last Name"
-            />
-            <Field
-              name="email"
-              component={RenderInput}
-              placeholder="E-mail"
-            />
-            <Field
-              name="password"
-              component={RenderInput}
-              placeholder="Password"
-              secureTextEntry
-            />
-            <Field
-              name="passwordConfirm"
-              component={RenderInput}
-              placeholder="Confirm Password"
-              secureTextEntry
-            />
-            <Field
-              name="phoneNum"
-              component={RenderInput}
-              placeholder="Phone Number"
-            />
-            <Button onPress={handleSubmit(this.handlePress)} color="#F7C04C" style={styles.button} block iconLeft>
-              <Icon name='md-checkmark'/>
-              <Text style={styles.buttonText}>    Submit</Text>
-            </Button>
-          </View>
-        </ScrollView>
-      </View>
+      <Signup handleSubmit={handleSubmit} handlePress={this.handlePress} />
     );
   }
 }
