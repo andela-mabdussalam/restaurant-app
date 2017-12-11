@@ -3,6 +3,7 @@ import axios from 'axios';
 import { View, Image, Text, ScrollView, TouchableHighlight } from 'react-native';
 import Papa from 'papaparse';
 import gql from 'graphql-tag';
+import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
 import { ShopStyles as styles } from '../styles/styles';
 
@@ -10,14 +11,17 @@ import { ShopStyles as styles } from '../styles/styles';
 * Stories component
 */
 class ShopScreen extends Component {
+  static propTypes = {
+    data: PropTypes.object,
+    navigation: PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       data: []
     };
   }
-
-
   componentDidMount() {
     const _this = this;
     const REACT_APP_LATEST_STORIES_ENDPOINT = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSWz-frKTVxYhwCCeSpymyWl6FwhV8s2C5SGcZCmdf4Unyh1DdUCAMb-4viOjtnlJkfcnSmY2RqXSD1/pub?gid=0&single=true&output=csv';
