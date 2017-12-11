@@ -1,45 +1,110 @@
 import { Notifications } from 'expo';
 import React from 'react';
-import { StackNavigator } from 'react-navigation';
-import MainTabNavigator from './MainTabNavigator';
+import { Easing, TouchableHighlight } from 'react-native';
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { Icon } from 'native-base';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SignupScreen from '../screens/SignupScreen';
 import ShopScreen from '../screens/ShopScreen';
 import ProductScreen from '../screens/ProductScreen';
+import SignOut from '../screens/SignOut';
+import CartScreen from '../screens/CartScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
-      screen: MainTabNavigator,
+      screen: HomeScreen,
     },
     SignupPage: {
       screen: SignupScreen
-    },
-    ShopScreen: {
-      screen: ShopScreen
-    },
-    ProductScreen: {
-      screen: ProductScreen
     }
   },
   {
     navigationOptions: () => ({
+      headerMode: 'float',
       headerTitleStyle: {
         fontWeight: 'normal',
         color: 'white',
-        marginHorizontal: 80
+        marginHorizontal: 80,
+        fontFamily: 'SinkinSans-200XLight'
       },
       headerStyle: {
         backgroundColor: '#D57E56'
       },
       headerTintColor: 'white',
-      title: 'Shop',
       headerBackTitleStyle: {
         color: 'white'
       }
     }),
   }
 );
+
+const drawerButton = navigation =>
+<TouchableHighlight
+  underlayColor='#D57E56'
+  onPress={() => {
+    if (navigation.state.index === 0) {
+      navigation.navigate('DrawerOpen');
+    } else {
+      navigation.navigate('DrawerClose');
+    }
+  }
+}><Icon style={{ fontSize: 30, color: 'white' }} name='ios-menu-outline'/></TouchableHighlight>;
+
+
+const DrawerStack = DrawerNavigator({
+  Shop: { screen: ShopScreen },
+  SignOut: { screen: SignOut },
+  Cart: { screen: CartScreen },
+}, {
+  gesturesEnabled: false,
+  contentOptions: {
+    labelStyle: {
+      fontFamily: 'SinkinSans-200XLight'
+    },
+  }
+});
+
+const DrawerNavigation = StackNavigator({
+  DrawerStack: { screen: DrawerStack },
+  ProductScreen: {
+    screen: ProductScreen
+  }
+}, {
+  headerMode: 'float',
+  navigationOptions: ({ navigation }) => ({
+    headerStyle: {
+      backgroundColor: '#D57E56',
+      paddingLeft: 10,
+    },
+    title: 'Shop',
+    headerTintColor: 'white',
+    gesturesEnabled: false,
+    headerLeft: drawerButton(navigation),
+    headerTitleStyle: {
+      fontWeight: 'normal',
+      color: 'white',
+    },
+  })
+});
+
+const noTransitionConfig = () => ({
+  transitionSpec: {
+    duration: 0,
+    easing: Easing.step0
+  }
+});
+const PrimaryNav = StackNavigator({
+  RootStackNavigator: { screen: RootStackNavigator },
+  drawerStack: { screen: DrawerNavigation }
+}, {
+  // Default config for all screens
+  headerMode: 'none',
+  title: 'Main',
+  initialRouteName: 'RootStackNavigator',
+  transitionConfig: noTransitionConfig
+});
 
 export default class RootNavigator extends React.Component {
   componentDidMount() {
@@ -63,10 +128,9 @@ export default class RootNavigator extends React.Component {
   }
 
   _handleNotification = ({ origin, data }) => {
-    console.log(`Push notification ${origin} with data: ${JSON.stringify(data)}`);
   };
 
   render() {
-    return <RootStackNavigator />;
+    return <PrimaryNav />;
   }
 }
