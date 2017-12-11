@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
-import { View, Image, Text, Dimensions, TouchableOpacity } from 'react-native';
-import StarRating from 'react-native-star-rating';
-import { Icon } from 'native-base';
-import { ShopStyles as styles } from '../styles/styles';
+import { Image, Dimensions } from 'react-native';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addToCart } from '../actions';
+import StackButton from '../components/StackButton';
+import Product from '../components/Product';
 /*
 * Stories component
 */
 
-export default class ProductScreen extends Component {
+class ProductScreen extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Product Details',
+    headerLeft: StackButton(navigation)
+  });
+
+  static propTypes = {
+    navigation: PropTypes.object,
+    addToCart: PropTypes.func
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       imgWidth: 0,
       imgHeight: 0,
-      starCount: 3.5
+      starCount: 3.5,
+      isModalVisible: false
     };
   }
 
@@ -23,6 +36,13 @@ export default class ProductScreen extends Component {
       this.setState({ imgWidth: screenWidth * 0.98, imgHeight: 260 });
     });
   }
+  showModal = () => this.setState({ isModalVisible: true })
+
+  hideModal = () => {
+    this.setState({ isModalVisible: false });
+    this.props.addToCart(this.props.navigation.state.params);
+    this.props.navigation.navigate('DrawerStack');
+  }
   onStarRatingPress(rating) {
     this.setState({
       starCount: rating
@@ -31,57 +51,26 @@ export default class ProductScreen extends Component {
 
   render() {
     const { params } = this.props.navigation.state;
-    const { imgWidth, imgHeight } = this.state;
+    const { imgWidth, imgHeight, starCount } = this.state;
     return (
-      <View style={styles.productView}>
-        <View>
-          <Image
-          source={{ uri: params.ImageUrl }}
-          style={{ width: imgWidth, height: imgHeight }}
-          />
-        </View>
-        <View>
-          <Text style={styles.productName}>{ params.Name }</Text>
-        </View>
-        <View style={{ flexDirection: 'row', display: 'flex' }}>
-          <View>
-            <Text style={styles.productPrice}>Price: N{ params.Price }</Text>
-            <View style={{ marginTop: 10 }}>
-              <StarRating
-                disabled={false}
-                maxStars={5}
-                rating={this.state.starCount}
-                starSize={16}
-                starColor={'#F7C04C'}
-                selectedStar={(rating) => this.onStarRatingPress(rating)}
-              />
-            </View>
-          </View>
-          <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-end' }}>
-            <TouchableOpacity
-              style={{
-                borderWidth: 1,
-                borderColor: 'rgba(0,0,0,0.2)',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: 50,
-                height: 50,
-                backgroundColor: '#F7C04C',
-                borderRadius: 100,
-              }}
-            >
-              <Icon name='md-cart' />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.hr} />
-        <Text style={styles.description}> Description </Text>
-        <Text style={styles.descriptionText}>{params.Description}</Text>
-      </View>
+      <Product
+      params={params}
+      imgWidth={imgWidth}
+      imgHeight={imgHeight}
+      showModal={this.showModal}
+      hideModal={this.hideModal}
+      onStarRatingPress={this.onStarRatingPress}
+      starCount={starCount}
+      />
     );
   }
 }
-ProductScreen.navigationOptions = {
-  title: 'Product Details',
-};
 
+const mapStateToProps = state => ({
+  products: state.cart
+});
+
+export default connect(
+  mapStateToProps,
+  { addToCart }
+)(ProductScreen);
