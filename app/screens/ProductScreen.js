@@ -6,7 +6,7 @@ import { addToCart } from '../actions';
 import StackButton from '../components/StackButton';
 import Product from '../components/Product';
 /*
-* Stories component
+* ProductScreen component
 */
 
 export class ProductScreen extends Component {
