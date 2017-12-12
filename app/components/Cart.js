@@ -2,37 +2,48 @@ import React from 'react';
 import {
   ScrollView,
   View,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native';
 import {
   Button,
   Icon,
   Card,
   CardItem,
+  Right
 } from 'native-base';
-import ModalDropdown from 'react-native-modal-dropdown';
 import PropTypes from 'prop-types';
 import { StyledText as Text } from './StyledText';
 import { CartScreenStyles as styles } from '../styles/styles';
 
 
-const Cart = ({ items }) =>
+const Cart = ({
+  items,
+  increaseItemQuantity,
+  decreaseItemQuantity,
+  total
+}) =>
   <View style={styles.container}>
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    {items.length !== 0 && <ScrollView
+    style={styles.container}
+    contentContainerStyle={styles.contentContainer}>
       <View style={styles.main}>
         <Card >
           <CardItem style={styles.cardItem}>
-            <View style={styles.cardItemView}>
-              <Text style={styles.font12}>ITEM</Text>
+            <View style={[styles.cardItemView, styles.flex]}>
+              <Text smallFont customFont>ITEM</Text>
             </View>
             <View style={[styles.cardItemView, styles.quantity]}>
-              <Text style={styles.font12}>No</Text>
+              <Text smallFont customFont>No</Text>
             </View>
             <View style={[styles.cardItemView, styles.price]}>
-              <Text style={styles.font12}>Price</Text>
+              <Text smallFont customFont>Price</Text>
             </View>
             <View style={[styles.cardItemView, styles.subTotal]}>
-              <Text style={styles.font12}>SubTotal</Text>
+              <Text smallFont customFont>SubTotal</Text>
+            </View>
+            <View style={styles.removeAdd}>
+              <Icon name="ios-add-outline"/>
             </View>
           </CardItem>
         </Card>
@@ -40,38 +51,80 @@ const Cart = ({ items }) =>
           <Card key={index}>
             <CardItem style={styles.cardItem}>
               <View style={styles.content}>
-                <Image source={{ uri: item.url }} style={styles.Image} />
-                <Text style={styles.cartProductName}>
-                {item.name}
+                <Image
+                  source={{ uri: item.ImageUrl }}
+                  style={styles.Image}
+                />
+                <Text marginTop={15} marginLeft={6}>
+                  {item.Name}
                 </Text>
               </View>
-              <View style={styles.cardContent}>
-                <ModalDropdown
-                defaultValue='  1  '
-                style={styles.modal}
-                textStyle={styles.modalText}
-                dropdownTextStyle ={styles.dropdownText}
-                options={['  1  ', '  2  ', '  3  ', '  4  ', '  5  ']}/>
+              <View style={styles.itemNo}>
+                <Text marginTop={15}>{item.quantity}</Text>
               </View>
               <View style={styles.cardContent}>
-                <Text style={styles.cartBody}>Price</Text>
+                <Text marginTop={15}>&#8358;{item.Price}</Text>
               </View>
               <View style={styles.subTotal}>
-                <Text style={styles.cartBody}>SubTotal</Text>
+                <Text marginTop={15}>&#8358;{item.quantity * item.Price}</Text>
+              </View>
+              <View style={styles.removeAdd}>
+                <TouchableHighlight
+                  underlayColor="#f5f5f5"
+                  onPress={() => increaseItemQuantity(item)}
+                >
+                  <Icon name="ios-add-outline"/>
+                </TouchableHighlight >
+                <TouchableHighlight
+                  underlayColor="#f5f5f5"
+                  onPress={() => decreaseItemQuantity(item)}
+                >
+                  <Icon name="ios-remove-outline"/>
+                </TouchableHighlight>
               </View>
             </CardItem>
           </Card>
           ))}
-        <Button color="#F7C04C" style={styles.button} block iconLeft>
+          <Card >
+          <CardItem style={styles.cardItem}>
+            <Right>
+              <View style={styles.total}>
+                <Text
+                  fontSize={11}
+                  customFont
+                >
+                TOTAL:       &#8358;{total}
+                </Text>
+              </View>
+            </Right>
+          </CardItem>
+        </Card>
+        <Button
+          color="#F7C04C"
+          style={styles.button}
+          block
+          iconLeft
+        >
             <Icon name='md-checkmark'/>
-            <Text style={styles.buttonText}>    CHECKOUT   </Text>
+            <Text>    CHECKOUT   </Text>
         </Button>
       </View>
-    </ScrollView>
+    </ScrollView>}
+    {items.length === 0 && <Card >
+          <CardItem style={styles.cardItem}>
+            <View style={[styles.cardItemView, styles.flex]}>
+              <Text smallFont customFont>ITEM</Text>
+            </View>
+          </CardItem>
+        </Card>
+    }
   </View>;
 
 Cart.propTypes = {
-  items: PropTypes.array
+  items: PropTypes.array,
+  increaseItemQuantity: PropTypes.func,
+  decreaseItemQuantity: PropTypes.func,
+  total: PropTypes.number
 };
 
 export default Cart;

@@ -1,5 +1,6 @@
 export default {
   cart: {
-    items: []
-  }
+    items: [],
+    total: 0
+  },
 };

@@ -12,38 +12,43 @@ const Product = ({
   imgWidth,
   imgHeight,
   starCount,
-  isModalVisible,
-  showModal,
-  hideModal,
-  onStarRatingPress
+  isAddModalVisible,
+  isCancelModalVisible,
+  toggleModal,
+  hideAddModal,
+  redirectToCart,
+  hideCancelModal,
+  onStarRatingPress,
+  disabled
 }) =>
 <View style={styles.productView}>
-<View>
-  <Image
-  source={{ uri: params.ImageUrl }}
-  style={{ width: imgWidth, height: imgHeight }}
-  />
-</View>
-<View>
-  <Text style={styles.productName}>{ params.Name }</Text>
-</View>
-<View style={{ flexDirection: 'row', display: 'flex' }}>
   <View>
-    <Text style={styles.productPrice}>Price: N{ params.Price }</Text>
-    <View style={{ marginTop: 10 }}>
-      <StarRating
-        disabled={false}
-        maxStars={5}
-        rating={starCount}
-        starSize={16}
-        starColor={'#F7C04C'}
-        selectedStar={rating => onStarRatingPress(rating)}
-      />
-    </View>
+    <Image
+    source={{ uri: params.ImageUrl }}
+    style={{ width: imgWidth, height: imgHeight }}
+    />
+  </View>
+  <View>
+    <Text style={styles.productName}>{ params.Name }</Text>
+  </View>
+  <View style={{ flexDirection: 'row', display: 'flex' }}>
+    <View>
+      <Text style={styles.productPrice}>Price: N{ params.Price }</Text>
+      <View style={{ marginTop: 10 }}>
+        <StarRating
+          disabled={false}
+          maxStars={5}
+          rating={starCount}
+          starSize={16}
+          starColor={'#F7C04C'}
+          selectedStar={rating => onStarRatingPress(rating)}
+        />
+      </View>
   </View>
   <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-end' }}>
     <TouchableOpacity
-     onPress={showModal}
+      onPress={toggleModal}
+      underlayColor='fffff'
       style={{
         borderWidth: 1,
         borderColor: 'rgba(0,0,0,0.2)',
@@ -57,20 +62,38 @@ const Product = ({
     >
       <Icon name='md-cart' />
     </TouchableOpacity>
-    <Modal isVisible={isModalVisible}>
+    <Modal isVisible={isAddModalVisible}>
       <View style={ModalStyle.modalContent}>
         <Text style={ModalStyle.heading}>Added to Cart</Text>
-        <Icon name='ios-checkmark-circle-outline' style={{ fontSize: 100, color: '#F7C04C' }}/>
-        <Button onPress={hideModal} color="#F7C04C" style={ModalStyle.okButton}>
+        <Icon
+          name='ios-checkmark-circle-outline'
+          style={{ fontSize: 100, color: '#F7C04C' }}/>
+        <Button
+          onPress={hideAddModal}
+          color="#F7C04C"
+          style={ModalStyle.okButton}
+          disabled={disabled}
+        >
           <Text style={ModalStyle.buttonText}>     OK    </Text>
         </Button>
       </View>
     </Modal>
+    <Modal isVisible={isCancelModalVisible}>
+      <View style={ModalStyle.modalContent}>
+        <Text style={ModalStyle.heading}>Item Previously added to Cart</Text>
+        <Button onPress={hideCancelModal} color="#F7C04C" style={ModalStyle.okButton}>
+          <Text style={ModalStyle.buttonText}>    ADD ANOTHER ITEM    </Text>
+        </Button>
+        <Button onPress={redirectToCart} color="#F7C04C" style={ModalStyle.okButton}>
+          <Text style={ModalStyle.buttonText}>    GO TO CART    </Text>
+        </Button>
+      </View>
+    </Modal>
+    </View>
   </View>
-</View>
-<View style={styles.hr} />
-<Text style={styles.description}> Description </Text>
-<Text style={styles.descriptionText}>{params.Description}</Text>
+  <View style={styles.hr} />
+  <Text style={styles.description}> Description </Text>
+  <Text style={styles.descriptionText}>{params.Description}</Text>
 </View>;
 
 Product.propTypes = {
@@ -78,10 +101,14 @@ Product.propTypes = {
   imgWidth: PropTypes.number,
   imgHeight: PropTypes.number,
   starCount: PropTypes.number,
-  isModalVisible: PropTypes.bool,
-  showModal: PropTypes.func,
-  hideModal: PropTypes.func,
-  onStarRatingPress: PropTypes.func
+  onStarRatingPress: PropTypes.func,
+  isAddModalVisible: PropTypes.bool,
+  isCancelModalVisible: PropTypes.bool,
+  toggleModal: PropTypes.func,
+  hideAddModal: PropTypes.func,
+  redirectToCart: PropTypes.func,
+  hideCancelModal: PropTypes.func,
+  disabled: PropTypes.bool
 
 };
 

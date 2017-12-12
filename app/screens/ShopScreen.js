@@ -8,13 +8,22 @@ import { graphql, compose } from 'react-apollo';
 import { ShopStyles as styles } from '../styles/styles';
 
 /*
-* Stories component
+* ShopScreen component
 */
 class ShopScreen extends Component {
   static propTypes = {
     data: PropTypes.object,
     navigation: PropTypes.object,
   }
+  static navigationOptions = {
+    title: 'Shop',
+    headerTitleStyle: {
+      fontFamily: 'SinkinSans-200XLight'
+    },
+    drawerLabel: () => (
+      <Text style={styles.drawer}>Shop</Text>
+    ),
+  };
 
   constructor(props) {
     super(props);
@@ -22,6 +31,7 @@ class ShopScreen extends Component {
       data: []
     };
   }
+
   componentDidMount() {
     const _this = this;
     const REACT_APP_LATEST_STORIES_ENDPOINT = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSWz-frKTVxYhwCCeSpymyWl6FwhV8s2C5SGcZCmdf4Unyh1DdUCAMb-4viOjtnlJkfcnSmY2RqXSD1/pub?gid=0&single=true&output=csv';
@@ -57,34 +67,37 @@ class ShopScreen extends Component {
     dataArray.splice(0, 1);
     return dataArray;
   }
+
   render() {
     const { data } = this.state;
     return (
       <View style={styles.shopView}>
         <ScrollView>
-        <View style={styles.viewBody}>
-        <View style={styles.foodItems}>
-          <Text style={styles.fiText}>Food Items</Text>
-        </View>
-        <View style={styles.tabs}>
-          <Text style={styles.headerText}> Latest </Text>
-          <Text style={styles.headerText}> New </Text>
-        </View>
-
-        {data.map((tile, index) => (
-          <View key={index} >
-                <View>
-                <TouchableHighlight onPress={() => this.onClickImage(tile)}>
-                  <Image source={{ uri: tile.ImageUrl }} style={styles.Image} />
-                </TouchableHighlight>
+          <View style={styles.viewBody}>
+            <View style={styles.foodItems}>
+              <Text style={styles.fiText}>Food Items</Text>
+            </View>
+            <View style={styles.tabs}>
+              <Text style={styles.headerText}> Latest </Text>
+              <Text style={styles.headerText}> New </Text>
+            </View>
+              {data.map((tile, index) => (
+                <View key={index} style={styles.shopContainer}>
+                  <View>
+                    <TouchableHighlight onPress={() => this.onClickImage(tile)} >
+                      <Image
+                        source={{ uri: tile.ImageUrl }}
+                        style={styles.Image}
+                      />
+                    </TouchableHighlight>
+                  </View>
+                  <View>
+                    <Text style={styles.fontFamily}>{tile.Name}</Text>
+                    <Text style={styles.fontFamily}>Price: N{tile.Price}</Text>
+                  </View>
                 </View>
-                <View>
-                  <Text style={styles.fontFamily}>{tile.Name}</Text>
-                  <Text style={styles.fontFamily}>Price: N{tile.Price}</Text>
-                </View>
+              ))}
           </View>
-        ))}
-        </View>
         </ScrollView>
       </View>
     );
@@ -97,6 +110,9 @@ query LoggedInUser {
   }
 }`;
 
-const ShopWithQuery = compose(graphql(LOGGED_IN_USER, { options: { fetchPolicy: 'network-only' } }))(ShopScreen);
+const ShopWithQuery = compose(graphql(
+  LOGGED_IN_USER,
+  { options: { fetchPolicy: 'network-only' } }
+))(ShopScreen);
 
 export default ShopWithQuery;
