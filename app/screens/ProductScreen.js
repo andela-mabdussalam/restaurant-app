@@ -34,7 +34,7 @@ export class ProductScreen extends Component {
   }
 
   componentDidMount() {
-    Image.getSize(this.props.navigation.state.params.ImageUrl, () => {
+    Image.getSize(this.props.navigation.state.params.imageUrl, () => {
       const screenWidth = Dimensions.get('window').width;
       this.setState({ imgWidth: screenWidth * 0.98, imgHeight: 260 });
     });
@@ -42,7 +42,7 @@ export class ProductScreen extends Component {
 
   toggleModal = () => {
     const { items, navigation: { state: { params } } } = this.props;
-    const locateItem = !!items.find(el => el.Name === params.Name);
+    const locateItem = !!items.find(el => el.name === params.name);
     return locateItem ? this.showCancelModal() : this.showAddModal();
   }
 
