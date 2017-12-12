@@ -52,21 +52,21 @@ const Cart = ({
             <CardItem style={styles.cardItem}>
               <View style={styles.content}>
                 <Image
-                  source={{ uri: item.ImageUrl }}
+                  source={{ uri: item.imageUrl }}
                   style={styles.Image}
                 />
                 <Text marginTop={15} marginLeft={6}>
-                  {item.Name}
+                  {item.name}
                 </Text>
               </View>
               <View style={styles.itemNo}>
                 <Text marginTop={15}>{item.quantity}</Text>
               </View>
               <View style={styles.cardContent}>
-                <Text marginTop={15}>&#8358;{item.Price}</Text>
+                <Text marginTop={15}>&#8358;{item.price}</Text>
               </View>
               <View style={styles.subTotal}>
-                <Text marginTop={15}>&#8358;{item.quantity * item.Price}</Text>
+                <Text marginTop={15}>&#8358;{item.quantity * item.price}</Text>
               </View>
               <View style={styles.removeAdd}>
                 <TouchableHighlight
