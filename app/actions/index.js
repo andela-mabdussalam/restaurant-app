@@ -1,5 +1,10 @@
 import * as types from '../constants/Actiontypes';
 
+const receiveProducts = products => ({
+  type: types.RECEIVE_PRODUCTS,
+  products
+});
+
 const addToCartFn = product => ({
   type: types.ADD_TO_CART,
   product
@@ -14,6 +19,10 @@ const decreaseQuantity = product => ({
   type: types.DECREASE_ITEM_QUANTITY,
   product
 });
+
+export const addProducts = products => (dispatch) => {
+  dispatch(receiveProducts(products));
+};
 
 export const addToCart = product => (dispatch) => {
   dispatch(addToCartFn(product));
