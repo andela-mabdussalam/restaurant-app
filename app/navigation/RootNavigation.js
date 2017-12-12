@@ -6,7 +6,7 @@ import { Icon } from 'native-base';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SignupScreen from '../screens/SignupScreen';
 import ShopScreen from '../screens/ShopScreen';
-import ProductScreen from '../screens/ProductScreen';
+import ProductPage from '../screens/ProductScreen';
 import SignOut from '../screens/SignOut';
 import CartScreen from '../screens/CartScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -55,21 +55,17 @@ const drawerButton = navigation =>
 
 const DrawerStack = DrawerNavigator({
   Shop: { screen: ShopScreen },
-  SignOut: { screen: SignOut },
   Cart: { screen: CartScreen },
+  SignOut: { screen: SignOut },
 }, {
   gesturesEnabled: false,
-  contentOptions: {
-    labelStyle: {
-      fontFamily: 'SinkinSans-200XLight'
-    },
-  }
+  drawerWidth: 160
 });
 
 const DrawerNavigation = StackNavigator({
   DrawerStack: { screen: DrawerStack },
   ProductScreen: {
-    screen: ProductScreen
+    screen: ProductPage
   }
 }, {
   headerMode: 'float',
@@ -78,13 +74,12 @@ const DrawerNavigation = StackNavigator({
       backgroundColor: '#D57E56',
       paddingLeft: 10,
     },
-    title: 'Shop',
     headerTintColor: 'white',
     gesturesEnabled: false,
     headerLeft: drawerButton(navigation),
     headerTitleStyle: {
+      fontFamily: 'SinkinSans-200XLight',
       fontWeight: 'normal',
-      color: 'white',
     },
   })
 });
