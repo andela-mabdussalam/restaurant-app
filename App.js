@@ -20,7 +20,7 @@ import allerLight from './app/assets/fonts/aller-light.ttf';
 import OpenSansLight from './app/assets/fonts/OpenSans-Light.ttf';
 import SinkinSans100Thin from './app/assets/fonts/SinkinSans-100Thin.ttf';
 import SinkinSans200XLight from './app/assets/fonts/SinkinSans-200XLight.ttf';
-import { CartReducer } from './app/reducers/CartReducer';
+import { CartReducer, ProductReducer } from './app/reducers';
 
 const styles = StyleSheet.create({
   container: {
@@ -47,6 +47,7 @@ const middleware = [thunk];
 const store = createStore(combineReducers({
   form: formReducer,
   cart: CartReducer,
+  products: ProductReducer
 }), composeWithDevTools(), applyMiddleware(...middleware));
 export default class App extends Component {
   static propTypes = {

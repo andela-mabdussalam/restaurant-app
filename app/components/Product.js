@@ -24,16 +24,16 @@ const Product = ({
 <View style={styles.productView}>
   <View>
     <Image
-    source={{ uri: params.ImageUrl }}
+    source={{ uri: params.imageUrl }}
     style={{ width: imgWidth, height: imgHeight }}
     />
   </View>
   <View>
-    <Text style={styles.productName}>{ params.Name }</Text>
+    <Text style={styles.productName}>{ params.name }</Text>
   </View>
   <View style={{ flexDirection: 'row', display: 'flex' }}>
     <View>
-      <Text style={styles.productPrice}>Price: N{ params.Price }</Text>
+      <Text style={styles.productPrice}>Price: N{ params.price }</Text>
       <View style={{ marginTop: 10 }}>
         <StarRating
           disabled={false}
@@ -93,7 +93,7 @@ const Product = ({
   </View>
   <View style={styles.hr} />
   <Text style={styles.description}> Description </Text>
-  <Text style={styles.descriptionText}>{params.Description}</Text>
+  <Text style={styles.descriptionText}>{params.description}</Text>
 </View>;
 
 Product.propTypes = {

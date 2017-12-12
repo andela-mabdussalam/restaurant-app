@@ -13,6 +13,28 @@
    password: String
    phoneNum: String
    email: String @isUnique
+   orders: [Orders!]! @relation(name: "UseronOrder")
+ }
+
+ type Orders @model {
+   id: ID! @isUnique # read-only (managed by Graphcool)
+   products: [Product!]! @relation(name: "OrderonProducts")
+   quantity: Int!
+   total: Int!
+   user: User! @relation(name: "UseronOrder")
+   createdAt: DateTime! # read-only (managed by Graphcool)
+   updatedAt: DateTime! # read-only (managed by Graphcool)
+ }
+
+ type Product @model {
+   id: ID! @isUnique # read-only (managed by Graphcool)
+   name: String!
+   description: String!
+   price: Int!
+   imageUrl: String!
+   order: Orders @relation(name: "OrderonProducts")
+   createdAt: DateTime! # read-only (managed by Graphcool)
+   updatedAt: DateTime! # read-only (managed by Graphcool)
  }
 
 
