@@ -10,10 +10,10 @@ import { HomeScreenStyles as styles } from '../styles/styles';
 
 export default class SignOut extends React.Component {
   static navigationOptions = {
-    title: 'SignOut',
-    headerTitleStyle: {
-      fontFamily: 'SinkinSans-200XLight'
-    }
+    title: 'LogOut',
+    drawerLabel: () => (
+      <Text style={styles.drawer}>LogOut</Text>
+    ),
   };
   static propTypes = {
     navigation: PropTypes.object
@@ -40,10 +40,22 @@ export default class SignOut extends React.Component {
                   Are you sure you want to logout?
                 </Text>
               </Body>
-              <Button onPress={this.handleLogout} color="#F7C04C" style={styles.logoutButton} block iconLeft>
-              <Text style={styles.logoutText}>    LOG OUT</Text>
-            </Button>
-            <Button onPress={this.handleCancel} color="#F7C04C" style={styles.cancelButton} block iconLeft>
+              <Button
+                onPress={this.handleLogout}
+                color="#F7C04C"
+                style={styles.logoutButton}
+                block
+                iconLeft
+              >
+                <Text style={styles.logoutText}>    LOG OUT</Text>
+              </Button>
+              <Button
+                onPress={this.handleCancel}
+                color="#F7C04C"
+                style={styles.cancelButton}
+                block
+                iconLeft
+              >
               <Text style={styles.cancelText}>    CANCEL</Text>
             </Button>
           </Card>
