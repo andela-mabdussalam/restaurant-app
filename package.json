@@ -2,7 +2,8 @@
   "main": "node_modules/expo/AppEntry.js",
   "private": true,
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js --coverage"
+    "test": "node ./node_modules/jest/bin/jest.js --coverage || true",
+    "lint": "eslint ./ || true"
   },
   "jest": {
     "preset": "jest-expo",
