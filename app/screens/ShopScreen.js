@@ -3,6 +3,7 @@ import axios from 'axios';
 import { View, Image, Text, ScrollView, TouchableHighlight } from 'react-native';
 import Papa from 'papaparse';
 import gql from 'graphql-tag';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
 import { ShopStyles as styles } from '../styles/styles';
@@ -14,6 +15,7 @@ class ShopScreen extends Component {
   static propTypes = {
     data: PropTypes.object,
     navigation: PropTypes.object,
+    products: PropTypes.array
   }
   static navigationOptions = {
     title: 'Shop',
@@ -24,26 +26,6 @@ class ShopScreen extends Component {
       <Text style={styles.drawer}>Shop</Text>
     ),
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: []
-    };
-  }
-
-  componentDidMount() {
-    const _this = this;
-    const REACT_APP_LATEST_STORIES_ENDPOINT = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSWz-frKTVxYhwCCeSpymyWl6FwhV8s2C5SGcZCmdf4Unyh1DdUCAMb-4viOjtnlJkfcnSmY2RqXSD1/pub?gid=0&single=true&output=csv';
-    this.serverRequest =
-      axios
-        .get(REACT_APP_LATEST_STORIES_ENDPOINT)
-        .then((response) => {
-          const results = Papa.parse(response.data);
-          const dataArray = _this.sortData(results.data);
-          _this.setState({ data: dataArray });
-        });
-  }
 
   onClickImage = (data) => {
     const { navigate } = this.props.navigation;
@@ -69,7 +51,7 @@ class ShopScreen extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { products } = this.props;
     return (
       <View style={styles.shopView}>
         <ScrollView>
@@ -81,19 +63,19 @@ class ShopScreen extends Component {
               <Text style={styles.headerText}> Latest </Text>
               <Text style={styles.headerText}> New </Text>
             </View>
-              {data.map((tile, index) => (
+              {products.map((product, index) => (
                 <View key={index} style={styles.shopContainer}>
                   <View>
-                    <TouchableHighlight onPress={() => this.onClickImage(tile)} >
+                    <TouchableHighlight onPress={() => this.onClickImage(product)} >
                       <Image
-                        source={{ uri: tile.ImageUrl }}
+                        source={{ uri: product.imageUrl }}
                         style={styles.Image}
                       />
                     </TouchableHighlight>
                   </View>
                   <View>
-                    <Text style={styles.fontFamily}>{tile.Name}</Text>
-                    <Text style={styles.fontFamily}>Price: N{tile.Price}</Text>
+                    <Text style={styles.fontFamily}>{product.name}</Text>
+                    <Text style={styles.fontFamily}>Price: N{product.price}</Text>
                   </View>
                 </View>
               ))}
@@ -115,4 +97,11 @@ const ShopWithQuery = compose(graphql(
   { options: { fetchPolicy: 'network-only' } }
 ))(ShopScreen);
 
-export default ShopWithQuery;
+const mapStateToProps = state => ({
+  products: state.products
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(ShopWithQuery);
