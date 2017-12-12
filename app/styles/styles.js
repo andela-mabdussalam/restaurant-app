@@ -34,11 +34,18 @@ export const ShopStyles = StyleSheet.create({
     color: '#848482',
     lineHeight: 22
   },
+  drawer: {
+    fontFamily: 'SinkinSans-200XLight',
+    padding: 15
+  },
   hr: {
     borderTopWidth: 0.5,
     borderTopColor: '#848482',
     marginTop: 15,
     marginBottom: 5
+  },
+  shopContainer: {
+    width: '49%'
   },
   fontFamily: {
     fontFamily: 'SinkinSans-200XLight',
@@ -63,7 +70,7 @@ export const ShopStyles = StyleSheet.create({
     marginBottom: 10
   },
   Image: {
-    width: 160,
+    width: '100%',
     height: 150,
     marginTop: 15
   },
@@ -105,6 +112,10 @@ export const HomeScreenStyles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: 'white',
+  },
+  drawer: {
+    fontFamily: 'SinkinSans-200XLight',
+    padding: 15
   },
   errorStyle: {
     borderColor: 'red',
@@ -282,13 +293,6 @@ export const CartScreenStyles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 14,
-    fontFamily: 'SinkinSans-100Thin',
-    fontWeight: 'bold',
-  },
-  cartProductName: {
-    fontSize: 12,
-    marginTop: 15,
-    marginLeft: 10
   },
   cartBody: {
     fontSize: 12,
@@ -300,19 +304,39 @@ export const CartScreenStyles = StyleSheet.create({
   cardItem: {
     paddingLeft: 0,
     paddingBottom: 0,
-    paddingTop: 0
+    paddingTop: 0,
+    paddingRight: 5
+  },
+  flex: {
+    flex: 1,
+    flexDirection: 'row'
   },
   cardItemView: {
-    width: '50%',
+    width: '40%',
     borderRightWidth: 0.5,
     borderRightColor: '#B2BEB5',
-    padding: 6
+    padding: 6,
+  },
+  content: {
+    width: '40%',
+    borderRightWidth: 0.5,
+    borderRightColor: '#f5f5f5',
+    padding: 6,
+    flex: 1,
+    flexDirection: 'row'
   },
   quantity: {
     width: '15%'
   },
   price: {
     width: '15%'
+  },
+  itemNo: {
+    width: '15%',
+    height: '100%',
+    borderRightWidth: 0.5,
+    borderRightColor: '#f5f5f5',
+    padding: 6
   },
   subTotal: {
     width: '20%',
@@ -327,15 +351,7 @@ export const CartScreenStyles = StyleSheet.create({
     borderRightColor: '#f5f5f5',
     padding: 6
   },
-  content: {
-    width: '50%',
-    borderRightWidth: 0.5,
-    borderRightColor: '#f5f5f5',
-    padding: 6,
-    flex: 1,
-    flexDirection: 'row'
-  },
-  font12: {
+  fontSmall: {
     fontSize: 12
   },
   modal: {
@@ -348,9 +364,19 @@ export const CartScreenStyles = StyleSheet.create({
     fontFamily: 'SinkinSans-100Thin',
     fontSize: 14
   },
+  total: {
+    // padding: 10
+  },
   dropdownText: {
     fontFamily: 'SinkinSans-100Thin',
     fontSize: 14,
     padding: 3
+  },
+  drawer: {
+    fontFamily: 'SinkinSans-200XLight',
+    padding: 15
+  },
+  removeAdd: {
+    width: '7%',
   }
 });
