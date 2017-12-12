@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { View, Image, Text, ScrollView, TouchableHighlight } from 'react-native';
-import Papa from 'papaparse';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
