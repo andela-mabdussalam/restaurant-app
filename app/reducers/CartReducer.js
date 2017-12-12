@@ -17,7 +17,8 @@ export const CartReducer = (state = InitialState.cart, action) => {
       return {
         ...state,
         items: [...state.items, action.product],
-        total: (parseInt(action.product.Price, 10) * action.product.quantity) + getTotal(state.items),
+        total: (parseInt(action.product.Price, 10) * action.product.quantity) +
+        getTotal(state.items),
       };
 
     case INCREASE_ITEM_QUANTITY:
