@@ -3,8 +3,10 @@ import { AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form';
 import gql from 'graphql-tag';
+import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
 import { validate } from '../utils';
+import { addProducts } from '../actions';
 import Home from '../components/Home';
 
 class HomeScreen extends React.Component {
@@ -17,7 +19,9 @@ class HomeScreen extends React.Component {
     input: PropTypes.object,
     handleSubmit: PropTypes.func,
     authenticateUserMutation: PropTypes.func,
-    navigation: PropTypes.object
+    navigation: PropTypes.object,
+    addProducts: PropTypes.func,
+    productQuery: PropTypes.object
   }
 
   loginUser = async (values) => {
@@ -25,6 +29,7 @@ class HomeScreen extends React.Component {
     try {
       const response = await
         this.props.authenticateUserMutation({ variables: { email, password } });
+      this.props.addProducts(this.props.productQuery.allProducts);
       const { navigate } = this.props.navigation;
       const tokenToString = response.data.authenticateUser.token.toString();
       this.storeAuthTokensLocally(tokenToString);
@@ -36,7 +41,7 @@ class HomeScreen extends React.Component {
 
   handleSignupPress = () => {
     const { navigate } = this.props.navigation;
-    navigate('SignupPage');
+    navigate('DrawerStack');
   }
 
   storeAuthTokensLocally = async (graphcoolToken) => {
@@ -62,12 +67,36 @@ mutation AuthenticateUser($email: String!, $password: String!) {
 }
 `;
 
+const PRODUCTS_QUERY = gql`
+query allProducts {
+  allProducts {
+    name,
+    description,
+    imageUrl,
+    price
+  }
+}
+`;
+
 
 const LoginForm = reduxForm({
   form: 'login',
   validate,
 })(HomeScreen);
 
-const LoginWithMutation = compose(graphql(AUTHENTICATE_EMAIL_USER, { name: 'authenticateUserMutation' }))(LoginForm);
+const LoginWithMutation = compose(
+  graphql(
+    AUTHENTICATE_EMAIL_USER,
+    { name: 'authenticateUserMutation' }
+  ),
+  graphql(
+    PRODUCTS_QUERY,
+    { name: 'productQuery' }
+  )
+)(LoginForm);
 
-export default LoginWithMutation;
+
+export default connect(
+  null,
+  { addProducts }
+)(LoginWithMutation);
