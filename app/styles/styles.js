@@ -365,7 +365,7 @@ export const CartScreenStyles = StyleSheet.create({
     fontSize: 14
   },
   total: {
-    // padding: 10
+    padding: 10
   },
   dropdownText: {
     fontFamily: 'SinkinSans-100Thin',
