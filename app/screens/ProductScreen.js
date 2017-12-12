@@ -9,7 +9,7 @@ import Product from '../components/Product';
 * Stories component
 */
 
-class ProductScreen extends Component {
+export class ProductScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Product Details',
     headerLeft: StackButton(navigation)
@@ -17,7 +17,8 @@ class ProductScreen extends Component {
 
   static propTypes = {
     navigation: PropTypes.object,
-    addToCart: PropTypes.func
+    addToCart: PropTypes.func,
+    items: PropTypes.array
   }
 
   constructor(props) {
@@ -26,7 +27,9 @@ class ProductScreen extends Component {
       imgWidth: 0,
       imgHeight: 0,
       starCount: 3.5,
-      isModalVisible: false
+      isAddModalVisible: false,
+      isCancelModalVisible: false,
+      disabled: false
     };
   }
 
@@ -36,13 +39,39 @@ class ProductScreen extends Component {
       this.setState({ imgWidth: screenWidth * 0.98, imgHeight: 260 });
     });
   }
-  showModal = () => this.setState({ isModalVisible: true })
 
-  hideModal = () => {
-    this.setState({ isModalVisible: false });
-    this.props.addToCart(this.props.navigation.state.params);
+  toggleModal = () => {
+    const { items, navigation: { state: { params } } } = this.props;
+    const locateItem = !!items.find(el => el.Name === params.Name);
+    return locateItem ? this.showCancelModal() : this.showAddModal();
+  }
+
+  showAddModal = () => {
+    this.setState({ isAddModalVisible: true });
+  }
+
+  showCancelModal = () => {
+    this.setState({ isCancelModalVisible: true });
+  }
+
+  hideAddModal = () => {
+    this.setState({ disabled: true });
+    const { params } = this.props.navigation.state;
+    this.setState({ isAddModalVisible: false });
+    this.props.addToCart({ ...params, quantity: 1 });
     this.props.navigation.navigate('DrawerStack');
   }
+
+  hideCancelModal = () => {
+    this.setState({ isCancelModalVisible: false });
+    this.props.navigation.navigate('DrawerStack');
+  }
+
+  redirectToCart = () => {
+    this.setState({ isCancelModalVisible: false });
+    this.props.navigation.navigate('Cart');
+  }
+
   onStarRatingPress(rating) {
     this.setState({
       starCount: rating
@@ -51,23 +80,34 @@ class ProductScreen extends Component {
 
   render() {
     const { params } = this.props.navigation.state;
-    const { imgWidth, imgHeight, starCount } = this.state;
+    const {
+      imgWidth,
+      imgHeight,
+      starCount,
+      isAddModalVisible,
+      isCancelModalVisible,
+    } = this.state;
     return (
       <Product
-      params={params}
-      imgWidth={imgWidth}
-      imgHeight={imgHeight}
-      showModal={this.showModal}
-      hideModal={this.hideModal}
-      onStarRatingPress={this.onStarRatingPress}
-      starCount={starCount}
+        params={params}
+        imgWidth={imgWidth}
+        imgHeight={imgHeight}
+        toggleModal={this.toggleModal}
+        onStarRatingPress={this.onStarRatingPress}
+        starCount={starCount}
+        isAddModalVisible={isAddModalVisible}
+        isCancelModalVisible={isCancelModalVisible}
+        hideAddModal={this.hideAddModal}
+        hideCancelModal={this.hideCancelModal}
+        redirectToCart={this.redirectToCart}
+        disabled={this.state.disabled}
       />
     );
   }
 }
 
 const mapStateToProps = state => ({
-  products: state.cart
+  items: state.cart.items
 });
 
 export default connect(
