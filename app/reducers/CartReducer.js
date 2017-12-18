@@ -3,6 +3,7 @@ import {
   ADD_TO_CART,
   INCREASE_ITEM_QUANTITY,
   DECREASE_ITEM_QUANTITY,
+  CHECKOUT
 } from '../constants/Actiontypes';
 
 export const getTotal = (state) => {
@@ -15,6 +16,7 @@ export const getTotal = (state) => {
   return reduced;
 };
 
+
 export const CartReducer = (state = InitialState.cart, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -23,6 +25,12 @@ export const CartReducer = (state = InitialState.cart, action) => {
         items: [...state.items, action.product],
         total: (parseInt(action.product.price, 10) * action.product.quantity) +
         getTotal(state.items),
+      };
+
+    case CHECKOUT:
+      return {
+        ...state,
+        items: []
       };
 
     case INCREASE_ITEM_QUANTITY:
