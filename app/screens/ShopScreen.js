@@ -9,7 +9,7 @@ import { ShopStyles as styles } from '../styles/styles';
 /*
 * ShopScreen component
 */
-class ShopScreen extends Component {
+export class ShopScreen extends Component {
   static propTypes = {
     data: PropTypes.object,
     navigation: PropTypes.object,
