@@ -15,9 +15,11 @@ export class HomeScreen extends React.Component {
   };
 
   static propTypes = {
-    // login: PropTypes.func,
     input: PropTypes.object,
     handleSubmit: PropTypes.func,
+    dispatch: PropTypes.func,
+    loginState: PropTypes.bool,
+    loginFail: PropTypes.func,
     authenticateUserMutation: PropTypes.func,
     navigation: PropTypes.object,
     addProducts: PropTypes.func,
@@ -54,8 +56,6 @@ export class HomeScreen extends React.Component {
 
   storeAuthTokensLocally = async (token, userId) => {
     await AsyncStorage.multiSet([['token', token], ['userId', userId]]);
-    // const me = AsyncStorage.getItem('token');
-    // console.log(me);
   }
 
   render() {
