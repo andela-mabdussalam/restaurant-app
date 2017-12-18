@@ -5,20 +5,22 @@ import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
 import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SignupScreen from '../screens/SignupScreen';
-import ShopScreen from '../screens/ShopScreen';
+import ShopPage from '../screens/ShopScreen';
 import ProductPage from '../screens/ProductScreen';
 import SignOut from '../screens/SignOut';
-import CartScreen from '../screens/CartScreen';
-import HomeScreen from '../screens/HomeScreen';
+import OrdersScreen from '../screens/OrdersScreen';
+import CartPage from '../screens/CartScreen';
+import HomePage from '../screens/HomeScreen';
+import CheckOutPage from '../screens/CheckOutScreen';
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
-      screen: HomeScreen,
+      screen: HomePage,
     },
     SignupPage: {
       screen: SignupScreen
-    }
+    },
   },
   {
     navigationOptions: () => ({
@@ -54,8 +56,9 @@ const drawerButton = navigation =>
 
 
 const DrawerStack = DrawerNavigator({
-  Shop: { screen: ShopScreen },
-  Cart: { screen: CartScreen },
+  Shop: { screen: ShopPage },
+  Cart: { screen: CartPage },
+  Orders: { screen: OrdersScreen },
   SignOut: { screen: SignOut },
 }, {
   gesturesEnabled: false,
@@ -66,6 +69,9 @@ const DrawerNavigation = StackNavigator({
   DrawerStack: { screen: DrawerStack },
   ProductScreen: {
     screen: ProductPage
+  },
+  CheckOutScreen: {
+    screen: CheckOutPage
   }
 }, {
   headerMode: 'float',
