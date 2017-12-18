@@ -122,7 +122,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               ellipsizeMode="tail"
               fontSize={15}
-              smallFont={true}
               style={
                 Array [
                   Object {
@@ -234,7 +233,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               ellipsizeMode="tail"
               fontSize={15}
-              smallFont={true}
               style={
                 Array [
                   Object {
@@ -316,7 +314,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               ellipsizeMode="tail"
               fontSize={15}
-              smallFont={true}
               style={
                 Array [
                   Object {
@@ -362,7 +359,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               ellipsizeMode="tail"
               fontSize={15}
-              smallFont={true}
               style={
                 Array [
                   Object {
@@ -445,7 +441,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               ellipsizeMode="tail"
               fontSize={15}
-              smallFont={true}
               style={
                 Array [
                   Object {
@@ -527,7 +522,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               ellipsizeMode="tail"
               fontSize={15}
-              smallFont={true}
               style={
                 Array [
                   Object {
@@ -572,7 +566,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               ellipsizeMode="tail"
               fontSize={10}
-              smallFont={true}
               style={
                 Array [
                   Object {
@@ -739,16 +732,13 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
                 accessible={true}
                 allowFontScaling={true}
                 ellipsizeMode="tail"
-                smallFont={true}
                 style={
                   Array [
                     Object {
                       "fontFamily": "SinkinSans-200XLight",
                       "fontSize": 12,
                     },
-                    Object {
-                      "fontSize": 11,
-                    },
+                    Object {},
                   ]
                 }
               >
@@ -826,16 +816,13 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
                 accessible={true}
                 allowFontScaling={true}
                 ellipsizeMode="tail"
-                smallFont={true}
                 style={
                   Array [
                     Object {
                       "fontFamily": "SinkinSans-200XLight",
                       "fontSize": 12,
                     },
-                    Object {
-                      "fontSize": 11,
-                    },
+                    Object {},
                   ]
                 }
               >

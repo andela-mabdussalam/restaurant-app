@@ -2,8 +2,10 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import { shallow, } from 'enzyme';
 import ConnectedCheckOut, { CheckOutScreen } from '../CheckOutScreen';
+import { clearCart } from '../../actions';
 
 // Test objects
 const data = {
@@ -44,7 +46,6 @@ const navigation = {
 };
 
 // Mocked functions
-const clearCart = jest.fn();
 const checkOutMutation = jest.fn();
 const closeModal = jest.fn();
 
@@ -87,7 +88,8 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
     },
     total: 453543
   };
-  const mockStore = configureMockStore();
+  const middlewares = [thunk];
+  const mockStore = configureMockStore(middlewares);
   let store, container;
 
   beforeEach(() => {
@@ -104,5 +106,12 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
       .toEqual(initialState.cart.items);
     expect(container.prop('total'))
       .toEqual(initialState.cart.total);
+  });
+
+  it('check action on dispatching ', () => {
+    let action = '';
+    store.dispatch(clearCart());
+    action = store.getActions();
+    expect(action[0].type).toBe('CHECKOUT');
   });
 });

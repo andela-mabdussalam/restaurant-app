@@ -3,10 +3,11 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import { shallow, } from 'enzyme';
+import thunk from 'redux-thunk';
 import ConnectedHome, { HomeScreen } from '../HomeScreen';
+import { addProducts, addTokenToStore, loginFail } from '../../actions';
 
 jest.mock('redux-form/lib/Field', () => 'Field');
-// jest.mock('../../navigation/RootNavigation', () => 'RootNavigation');
 
 // Test objects
 const navigation = {
@@ -24,6 +25,11 @@ const items = [{
   ImageUrl: 'gdfgds',
   Price: 700,
   description: 'the hello is in the world'
+}];
+
+const products = [{
+  name: 'rice and beans',
+  description: 'the rice and beans is dsldks'
 }];
 
 const state = {
@@ -57,8 +63,7 @@ const rejectedUserMutation = () => Promise.reject(new Error('not found'));
 const resolvedUserMutation = () => response;
 const handleSubmit = jest.fn();
 const LoginFail = jest.fn();
-const addProducts = jest.fn();
-const addTokenToStore = jest.fn();
+
 
 // Test suites
 describe('HOMESCREEN --- Snapshot', () => {
@@ -103,7 +108,8 @@ describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => 
       loginState: true
     }
   };
-  const mockStore = configureMockStore();
+  const middlewares = [thunk];
+  const mockStore = configureMockStore(middlewares);
   let store, container;
 
   beforeEach(() => {
@@ -118,5 +124,15 @@ describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => 
   it('check Prop matches with initialState', () => {
     expect(container.prop('loginState'))
       .toEqual(initialState.user.loginState);
+  });
+  it('check action on dispatching ', () => {
+    let action = '';
+    store.dispatch(addProducts(products));
+    store.dispatch(addTokenToStore('klmkmkl67890'));
+    store.dispatch(loginFail(true));
+    action = store.getActions();
+    expect(action[0].type).toBe('RECEIVE_PRODUCTS');
+    expect(action[1].type).toBe('ADD_TOKEN');
+    expect(action[2].type).toBe('LOGIN_FAIL');
   });
 });

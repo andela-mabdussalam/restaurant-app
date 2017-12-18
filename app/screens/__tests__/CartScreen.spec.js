@@ -2,8 +2,10 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
-import { shallow, } from 'enzyme';
+import { shallow } from 'enzyme';
+import thunk from 'redux-thunk';
 import ConnectedCartScreen, { CartScreen } from '../CartScreen';
+import { increaseItemQuantity, decreaseItemQuantity } from '../../actions';
 
 // Mocked component
 jest.mock('../CheckOutScreen', () => 'CheckOut');
@@ -37,10 +39,11 @@ const navigation = {
   }
 };
 
-// Mocked functions
-const decreaseItemQuantity = jest.fn();
-const increaseItemQuantity = jest.fn();
-
+const product = {
+  name: 'rice and beans',
+  description: 'the rice and beans is dsldks',
+  quantity: 4
+};
 // // Test suites
 describe('CARTSCREEN --- Snapshot', () => {
   it('renders the cart screen if user is logged in', async () => {
@@ -76,7 +79,8 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
     },
     total: 453543
   };
-  const mockStore = configureMockStore();
+  const middlewares = [thunk];
+  const mockStore = configureMockStore(middlewares);
   let store, container;
 
   beforeEach(() => {
@@ -106,5 +110,14 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
       .toEqual(initialState.cart.items);
     expect(container.prop('total'))
       .toEqual(initialState.cart.total);
+  });
+
+  it('check action on dispatching ', () => {
+    let action = '';
+    store.dispatch(increaseItemQuantity(product));
+    store.dispatch(decreaseItemQuantity(product));
+    action = store.getActions();
+    expect(action[0].type).toBe('INCREASE_ITEM_QUANTITY');
+    expect(action[1].type).toBe('DECREASE_ITEM_QUANTITY');
   });
 });

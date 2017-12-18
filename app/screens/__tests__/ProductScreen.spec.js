@@ -3,7 +3,9 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import { shallow, } from 'enzyme';
+import thunk from 'redux-thunk';
 import ConnectedProduct, { ProductScreen } from '../ProductScreen';
+import { addToCart } from '../../actions';
 
 // Test objects
 
@@ -19,6 +21,12 @@ const items = [{
   Price: 700,
   description: 'the hello is in the world'
 }];
+
+const product = {
+  name: 'rice and beans',
+  description: 'the rice and beans is dsldks',
+  quantity: 4
+};
 
 const navigation = {
   navigate: jest.fn(),
@@ -43,9 +51,6 @@ const navigationWithoutValue = {
   }
 };
 
-// Mocked functions
-const addToCart = jest.fn();
-
 
 // Test suites
 describe('PRODUCTSCREEN --- Snapshot', () => {
@@ -62,7 +67,7 @@ describe('PRODUCTSCREEN --- Snapshot', () => {
     expect(tree.getInstance().hideCancelModal()).toMatchSnapshot();
     expect(tree.getInstance().redirectToCart()).toMatchSnapshot();
     expect(tree.getInstance().onStarRatingPress(5)).toMatchSnapshot();
-    expect(ProductScreen.navigationOptions(navigation)).toMatchSnapshot();
+    expect(ProductScreen.navigationOptions({ navigation })).toMatchSnapshot();
     expect(tree).toMatchSnapshot();
   });
 
@@ -87,7 +92,8 @@ describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => 
       loginState: true
     }
   };
-  const mockStore = configureMockStore();
+  const middlewares = [thunk];
+  const mockStore = configureMockStore(middlewares);
   let store, container;
 
   beforeEach(() => {
@@ -102,5 +108,12 @@ describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => 
   it('check Prop matches with initialState', () => {
     expect(container.prop('items'))
       .toEqual(initialState.cart.items);
+  });
+
+  it('check action on dispatching ', () => {
+    let action = '';
+    store.dispatch(addToCart(product));
+    action = store.getActions();
+    expect(action[0].type).toBe('ADD_TO_CART');
   });
 });
