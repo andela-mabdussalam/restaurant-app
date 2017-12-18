@@ -18,10 +18,9 @@
 
  type Orders @model {
    id: ID! @isUnique # read-only (managed by Graphcool)
-   products: [Product!]! @relation(name: "OrderonProducts")
-   quantity: Int!
    total: Int!
-   user: User! @relation(name: "UseronOrder")
+   items: [Json!]
+   user: User @relation(name: "UseronOrder")
    createdAt: DateTime! # read-only (managed by Graphcool)
    updatedAt: DateTime! # read-only (managed by Graphcool)
  }
@@ -32,7 +31,6 @@
    description: String!
    price: Int!
    imageUrl: String!
-   order: Orders @relation(name: "OrderonProducts")
    createdAt: DateTime! # read-only (managed by Graphcool)
    updatedAt: DateTime! # read-only (managed by Graphcool)
  }
