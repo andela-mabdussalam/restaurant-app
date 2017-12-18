@@ -94,6 +94,21 @@ export const HomeScreenStyles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30,
   },
+  loginFail: {
+    color: 'red',
+    fontSize: 14,
+    marginLeft: 10
+  },
+  loginFailText: {
+    color: 'red',
+    fontSize: 12,
+    marginLeft: 10
+  },
+  loginFailView: {
+    marginTop: 5,
+    flex: 1,
+    flexDirection: 'row'
+  },
   main: {
     alignItems: 'center',
     marginHorizontal: 30,
@@ -143,7 +158,7 @@ export const HomeScreenStyles = StyleSheet.create({
     paddingTop: 10,
     paddingRight: 10,
     paddingBottom: 10,
-    paddingLeft: 0,
+    paddingLeft: 5,
     color: '#424242',
     fontFamily: 'SinkinSans-200XLight',
     fontSize: 12,
@@ -237,7 +252,6 @@ export const ModalStyle = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: 'lightblue',
     padding: 12,
     margin: 16,
     justifyContent: 'center',
@@ -274,6 +288,51 @@ export const ModalStyle = StyleSheet.create({
     fontFamily: 'SinkinSans-200XLight'
   }
 });
+
+export const OrdersScreenStyles = StyleSheet.create({
+  view: {
+    backgroundColor: 'white'
+  },
+  cardItem: {
+    paddingLeft: 0,
+    paddingBottom: 0,
+    paddingTop: 0,
+    paddingRight: 5,
+    alignSelf: 'center'
+  },
+  viewStyle: {
+    width: '90%',
+    height: 1,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#B2BEB5',
+    marginTop: 15,
+    marginBottom: 10
+  },
+  textStyle: {
+    width: '33%',
+    textAlign: 'center',
+  },
+  cancelText: {
+    color: '#F7C04C',
+    fontSize: 14,
+  },
+  cancelButton: {
+    width: '100%',
+    backgroundColor: 'white',
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginTop: 15,
+    borderWidth: 0.5,
+    borderColor: '#F7C04C'
+  },
+  drawer: {
+    fontFamily: 'SinkinSans-200XLight',
+    padding: 15
+  },
+});
+
 export const CartScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
@@ -284,6 +343,33 @@ export const CartScreenStyles = StyleSheet.create({
     backgroundColor: '#F7C04C',
     marginTop: '4%',
     height: 40
+  },
+  checkoutIcon: {
+    fontSize: 60,
+    color: '#F7C04C',
+    width: '19%'
+  },
+  viewStyle: {
+    width: '90%',
+    height: 1,
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#B2BEB5',
+    marginTop: 20,
+    marginBottom: 20
+  },
+  textInput: {
+    marginTop: 10,
+    height: 50,
+    borderColor: 'gray',
+    width: '100%',
+    fontFamily: 'SinkinSans-200XLight',
+    fontSize: 10,
+    borderWidth: 1,
+    textAlignVertical: 'top',
+    padding: 0,
+  },
+  card: {
+    padding: 20
   },
   Image: {
     width: 40,
@@ -305,7 +391,16 @@ export const CartScreenStyles = StyleSheet.create({
     paddingLeft: 0,
     paddingBottom: 0,
     paddingTop: 0,
-    paddingRight: 5
+    paddingRight: 5,
+    alignSelf: 'center'
+  },
+  cardButton: {
+    paddingLeft: 0,
+    paddingBottom: 0,
+    paddingTop: 0,
+    paddingRight: 5,
+    alignSelf: 'center',
+    width: '100%'
   },
   flex: {
     flex: 1,
@@ -316,6 +411,15 @@ export const CartScreenStyles = StyleSheet.create({
     borderRightWidth: 0.5,
     borderRightColor: '#B2BEB5',
     padding: 6,
+  },
+  cancelButton: {
+    width: '100%',
+    backgroundColor: '#F7C04C',
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginTop: 15
   },
   content: {
     width: '40%',
@@ -332,7 +436,6 @@ export const CartScreenStyles = StyleSheet.create({
     width: '15%'
   },
   itemNo: {
-    width: '15%',
     height: '100%',
     borderRightWidth: 0.5,
     borderRightColor: '#f5f5f5',
@@ -378,5 +481,13 @@ export const CartScreenStyles = StyleSheet.create({
   },
   removeAdd: {
     width: '7%',
-  }
+  },
+  okButton: {
+    backgroundColor: '#F7C04C',
+    // marginTop: '4%',
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center'
+  },
 });
