@@ -1,27 +1,28 @@
 import React from 'react';
 import { AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
-import { reduxForm } from 'redux-form';
+import { reduxForm, destroy } from 'redux-form';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
 import { validate } from '../utils';
-import { addProducts } from '../actions';
+import { addProducts, addTokenToStore, loginFail } from '../actions';
 import Home from '../components/Home';
 
-class HomeScreen extends React.Component {
+export class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
   static propTypes = {
-    login: PropTypes.func,
+    // login: PropTypes.func,
     input: PropTypes.object,
     handleSubmit: PropTypes.func,
     authenticateUserMutation: PropTypes.func,
     navigation: PropTypes.object,
     addProducts: PropTypes.func,
-    productQuery: PropTypes.object
+    productQuery: PropTypes.object,
+    addTokenToStore: PropTypes.func
   }
 
   loginUser = async (values) => {
@@ -31,10 +32,17 @@ class HomeScreen extends React.Component {
         this.props.authenticateUserMutation({ variables: { email, password } });
       this.props.addProducts(this.props.productQuery.allProducts);
       const { navigate } = this.props.navigation;
+      this.props.addTokenToStore({
+        token: response.data.authenticateUser.token,
+        userId: response.data.authenticateUser.id
+      });
       const tokenToString = response.data.authenticateUser.token.toString();
-      this.storeAuthTokensLocally(tokenToString);
+      const userId = response.data.authenticateUser.id.toString();
+      this.storeAuthTokensLocally(tokenToString, userId);
       navigate('DrawerStack');
+      this.props.dispatch(destroy('login'));
     } catch (e) {
+      this.props.loginFail(true);
       return ('An error occured');
     }
   }
@@ -44,8 +52,10 @@ class HomeScreen extends React.Component {
     navigate('DrawerStack');
   }
 
-  storeAuthTokensLocally = async (graphcoolToken) => {
-    await AsyncStorage.setItem('graphcoolToken', graphcoolToken);
+  storeAuthTokensLocally = async (token, userId) => {
+    await AsyncStorage.multiSet([['token', token], ['userId', userId]]);
+    // const me = AsyncStorage.getItem('token');
+    // console.log(me);
   }
 
   render() {
@@ -54,6 +64,7 @@ class HomeScreen extends React.Component {
       <Home
       handleSubmit={handleSubmit}
       loginUser={this.loginUser}
+      loginFail={this.props.loginState}
       handleSignupPress= {this.handleSignupPress}/>
     );
   }
@@ -62,7 +73,8 @@ class HomeScreen extends React.Component {
 const AUTHENTICATE_EMAIL_USER = gql`
 mutation AuthenticateUser($email: String!, $password: String!) {
   authenticateUser(email: $email, password: $password) {
-    token
+    token,
+    id
   }
 }
 `;
@@ -82,6 +94,7 @@ query allProducts {
 const LoginForm = reduxForm({
   form: 'login',
   validate,
+  destroyOnUnmount: true
 })(HomeScreen);
 
 const LoginWithMutation = compose(
@@ -95,8 +108,14 @@ const LoginWithMutation = compose(
   )
 )(LoginForm);
 
+const mapStateToProps = (state) => {
+  const { loginState } = state.user;
+  return {
+    loginState
+  };
+};
 
 export default connect(
-  null,
-  { addProducts }
+  mapStateToProps,
+  { addProducts, addTokenToStore, loginFail }
 )(LoginWithMutation);
