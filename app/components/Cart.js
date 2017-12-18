@@ -10,18 +10,25 @@ import {
   Icon,
   Card,
   CardItem,
-  Right
+  Content,
+  Right,
 } from 'native-base';
+import Modal from 'react-native-modal';
 import PropTypes from 'prop-types';
 import { StyledText as Text } from './StyledText';
 import { CartScreenStyles as styles } from '../styles/styles';
-
+import CheckOut from '../screens/CheckOutScreen';
 
 const Cart = ({
   items,
   increaseItemQuantity,
   decreaseItemQuantity,
-  total
+  total,
+  redirectToShop,
+  isModalVisible,
+  openModal,
+  navigation,
+  closeModal
 }) =>
   <View style={styles.container}>
     {items.length !== 0 && <ScrollView
@@ -31,16 +38,16 @@ const Cart = ({
         <Card >
           <CardItem style={styles.cardItem}>
             <View style={[styles.cardItemView, styles.flex]}>
-              <Text smallFont customFont>ITEM</Text>
+              <Text smallFont >ITEM</Text>
             </View>
             <View style={[styles.cardItemView, styles.quantity]}>
-              <Text smallFont customFont>No</Text>
+              <Text smallFont >No</Text>
             </View>
             <View style={[styles.cardItemView, styles.price]}>
-              <Text smallFont customFont>Price</Text>
+              <Text smallFont >Price</Text>
             </View>
             <View style={[styles.cardItemView, styles.subTotal]}>
-              <Text smallFont customFont>SubTotal</Text>
+              <Text smallFont >SubTotal</Text>
             </View>
             <View style={styles.removeAdd}>
               <Icon name="ios-add-outline"/>
@@ -91,7 +98,6 @@ const Cart = ({
               <View style={styles.total}>
                 <Text
                   fontSize={11}
-                  customFont
                 >
                 TOTAL:       &#8358;{total}
                 </Text>
@@ -100,6 +106,7 @@ const Cart = ({
           </CardItem>
         </Card>
         <Button
+          onPress={openModal}
           color="#F7C04C"
           style={styles.button}
           block
@@ -108,15 +115,27 @@ const Cart = ({
             <Icon name='md-checkmark'/>
             <Text>    CHECKOUT   </Text>
         </Button>
+        <Modal isVisible={isModalVisible}>
+         <CheckOut closeModal={closeModal} navigation={navigation}/>
+       </Modal>
       </View>
     </ScrollView>}
-    {items.length === 0 && <Card >
-          <CardItem style={styles.cardItem}>
-            <View style={[styles.cardItemView, styles.flex]}>
-              <Text smallFont customFont>ITEM</Text>
-            </View>
-          </CardItem>
-        </Card>
+    {items.length === 0 &&
+    <Content>
+      <Card style= {{ padding: 20 }}>
+        <CardItem style={styles.cardItem}>
+          <Text fontSize={15} > SORRY, YOUR CART IS EMPTY</Text>
+        </CardItem>
+        <CardItem style={styles.cardItem}>
+          <Icon name="ios-sad-outline" style={{ fontSize: 150, color: '#F7C04C', width: '36%' }}/>
+        </CardItem>
+        <CardItem style={styles.cardItem}>
+        <Button onPress={redirectToShop} color="#F7C04C" style={styles.okButton}>
+          <Text>    GO TO SHOP    </Text>
+        </Button>
+        </CardItem>
+      </Card>
+    </Content>
     }
   </View>;
 
@@ -124,7 +143,12 @@ Cart.propTypes = {
   items: PropTypes.array,
   increaseItemQuantity: PropTypes.func,
   decreaseItemQuantity: PropTypes.func,
-  total: PropTypes.number
+  total: PropTypes.number,
+  redirectToShop: PropTypes.func,
+  isModalVisible: PropTypes.bool,
+  openModal: PropTypes.func,
+  closeModal: PropTypes.func,
+  navigation: PropTypes.object
 };
 
 export default Cart;
