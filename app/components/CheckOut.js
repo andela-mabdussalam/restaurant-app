@@ -104,7 +104,8 @@ CheckOut.propTypes = {
   items: PropTypes.array,
   total: PropTypes.number,
   value: PropTypes.string,
-  closeModal: PropTypes.func
+  closeModal: PropTypes.func,
+  completed: PropTypes.func
 };
 
 export default CheckOut;
