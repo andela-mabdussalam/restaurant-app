@@ -16,7 +16,10 @@ export class CheckOutScreen extends React.Component {
     items: PropTypes.array,
     total: PropTypes.number,
     closeModal: PropTypes.func,
-    navigation: PropTypes.object
+    navigation: PropTypes.object,
+    data: PropTypes.object,
+    checkOutMutation: PropTypes.func,
+    clearCart: PropTypes.func
   }
   constructor(props) {
     super(props);
