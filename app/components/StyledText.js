@@ -54,13 +54,10 @@ StyledText.propTypes = {
     PropTypes.number
   ]),
   smallFont: PropTypes.bool,
-  customFont: PropTypes.number,
+  customFont: PropTypes.string,
   marginTop: PropTypes.number,
   marginLeft: PropTypes.number,
   color: PropTypes.string,
   fontSize: PropTypes.number
 };
 
-StyledText.defaultProps = {
-  smallFont: true
-};
