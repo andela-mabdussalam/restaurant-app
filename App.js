@@ -15,7 +15,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { getOperationAST } from 'graphql';
 import { WebSocketLink } from 'apollo-link-ws';
 import PropTypes from 'prop-types';
-// import { SubscriptionClient } from 'subscriptions-transport-ws';
 import RootNavigation from './app/navigation/RootNavigation';
 import robotDev from './app/assets/images/robot-dev.png';
 import robotProd from './app/assets/images/robot-prod.png';
@@ -37,6 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.2)',
   },
 });
+
 const wsLink = new WebSocketLink({
   uri: 'wss://subscriptions.graph.cool/v1/cjawabjc1002t0192hxqdy4uf',
   options: {
@@ -45,7 +45,9 @@ const wsLink = new WebSocketLink({
 });
 
 const uri = 'https://api.graph.cool/simple/v1/cjawabjc1002t0192hxqdy4uf';
+
 const httpLink = new HttpLink({ uri });
+
 const link = ApolloLink.split(
   (operation) => {
     const operationAST = getOperationAST(operation.query, operation.operationName);
@@ -54,17 +56,8 @@ const link = ApolloLink.split(
   wsLink,
   httpLink,
 );
-// const wsClient = new SubscriptionClient('wss://subscriptions.graph.cool/v1/cjawabjc1002t0192hxqdy4uf', {
-//   reconnect: true,
-//   timeout: 20000
-// });
 
 const middleware = [thunk];
-
-// const linkWithSubscriptions = addGraphQLSubscriptions(
-//   httpLink,
-//   wsClient
-// );
 
 const store = createStore(combineReducers({
   form: formReducer,
@@ -72,8 +65,6 @@ const store = createStore(combineReducers({
   products: ProductReducer,
   user: UserReducer
 }), composeWithDevTools(), applyMiddleware(...middleware));
-
-// AsyncStorage.multiRemove(['token', 'userId']);
 
 const middlewareLink = new ApolloLink((operation, forward) => {
   operation.setContext({
