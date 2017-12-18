@@ -20,7 +20,7 @@ const Orders = ({
   <View style={styles.view}>
     <ScrollView>
       { allOrderses && allOrderses.map((order, index) => (
-        <Card key={index} style= {{ padding: 20 }}>
+        <Card key={index} style= {styles.card}>
           <CardItem>
             <Button
                 color="#F7C04C"

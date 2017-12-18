@@ -293,6 +293,9 @@ export const OrdersScreenStyles = StyleSheet.create({
   view: {
     backgroundColor: 'white'
   },
+  card: {
+    padding: 20
+  },
   cardItem: {
     paddingLeft: 0,
     paddingBottom: 0,
@@ -311,6 +314,11 @@ export const OrdersScreenStyles = StyleSheet.create({
   textStyle: {
     width: '33%',
     textAlign: 'center',
+  },
+  Icon: {
+    fontSize: 150,
+    color: '#F7C04C',
+    width: '36%'
   },
   cancelText: {
     color: '#F7C04C',

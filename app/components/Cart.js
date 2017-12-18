@@ -122,12 +122,12 @@ const Cart = ({
     </ScrollView>}
     {items.length === 0 &&
     <Content>
-      <Card style= {{ padding: 20 }}>
+      <Card style={styles.card}>
         <CardItem style={styles.cardItem}>
           <Text fontSize={15} > SORRY, YOUR CART IS EMPTY</Text>
         </CardItem>
         <CardItem style={styles.cardItem}>
-          <Icon name="ios-sad-outline" style={{ fontSize: 150, color: '#F7C04C', width: '36%' }}/>
+          <Icon name="ios-sad-outline" style={styles.Icon}/>
         </CardItem>
         <CardItem style={styles.cardItem}>
         <Button onPress={redirectToShop} color="#F7C04C" style={styles.okButton}>
