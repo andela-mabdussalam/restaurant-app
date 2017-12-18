@@ -28,7 +28,7 @@ export default class SignOut extends React.Component {
     navigate('Main');
   }
   removeAuthToken = async () => {
-    await AsyncStorage.removeItem('graphcoolToken');
+    await AsyncStorage.removeItem('token');
   }
   render() {
     return (
