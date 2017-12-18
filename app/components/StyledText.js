@@ -1,18 +1,24 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
 export const StyledText = (props) => {
-  const inlineStyles = props.style || {};
+  const styles = StyleSheet.flatten(props.style);
+  const inlineStyles = styles || {};
+  const fontFamily = {
+    fontFamily: 'SinkinSans-200XLight',
+    fontSize: 12
+  };
   const {
     marginTop,
     color,
     marginLeft,
-    fontSize
+    fontSize,
+    customFont
   } = props;
 
   if (props.customFont) {
-    inlineStyles.fontFamily = 'SinkinSans-200XLight';
+    inlineStyles.fontFamily = customFont;
   }
 
   if (props.smallFont) {
@@ -34,19 +40,21 @@ export const StyledText = (props) => {
   if (props.color) {
     inlineStyles.color = color;
   }
-
   return (
     <Text
     {...props}
-      style={inlineStyles}
+     style={[fontFamily, inlineStyles]}
     />
   );
 };
 
 StyledText.propTypes = {
-  style: PropTypes.object,
+  style: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.number
+  ]),
   smallFont: PropTypes.bool,
-  customFont: PropTypes.bool,
+  customFont: PropTypes.number,
   marginTop: PropTypes.number,
   marginLeft: PropTypes.number,
   color: PropTypes.string,
@@ -54,6 +62,5 @@ StyledText.propTypes = {
 };
 
 StyledText.defaultProps = {
-  customFont: true,
   smallFont: true
 };
