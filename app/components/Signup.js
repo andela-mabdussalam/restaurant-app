@@ -16,9 +16,16 @@ import RenderInput from '../components/RenderInput';
 
 const Signup = ({ handleSubmit, handlePress }) =>
   <View style={styles.container}>
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+    >
       <View style={styles.main}>
-        <Icon name='md-person-add' style={{ color: 'white', fontSize: 60 }}/>
+        <Icon
+          name='md-person-add'
+          // Inline styling
+          style={{ color: 'white', fontSize: 60 }}
+        />
         <Field
           name="firstName"
           component={RenderInput}
@@ -51,7 +58,13 @@ const Signup = ({ handleSubmit, handlePress }) =>
           component={RenderInput}
           placeholder="Phone Number"
         />
-        <Button onPress={handleSubmit(handlePress)} color="#F7C04C" style={styles.button} block iconLeft>
+        <Button
+          onPress={handleSubmit(handlePress)}
+          color="#F7C04C"
+          style={styles.button}
+          block
+          iconLeft
+        >
           <Icon name='md-checkmark'/>
           <Text style={styles.buttonText}>    Submit</Text>
         </Button>

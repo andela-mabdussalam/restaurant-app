@@ -10,6 +10,7 @@ const Signout = ({
 }) =>
   <Container>
     <Content>
+      // Inline styling?
       <Card style={{ flex: 0, padding: 25 }}>
         <Body>
           <Text style={styles.logoutBody}>

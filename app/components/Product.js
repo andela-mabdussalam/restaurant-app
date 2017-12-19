@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity
+} from 'react-native';
 import StarRating from 'react-native-star-rating';
 import { Icon, Button } from 'native-base';
 import Modal from 'react-native-modal';
@@ -24,8 +29,8 @@ const Product = ({
 <View style={styles.productView}>
   <View>
     <Image
-    source={{ uri: params.imageUrl }}
-    style={{ width: imgWidth, height: imgHeight }}
+      source={{ uri: params.imageUrl }}
+      style={{ width: imgWidth, height: imgHeight }}
     />
   </View>
   <View>
@@ -81,10 +86,18 @@ const Product = ({
     <Modal isVisible={isCancelModalVisible}>
       <View style={ModalStyle.modalContent}>
         <Text style={ModalStyle.heading}>Item Previously added to Cart</Text>
-        <Button onPress={hideCancelModal} color="#F7C04C" style={ModalStyle.okButton}>
+        <Button
+          onPress={hideCancelModal}
+          color="#F7C04C"
+          style={ModalStyle.okButton}
+        >
           <Text style={ModalStyle.buttonText}>    ADD ANOTHER ITEM    </Text>
         </Button>
-        <Button onPress={redirectToCart} color="#F7C04C" style={ModalStyle.okButton}>
+        <Button
+          onPress={redirectToCart}
+          color="#F7C04C"
+          style={ModalStyle.okButton}
+        >
           <Text style={ModalStyle.buttonText}>    GO TO CART    </Text>
         </Button>
       </View>

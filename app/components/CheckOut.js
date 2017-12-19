@@ -28,7 +28,10 @@ const CheckOut = ({
         </Text>
       </CardItem>
       <CardItem style={styles.cardItem}>
-        <Icon name="ios-thumbs-up-outline" style={styles.checkoutIcon}/>
+          <Icon
+            name="ios-thumbs-up-outline"
+            style={styles.checkoutIcon}
+          />
       </CardItem>
       <CardItem style={styles.cardItem}>
         <View style={styles.viewStyle}/>
@@ -87,12 +90,20 @@ const CheckOut = ({
         <View style={styles.viewStyle}/>
       </CardItem>
       <CardItem style={styles.cardButton}>
-        <Button onPress={completed} color="#F7C04C" style={styles.cancelButton}>
+          <Button
+            onPress={completed}
+            color="#F7C04C"
+            style={styles.cancelButton}
+          >
           <Text>OK</Text>
         </Button>
       </CardItem>
       <CardItem style={styles.cardButton}>
-        <Button onPress={closeModal} color="#F7C04C" style={styles.cancelButton}>
+          <Button
+            onPress={closeModal}
+            color="#F7C04C"
+            style={styles.cancelButton}
+          >
           <Text>CANCEL</Text>
         </Button>
       </CardItem>
