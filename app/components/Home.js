@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   ScrollView,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -13,9 +12,14 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { HomeScreenStyles as styles } from '../styles/styles';
 import RenderInput from '../components/RenderInput';
+import { StyledText as Text } from './StyledText';
 
-
-const Home = ({ handleSubmit, loginUser, handleSignupPress }) =>
+const Home = ({
+  handleSubmit,
+  loginUser,
+  handleSignupPress,
+  loginFail
+}) =>
 <View style={styles.container}>
   <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
     <View style={styles.main}>
@@ -34,6 +38,11 @@ const Home = ({ handleSubmit, loginUser, handleSignupPress }) =>
         placeholder="Password"
         secureTextEntry
       />
+      {loginFail &&
+      <View style={styles.loginFailView}>
+        <Icon name='alert' style={styles.loginFail}/>
+        <Text style={styles.loginFailText}>Invalid Username or Password</Text>
+      </View>}
       <Button onPress={handleSubmit(loginUser)} color="#F7C04C" style={styles.button} block iconLeft>
         <Icon name='md-checkmark'/>
         <Text style={styles.buttonText}>    Login</Text>
@@ -77,7 +86,8 @@ const Home = ({ handleSubmit, loginUser, handleSignupPress }) =>
 Home.propTypes = {
   handleSubmit: PropTypes.func,
   loginUser: PropTypes.func,
-  handleSignupPress: PropTypes.func
+  handleSignupPress: PropTypes.func,
+  loginFail: PropTypes.bool
 };
 
 export default Home;

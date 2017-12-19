@@ -1,0 +1,344 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with rejected promise 1`] = `
+Promise {
+  "_40": 0,
+  "_55": null,
+  "_65": 0,
+  "_72": null,
+}
+`;
+
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with rejected promise 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#D57E56",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingTop": 30,
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#D57E56",
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginHorizontal": 30,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+        />
+        <Field
+          component={[Function]}
+          name="firstName"
+          placeholder="First Name"
+        />
+        <Field
+          component={[Function]}
+          name="lastName"
+          placeholder="Last Name"
+        />
+        <Field
+          component={[Function]}
+          name="email"
+          placeholder="E-mail"
+        />
+        <Field
+          component={[Function]}
+          name="password"
+          placeholder="Password"
+          secureTextEntry={true}
+        />
+        <Field
+          component={[Function]}
+          name="passwordConfirm"
+          placeholder="Confirm Password"
+          secureTextEntry={true}
+        />
+        <Field
+          component={[Function]}
+          name="phoneNum"
+          placeholder="Phone Number"
+        />
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          collapsable={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#F7C04C",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 40,
+              "justifyContent": "center",
+              "marginTop": "4%",
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 12,
+              }
+            }
+          >
+                Submit
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with resolved promise 1`] = `
+Promise {
+  "_40": 0,
+  "_55": null,
+  "_65": 0,
+  "_72": null,
+}
+`;
+
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with resolved promise 2`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#D57E56",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingTop": 30,
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#D57E56",
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "marginHorizontal": 30,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#000",
+                  "fontSize": 30,
+                },
+                Object {
+                  "color": "#000",
+                  "fontSize": 30,
+                },
+                Object {
+                  "color": "white",
+                  "fontSize": 60,
+                },
+              ],
+              Object {
+                "fontFamily": "ionicons",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          
+        </Text>
+        <Field
+          component={[Function]}
+          name="firstName"
+          placeholder="First Name"
+        />
+        <Field
+          component={[Function]}
+          name="lastName"
+          placeholder="Last Name"
+        />
+        <Field
+          component={[Function]}
+          name="email"
+          placeholder="E-mail"
+        />
+        <Field
+          component={[Function]}
+          name="password"
+          placeholder="Password"
+          secureTextEntry={true}
+        />
+        <Field
+          component={[Function]}
+          name="passwordConfirm"
+          placeholder="Confirm Password"
+          secureTextEntry={true}
+        />
+        <Field
+          component={[Function]}
+          name="phoneNum"
+          placeholder="Phone Number"
+        />
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          collapsable={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#F7C04C",
+              "borderBottomWidth": null,
+              "borderColor": "#007aff",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 40,
+              "justifyContent": "center",
+              "marginTop": "4%",
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 30,
+                  },
+                  Object {
+                    "color": "#fff",
+                    "fontSize": 24,
+                    "marginLeft": 16,
+                    "marginRight": 0,
+                    "paddingTop": 2,
+                  },
+                ],
+                Object {
+                  "fontFamily": "ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+            virtual={undefined}
+          >
+            
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 12,
+              }
+            }
+          >
+                Submit
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

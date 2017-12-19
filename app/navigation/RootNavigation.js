@@ -1,24 +1,24 @@
-import { Notifications } from 'expo';
 import React from 'react';
 import { Easing, TouchableHighlight } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import { Icon } from 'native-base';
-import registerForPushNotificationsAsync from '../api/registerForPushNotificationsAsync';
 import SignupScreen from '../screens/SignupScreen';
-import ShopScreen from '../screens/ShopScreen';
+import ShopPage from '../screens/ShopScreen';
 import ProductPage from '../screens/ProductScreen';
-import SignOut from '../screens/SignOut';
-import CartScreen from '../screens/CartScreen';
-import HomeScreen from '../screens/HomeScreen';
+import SignOut from '../screens/SignoutScreen';
+import OrdersPage from '../screens/OrdersScreen';
+import CartPage from '../screens/CartScreen';
+import HomePage from '../screens/HomeScreen';
+import CheckOutPage from '../screens/CheckOutScreen';
 
 const RootStackNavigator = StackNavigator(
   {
     Main: {
-      screen: HomeScreen,
+      screen: HomePage,
     },
     SignupPage: {
       screen: SignupScreen
-    }
+    },
   },
   {
     navigationOptions: () => ({
@@ -54,8 +54,9 @@ const drawerButton = navigation =>
 
 
 const DrawerStack = DrawerNavigator({
-  Shop: { screen: ShopScreen },
-  Cart: { screen: CartScreen },
+  Shop: { screen: ShopPage },
+  Cart: { screen: CartPage },
+  Orders: { screen: OrdersPage },
   SignOut: { screen: SignOut },
 }, {
   gesturesEnabled: false,
@@ -66,6 +67,9 @@ const DrawerNavigation = StackNavigator({
   DrawerStack: { screen: DrawerStack },
   ProductScreen: {
     screen: ProductPage
+  },
+  CheckOutScreen: {
+    screen: CheckOutPage
   }
 }, {
   headerMode: 'float',
@@ -102,29 +106,6 @@ const PrimaryNav = StackNavigator({
 });
 
 export default class RootNavigator extends React.Component {
-  componentDidMount() {
-    this._notificationSubscription = this._registerForPushNotifications();
-  }
-
-  componentWillUnmount() {
-    this._notificationSubscription && this._notificationSubscription.remove();
-  }
-
-
-  _registerForPushNotifications() {
-    // Send our push token over to our backend so we can receive notifications
-    // You can comment the following line out if you want to stop receiving
-    // a notification every time you open the app. Check out the source
-    // for this function in api/registerForPushNotificationsAsync.js
-    registerForPushNotificationsAsync();
-
-    // Watch for incoming notifications
-    this._notificationSubscription = Notifications.addListener(this._handleNotification);
-  }
-
-  _handleNotification = ({ origin, data }) => {
-  };
-
   render() {
     return <PrimaryNav />;
   }

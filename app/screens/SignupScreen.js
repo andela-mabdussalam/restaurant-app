@@ -37,7 +37,7 @@ export class SignupPage extends Component {
       this.storeAuthTokensLocally(tokenToString);
       navigate('ShopScreen', { name: response.data.signupUser.firstName });
     } catch (e) {
-      console.error('An error occurred: ', e);
+      return ('An error occurred: ', e);
     }
   }
 

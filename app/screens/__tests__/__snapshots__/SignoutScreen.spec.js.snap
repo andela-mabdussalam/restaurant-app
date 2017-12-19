@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SIGNOUTSCREEN --- Snapshot renders the sign out screen 1`] = `undefined`;
+
+exports[`SIGNOUTSCREEN --- Snapshot renders the sign out screen 2`] = `undefined`;
+
+exports[`SIGNOUTSCREEN --- Snapshot renders the sign out screen 3`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+  virtual={undefined}
+>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutoAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    onScroll={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={0}
+    showsVerticalScrollIndicator={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      }
+    }
+    virtual={undefined}
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderBottomWidth": 0.5,
+              "borderColor": "#ccc",
+              "borderLeftWidth": 0.5,
+              "borderRadius": 2,
+              "borderRightWidth": 0.5,
+              "borderTopWidth": 0.5,
+              "elevation": 3,
+              "flex": 1,
+              "flexWrap": "wrap",
+              "marginBottom": 5,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "marginTop": 5,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1.5,
+            },
+            Object {
+              "flex": 0,
+              "padding": 25,
+            },
+          ]
+        }
+        virtual={undefined}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "flex": 1,
+            }
+          }
+          virtual={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "SinkinSans-200XLight",
+                "fontSize": 14,
+                "marginBottom": 20,
+              }
+            }
+          >
+            Are you sure you want to logout?
+          </Text>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          collapsable={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "#F7C04C",
+              "borderBottomWidth": null,
+              "borderColor": "#F7C04C",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": 0.5,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 35,
+              "justifyContent": "center",
+              "marginTop": "4%",
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "white",
+                "fontFamily": "SinkinSans-200XLight",
+                "fontSize": 14,
+              }
+            }
+          >
+                LOG OUT
+          </Text>
+        </View>
+        <View
+          accessibilityComponentType={undefined}
+          accessibilityLabel={undefined}
+          accessibilityTraits={undefined}
+          accessible={true}
+          collapsable={undefined}
+          hitSlop={undefined}
+          isTVSelectable={true}
+          nativeID={undefined}
+          onLayout={undefined}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "stretch",
+              "backgroundColor": "white",
+              "borderBottomWidth": null,
+              "borderColor": "#F7C04C",
+              "borderLeftWidth": null,
+              "borderRadius": 5,
+              "borderRightWidth": null,
+              "borderTopWidth": null,
+              "borderWidth": 0.5,
+              "elevation": 2,
+              "flexDirection": "row",
+              "height": 35,
+              "justifyContent": "center",
+              "marginTop": "4%",
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+            }
+          }
+          testID={undefined}
+          tvParallaxProperties={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#F7C04C",
+                "fontFamily": "SinkinSans-200XLight",
+                "fontSize": 14,
+              }
+            }
+          >
+                CANCEL
+          </Text>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

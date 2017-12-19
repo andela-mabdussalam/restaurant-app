@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Text } from 'react-native';
+import { StyledText as Text } from '../components/StyledText';
 import Cart from '../components/Cart';
 import { increaseItemQuantity, decreaseItemQuantity } from '../actions';
 import { CartScreenStyles as styles } from '../styles/styles';
 
-class CartScreen extends React.Component {
+export class CartScreen extends React.Component {
   static navigationOptions = {
     title: 'Cart',
-    headerTitleStyle: {
-      fontFamily: 'SinkinSans-200XLight'
-    },
     drawerLabel: () => (
       <Text style={styles.drawer}>Cart</Text>
     ),
@@ -33,10 +30,21 @@ class CartScreen extends React.Component {
     super(props);
     this.state = {
       valueSelected: '1',
-      quantity: '1'
+      quantity: '1',
+      isModalVisible: false
     };
   }
 
+  redirectToShop = () => {
+    this.props.navigation.navigate('Shop');
+  }
+  closeModal= () => {
+    this.setState({ isModalVisible: false });
+  }
+
+  openModal= () => {
+    this.setState({ isModalVisible: true });
+  }
   render() {
     const {
       items,
@@ -45,9 +53,14 @@ class CartScreen extends React.Component {
     return (
     <Cart
       items={items}
+      isModalVisible={this.state.isModalVisible}
+      openModal={this.openModal}
+      closeModal={this.closeModal}
       increaseItemQuantity={this.props.increaseItemQuantity}
       decreaseItemQuantity={this.props.decreaseItemQuantity}
       total={total}
+      redirectToShop={this.redirectToShop}
+      navigation={this.props.navigation}
     />
     );
   }
