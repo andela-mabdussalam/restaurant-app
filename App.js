@@ -103,6 +103,7 @@ export default class App extends Component {
   ]);
 
   _handleLoadingError = (error) => {
+    /* eslint-disable no-console */
     console.warn(error);
   };
 

@@ -31,6 +31,7 @@ const data = {
 const returned = () => 'hello';
 
 const subscribe = (test) => {
+  /* eslint-disable no-unused-vars */
   const unused = test + 1;
   return returned;
 };
