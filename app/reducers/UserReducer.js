@@ -1,5 +1,5 @@
 import InitialState from '../constants/InitialState';
-import { ADD_TOKEN, LOGIN_FAIL } from '../constants/Actiontypes';
+import { ADD_TOKEN, CLEAR_AUTH, LOGIN_FAIL } from '../constants/Actiontypes';
 
 
 export const UserReducer = (state = InitialState.user, action) => {
@@ -15,6 +15,14 @@ export const UserReducer = (state = InitialState.user, action) => {
       return {
         ...state,
         loginState: action.loginState
+      };
+
+    case CLEAR_AUTH:
+      return {
+        ...state,
+        userId: '',
+        token: '',
+        loginState: null
       };
 
     default:
