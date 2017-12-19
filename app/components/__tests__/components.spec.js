@@ -10,6 +10,7 @@ const meta = {
   touched: true,
   error: true
 };
+
 const metaFalse = {
   touched: false,
   error: false
@@ -20,10 +21,13 @@ const input = {
 };
 
 const navigation = {};
+
 const navigate = jest.fn();
+
 navigation.navigate = me => me;
+
 describe('RENDERINPUT --- Snapshot', () => {
-  it('renders the cart screen if user is logged in', async () => {
+  it('renders the input with error if touched and error are true', async () => {
     const tree = renderer.create(<RenderInput
       placeholder={'items'}
       meta={meta}
@@ -32,7 +36,7 @@ describe('RENDERINPUT --- Snapshot', () => {
       />);
     expect(tree).toMatchSnapshot();
   });
-  it('renders the render input', async () => {
+  it('renders the input with error if touched and error are false', async () => {
     const tree = renderer.create(<RenderInput
       placeholder={'items'}
       meta={metaFalse}
@@ -51,7 +55,7 @@ describe('STACKBUTTON --- Snapshot', () => {
 });
 
 describe('STYLEDTEXT --- Snapshot', () => {
-  it('renders the styled text', async () => {
+  it('renders the styled text with custom font and small font', async () => {
     const tree = renderer.create(<StyledText
       color={'red'}
       customFont={'Sans'}
@@ -59,17 +63,15 @@ describe('STYLEDTEXT --- Snapshot', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders the styled text', async () => {
+  it('renders the styled text without custom font only', async () => {
     const tree = renderer.create(<StyledText
       color={'red'}
       customFont={'Sans'}
       />);
     expect(tree).toMatchSnapshot();
   });
-});
 
-describe('VALIDATEINPUT --- Snapshot', () => {
-  it('renders the styled text', async () => {
+  it('renders the styled text with small font only', async () => {
     const tree = renderer.create(<StyledText
       color={'red'}
       customFont={'Sans'}

@@ -54,7 +54,7 @@ const navigationWithoutValue = {
 
 // Test suites
 describe('PRODUCTSCREEN --- Snapshot', () => {
-  it('renders the links screen here', async () => {
+  it('renders the product screen', async () => {
     const tree = renderer.create(<ProductScreen
       items={items}
       navigation={navigation}
@@ -71,7 +71,7 @@ describe('PRODUCTSCREEN --- Snapshot', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders the links screen here', async () => {
+  it('renders the product screen', async () => {
     const tree = renderer.create(<ProductScreen
       navigation={navigationWithoutValue}
       addToCart={addToCart}
@@ -83,7 +83,7 @@ describe('PRODUCTSCREEN --- Snapshot', () => {
   });
 });
 
-describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => {
+describe('PRODUCTSCREEN --- Shallow rendering + passing the store directly', () => {
   const initialState = {
     cart: {
       items

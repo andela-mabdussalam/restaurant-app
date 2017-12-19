@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SHOPSCREEN --- Snapshot captures snapshot of shopscreen 1`] = `true`;
+
+exports[`SHOPSCREEN --- Snapshot captures snapshot of shopscreen 2`] = `undefined`;
+
+exports[`SHOPSCREEN --- Snapshot captures snapshot of shopscreen 3`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "flexDirection": "row",
+      "padding": 15,
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "fontFamily": "SinkinSans-200XLight",
+                "marginBottom": 10,
+                "textAlign": "center",
+              }
+            }
+          >
+            Food Items
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "width": "100%",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "borderColor": "#F6E2B8",
+                "borderWidth": 0.5,
+                "fontFamily": "SinkinSans-200XLight",
+                "padding": 5,
+                "textAlign": "center",
+                "width": "50%",
+              }
+            }
+          >
+             Latest 
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "borderColor": "#F6E2B8",
+                "borderWidth": 0.5,
+                "fontFamily": "SinkinSans-200XLight",
+                "padding": 5,
+                "textAlign": "center",
+                "width": "50%",
+              }
+            }
+          >
+             New 
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "width": "49%",
+            }
+          }
+        >
+          <View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  undefined,
+                ]
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "height": 150,
+                    "marginTop": 15,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 11,
+                  "textAlign": "center",
+                }
+              }
+            >
+              mariam
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 11,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Price: N
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "width": "49%",
+            }
+          }
+        >
+          <View>
+            <View
+              accessibilityComponentType={undefined}
+              accessibilityLabel={undefined}
+              accessibilityTraits={undefined}
+              accessible={true}
+              hasTVPreferredFocus={undefined}
+              hitSlop={undefined}
+              isTVSelectable={true}
+              nativeID={undefined}
+              onLayout={undefined}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  undefined,
+                ]
+              }
+              testID={undefined}
+              tvParallaxProperties={undefined}
+            >
+              <Image
+                source={
+                  Object {
+                    "uri": undefined,
+                  }
+                }
+                style={
+                  Object {
+                    "height": 150,
+                    "marginTop": 15,
+                    "width": "100%",
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 11,
+                  "textAlign": "center",
+                }
+              }
+            >
+              tope
+            </Text>
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 11,
+                  "textAlign": "center",
+                }
+              }
+            >
+              Price: N
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;

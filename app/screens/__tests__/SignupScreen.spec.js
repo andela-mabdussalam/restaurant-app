@@ -5,10 +5,10 @@ import configureMockStore from 'redux-mock-store';
 import { shallow, } from 'enzyme';
 import ConnectedSignup, { SignupPage } from '../SignupScreen';
 
+// Mocked component
 jest.mock('redux-form/lib/Field', () => 'Field');
 
 // Test objects
-
 const items = [{
   name: 'mariam',
   ImageUrl: 'gdfgds',
@@ -56,31 +56,29 @@ const rejectedSignupMutation = () => Promise.reject(new Error('not found'));
 const resolvedsignupMutation = () => response;
 
 // Test suites
-describe('PRODUCTSCREEN --- Snapshot', () => {
-  it('renders the links screen here', async () => {
+describe('SIGNUPSCREEN --- Snapshot', () => {
+  it('renders the sign up screen with rejected promise', async () => {
     const tree = renderer.create(<SignupPage
       navigation={navigation}
       handleSubmit={handleSubmit}
       signupUserMutation={rejectedSignupMutation}
       />);
     expect(tree.getInstance().handlePress(values)).toMatchSnapshot();
-    // expect(SignupPage.navigationOptions(navigation)).toMatchSnapshot();
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders the links screen here', async () => {
+  it('renders the sign up screen with resolved promise', async () => {
     const tree = renderer.create(<SignupPage
       navigation={navigation}
       handleSubmit={handleSubmit}
       signupUserMutation={resolvedsignupMutation}
       />);
     expect(tree.getInstance().handlePress(values)).toMatchSnapshot();
-    // expect(SignupPage.navigationOptions(navigation)).toMatchSnapshot();
     expect(tree).toMatchSnapshot();
   });
 });
 
-describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => {
+describe('SIGNUPSCREEN --- Shallow rendering + passing the store directly', () => {
   const initialState = {
     cart: {
       items
@@ -90,12 +88,8 @@ describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => 
     }
   };
   const mockStore = configureMockStore();
-  let store, container;
-
-  beforeEach(() => {
-    store = mockStore(initialState);
-    container = shallow(<ConnectedSignup store={store}/>);
-  });
+  const store = mockStore(initialState);
+  const container = shallow(<ConnectedSignup store={store}/>);
 
   it('renders the connected component', () => {
     expect(container.length).toEqual(1);

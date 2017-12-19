@@ -108,7 +108,7 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
       .toEqual(initialState.cart.total);
   });
 
-  it('check action on dispatching ', () => {
+  it('checks action on dispatching ', () => {
     let action = '';
     store.dispatch(clearCart());
     action = store.getActions();

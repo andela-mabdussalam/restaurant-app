@@ -1,274 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CARTSCREEN --- Snapshot renders a logout/login view is user is not logged in 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "white",
-      "flex": 1,
-      "padding": 7,
-    }
-  }
->
-  <RCTScrollView
-    automaticallyAdjustContentInsets={false}
-    contentInset={
-      Object {
-        "bottom": 0,
-      }
-    }
-    enableAutoAutomaticScroll={true}
-    enableResetScrollToCoords={true}
-    extraHeight={75}
-    extraScrollHeight={0}
-    keyboardDismissMode="interactive"
-    keyboardOpeningTime={250}
-    onScroll={[Function]}
-    resetScrollToCoords={
-      Object {
-        "x": 0,
-        "y": 0,
-      }
-    }
-    scrollEventThrottle={0}
-    showsVerticalScrollIndicator={true}
-    style={
-      Object {
-        "backgroundColor": "transparent",
-        "flex": 1,
-      }
-    }
-    virtual={undefined}
-  >
-    <View>
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "#fff",
-              "borderBottomWidth": 0.5,
-              "borderColor": "#ccc",
-              "borderLeftWidth": 0.5,
-              "borderRadius": 2,
-              "borderRightWidth": 0.5,
-              "borderTopWidth": 0.5,
-              "elevation": 3,
-              "flex": 1,
-              "flexWrap": "wrap",
-              "marginBottom": 5,
-              "marginLeft": 2,
-              "marginRight": 2,
-              "marginTop": 5,
-              "shadowColor": "#000",
-              "shadowOffset": Object {
-                "height": 2,
-                "width": 0,
-              },
-              "shadowOpacity": 0.1,
-              "shadowRadius": 1.5,
-            },
-            Object {
-              "padding": 20,
-            },
-          ]
-        }
-        virtual={undefined}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "borderRadius": 2,
-                "flexDirection": "row",
-                "paddingBottom": 10,
-                "paddingLeft": 15,
-                "paddingRight": 15,
-                "paddingTop": 10,
-              },
-              Object {
-                "alignSelf": "center",
-                "paddingBottom": 0,
-                "paddingLeft": 0,
-                "paddingRight": 5,
-                "paddingTop": 0,
-              },
-            ]
-          }
-          virtual={undefined}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            ellipsizeMode="tail"
-            fontSize={15}
-            style={
-              Array [
-                Object {
-                  "fontFamily": "SinkinSans-200XLight",
-                  "fontSize": 12,
-                },
-                Object {
-                  "fontSize": 15,
-                },
-              ]
-            }
-          >
-             SORRY, YOUR CART IS EMPTY
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "borderRadius": 2,
-                "flexDirection": "row",
-                "paddingBottom": 10,
-                "paddingLeft": 15,
-                "paddingRight": 15,
-                "paddingTop": 10,
-              },
-              Object {
-                "alignSelf": "center",
-                "paddingBottom": 0,
-                "paddingLeft": 0,
-                "paddingRight": 5,
-                "paddingTop": 0,
-              },
-            ]
-          }
-          virtual={undefined}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={false}
-            ellipsizeMode="tail"
-            style={
-              Array [
-                Object {
-                  "color": undefined,
-                  "fontSize": 12,
-                },
-                Array [
-                  Object {
-                    "color": "#000",
-                    "fontSize": 30,
-                  },
-                  Object {
-                    "color": "#000",
-                    "fontSize": 28,
-                    "width": 35,
-                  },
-                ],
-                Object {
-                  "fontFamily": "ionicons",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
-              ]
-            }
-            virtual={undefined}
-          >
-            
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#fff",
-                "borderRadius": 2,
-                "flexDirection": "row",
-                "paddingBottom": 10,
-                "paddingLeft": 15,
-                "paddingRight": 15,
-                "paddingTop": 10,
-              },
-              Object {
-                "alignSelf": "center",
-                "paddingBottom": 0,
-                "paddingLeft": 0,
-                "paddingRight": 5,
-                "paddingTop": 0,
-              },
-            ]
-          }
-          virtual={undefined}
-        >
-          <View
-            accessibilityComponentType={undefined}
-            accessibilityLabel={undefined}
-            accessibilityTraits={undefined}
-            accessible={true}
-            collapsable={undefined}
-            hitSlop={undefined}
-            isTVSelectable={true}
-            nativeID={undefined}
-            onLayout={undefined}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "alignSelf": "center",
-                "backgroundColor": "#F7C04C",
-                "borderBottomWidth": null,
-                "borderColor": "#007aff",
-                "borderLeftWidth": null,
-                "borderRadius": 5,
-                "borderRightWidth": null,
-                "borderTopWidth": null,
-                "elevation": 2,
-                "flexDirection": "row",
-                "height": 35,
-                "justifyContent": "center",
-                "opacity": 1,
-                "paddingBottom": 6,
-                "paddingTop": 6,
-              }
-            }
-            testID={undefined}
-            tvParallaxProperties={undefined}
-          >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              style={
-                Array [
-                  Object {
-                    "fontFamily": "SinkinSans-200XLight",
-                    "fontSize": 12,
-                  },
-                  Object {},
-                ]
-              }
-            >
-                  GO TO SHOP    
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </RCTScrollView>
-</View>
-`;
+exports[`CARTSCREEN --- Snapshot renders the cart screen 1`] = `undefined`;
 
-exports[`CARTSCREEN --- Snapshot renders the cart screen if user is logged in 1`] = `undefined`;
+exports[`CARTSCREEN --- Snapshot renders the cart screen 2`] = `undefined`;
 
-exports[`CARTSCREEN --- Snapshot renders the cart screen if user is logged in 2`] = `undefined`;
+exports[`CARTSCREEN --- Snapshot renders the cart screen 3`] = `undefined`;
 
-exports[`CARTSCREEN --- Snapshot renders the cart screen if user is logged in 3`] = `undefined`;
-
-exports[`CARTSCREEN --- Snapshot renders the cart screen if user is logged in 4`] = `
+exports[`CARTSCREEN --- Snapshot renders the cart screen 4`] = `
 <View
   style={
     Object {
@@ -1262,6 +1000,268 @@ exports[`CARTSCREEN --- Snapshot renders the cart screen if user is logged in 4`
             />
           </View>
         </Modal>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`CARTSCREEN --- Snapshot renders the empty cart screen if cart is empty 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+      "flex": 1,
+      "padding": 7,
+    }
+  }
+>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutoAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    onScroll={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={0}
+    showsVerticalScrollIndicator={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "flex": 1,
+      }
+    }
+    virtual={undefined}
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderBottomWidth": 0.5,
+              "borderColor": "#ccc",
+              "borderLeftWidth": 0.5,
+              "borderRadius": 2,
+              "borderRightWidth": 0.5,
+              "borderTopWidth": 0.5,
+              "elevation": 3,
+              "flex": 1,
+              "flexWrap": "wrap",
+              "marginBottom": 5,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "marginTop": 5,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1.5,
+            },
+            Object {
+              "padding": 20,
+            },
+          ]
+        }
+        virtual={undefined}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              },
+              Object {
+                "alignSelf": "center",
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 5,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            fontSize={15}
+            style={
+              Array [
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 12,
+                },
+                Object {
+                  "fontSize": 15,
+                },
+              ]
+            }
+          >
+             SORRY, YOUR CART IS EMPTY
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              },
+              Object {
+                "alignSelf": "center",
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 5,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={false}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Array [
+                  Object {
+                    "color": "#000",
+                    "fontSize": 30,
+                  },
+                  Object {
+                    "color": "#000",
+                    "fontSize": 28,
+                    "width": 35,
+                  },
+                ],
+                Object {
+                  "fontFamily": "ionicons",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+              ]
+            }
+            virtual={undefined}
+          >
+            
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              },
+              Object {
+                "alignSelf": "center",
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 5,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "#F7C04C",
+                "borderBottomWidth": null,
+                "borderColor": "#007aff",
+                "borderLeftWidth": null,
+                "borderRadius": 5,
+                "borderRightWidth": null,
+                "borderTopWidth": null,
+                "elevation": 2,
+                "flexDirection": "row",
+                "height": 35,
+                "justifyContent": "center",
+                "opacity": 1,
+                "paddingBottom": 6,
+                "paddingTop": 6,
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontFamily": "SinkinSans-200XLight",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ]
+              }
+            >
+                  GO TO SHOP    
+            </Text>
+          </View>
+        </View>
       </View>
     </View>
   </RCTScrollView>

@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ORDERSSCREEN --- Snapshot renders the loading screen if loading 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "white",
+    }
+  }
+>
+  <RCTScrollView>
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "#fff",
+              "borderBottomWidth": 0.5,
+              "borderColor": "#ccc",
+              "borderLeftWidth": 0.5,
+              "borderRadius": 2,
+              "borderRightWidth": 0.5,
+              "borderTopWidth": 0.5,
+              "elevation": 3,
+              "flex": 1,
+              "flexWrap": "wrap",
+              "marginBottom": 5,
+              "marginLeft": 2,
+              "marginRight": 2,
+              "marginTop": 5,
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.1,
+              "shadowRadius": 1.5,
+            },
+            Object {
+              "padding": 20,
+            },
+          ]
+        }
+        virtual={undefined}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#fff",
+              "borderRadius": 2,
+              "flexDirection": "row",
+              "paddingBottom": 10,
+              "paddingLeft": 15,
+              "paddingRight": 15,
+              "paddingTop": 10,
+            }
+          }
+          virtual={undefined}
+        >
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            collapsable={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            nativeID={undefined}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "alignSelf": "center",
+                "backgroundColor": "white",
+                "borderBottomWidth": null,
+                "borderColor": "#F7C04C",
+                "borderLeftWidth": null,
+                "borderRadius": 5,
+                "borderRightWidth": null,
+                "borderTopWidth": null,
+                "borderWidth": 0.5,
+                "elevation": 2,
+                "flexDirection": "row",
+                "height": 35,
+                "justifyContent": "center",
+                "marginTop": 15,
+                "opacity": 1,
+                "paddingBottom": 6,
+                "paddingTop": 6,
+                "width": "100%",
+              }
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              ellipsizeMode="tail"
+              style={
+                Array [
+                  Object {
+                    "fontFamily": "SinkinSans-200XLight",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              DATE ORDERED: 
+              19th December 2017
+               
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              },
+              Object {
+                "alignSelf": "center",
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 5,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 12,
+                },
+                Object {
+                  "textAlign": "center",
+                  "width": "33%",
+                },
+              ]
+            }
+          >
+             NO 
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 12,
+                },
+                Object {
+                  "textAlign": "center",
+                  "width": "33%",
+                },
+              ]
+            }
+          >
+             ITEM 
+          </Text>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 12,
+                },
+                Object {
+                  "textAlign": "center",
+                  "width": "33%",
+                },
+              ]
+            }
+          >
+            QUANTITY
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              },
+              Object {
+                "alignSelf": "center",
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 5,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#B2BEB5",
+                "borderBottomWidth": 0.5,
+                "height": 1,
+                "marginBottom": 10,
+                "marginTop": 15,
+                "width": "90%",
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              },
+              Object {
+                "alignSelf": "center",
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 5,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "fontFamily": "SinkinSans-200XLight",
+                  "fontSize": 12,
+                },
+                Object {},
+              ]
+            }
+          >
+            TOTAL AMOUNT PAID:  
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#fff",
+                "borderRadius": 2,
+                "flexDirection": "row",
+                "paddingBottom": 10,
+                "paddingLeft": 15,
+                "paddingRight": 15,
+                "paddingTop": 10,
+              },
+              Object {
+                "alignSelf": "center",
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 5,
+                "paddingTop": 0,
+              },
+            ]
+          }
+          virtual={undefined}
+        >
+          <View
+            style={
+              Object {
+                "borderBottomColor": "#B2BEB5",
+                "borderBottomWidth": 0.5,
+                "height": 1,
+                "marginBottom": 10,
+                "marginTop": 15,
+                "width": "90%",
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`ORDERSSCREEN --- Snapshot renders the orders screen 1`] = `
+<View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontFamily": "SinkinSans-200XLight",
+          "fontSize": 12,
+        },
+        Object {},
+      ]
+    }
+  >
+    Loading
+  </Text>
+</View>
+`;

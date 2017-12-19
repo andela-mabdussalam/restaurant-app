@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 1`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 1`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 2`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 2`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 3`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 3`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 4`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 4`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 5`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 5`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 6`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 6`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 7`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 7`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 8`] = `
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 8`] = `
 Object {
   "headerLeft": <TouchableHighlight
     activeOpacity={0.85}
@@ -36,7 +36,7 @@ Object {
 }
 `;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 9`] = `
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 9`] = `
 <View
   style={
     Object {
@@ -693,11 +693,11 @@ exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 9`] = `
 </View>
 `;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 10`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 10`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 11`] = `undefined`;
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 11`] = `undefined`;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 12`] = `
+exports[`PRODUCTSCREEN --- Snapshot renders the product screen 12`] = `
 <View
   style={
     Object {

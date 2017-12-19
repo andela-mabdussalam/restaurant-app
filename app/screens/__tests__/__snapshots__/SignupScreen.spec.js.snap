@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 1`] = `
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with rejected promise 1`] = `
 Promise {
   "_40": 0,
   "_55": null,
@@ -9,7 +9,7 @@ Promise {
 }
 `;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 2`] = `
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with rejected promise 2`] = `
 <View
   style={
     Object {
@@ -142,7 +142,7 @@ exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 2`] = `
 </View>
 `;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 3`] = `
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with resolved promise 1`] = `
 Promise {
   "_40": 0,
   "_55": null,
@@ -151,7 +151,7 @@ Promise {
 }
 `;
 
-exports[`PRODUCTSCREEN --- Snapshot renders the links screen here 4`] = `
+exports[`SIGNUPSCREEN --- Snapshot renders the sign up screen with resolved promise 2`] = `
 <View
   style={
     Object {

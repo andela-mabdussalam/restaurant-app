@@ -1,6 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RENDERINPUT --- Snapshot renders the cart screen if user is logged in 1`] = `
+exports[`RENDERINPUT --- Snapshot renders the input with error if touched and error are false 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#E0956D",
+      "borderBottomWidth": 1,
+      "borderColor": "#D9D5DC",
+      "borderLeftWidth": 0,
+      "borderRightWidth": 0,
+      "borderTopWidth": 0,
+      "flex": 1,
+      "flexDirection": "row",
+      "height": 40,
+      "justifyContent": "center",
+      "marginLeft": 2,
+      "marginTop": "3%",
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <TextInput
+    allowFontScaling={true}
+    editable={true}
+    onChangeText={[Function]}
+    placeholder="items"
+    placeholderTextColor="white"
+    secureTextEntry={true}
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "flex": 1,
+          "fontSize": 17,
+          "height": 50,
+          "lineHeight": 24,
+          "paddingLeft": 5,
+          "paddingRight": 5,
+          "top": 1.5,
+        },
+        Object {
+          "color": "#424242",
+          "flex": 1,
+          "fontFamily": "SinkinSans-200XLight",
+          "fontSize": 12,
+          "paddingBottom": 10,
+          "paddingLeft": 5,
+          "paddingRight": 10,
+          "paddingTop": 10,
+        },
+      ]
+    }
+    underlineColorAndroid="rgba(0,0,0,0)"
+    virtual={undefined}
+  />
+</View>
+`;
+
+exports[`RENDERINPUT --- Snapshot renders the input with error if touched and error are true 1`] = `
 <View
   accessibilityComponentType={undefined}
   accessibilityLabel={undefined}
@@ -80,82 +155,7 @@ exports[`RENDERINPUT --- Snapshot renders the cart screen if user is logged in 1
 </View>
 `;
 
-exports[`RENDERINPUT --- Snapshot renders the render input 1`] = `
-<View
-  accessibilityComponentType={undefined}
-  accessibilityLabel={undefined}
-  accessibilityTraits={undefined}
-  accessible={true}
-  collapsable={undefined}
-  hitSlop={undefined}
-  isTVSelectable={true}
-  nativeID={undefined}
-  onLayout={undefined}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#E0956D",
-      "borderBottomWidth": 1,
-      "borderColor": "#D9D5DC",
-      "borderLeftWidth": 0,
-      "borderRightWidth": 0,
-      "borderTopWidth": 0,
-      "flex": 1,
-      "flexDirection": "row",
-      "height": 40,
-      "justifyContent": "center",
-      "marginLeft": 2,
-      "marginTop": "3%",
-      "opacity": 1,
-    }
-  }
-  testID={undefined}
-  tvParallaxProperties={undefined}
->
-  <TextInput
-    allowFontScaling={true}
-    editable={true}
-    onChangeText={[Function]}
-    placeholder="items"
-    placeholderTextColor="white"
-    secureTextEntry={true}
-    style={
-      Array [
-        Object {
-          "color": "#000",
-          "flex": 1,
-          "fontSize": 17,
-          "height": 50,
-          "lineHeight": 24,
-          "paddingLeft": 5,
-          "paddingRight": 5,
-          "top": 1.5,
-        },
-        Object {
-          "color": "#424242",
-          "flex": 1,
-          "fontFamily": "SinkinSans-200XLight",
-          "fontSize": 12,
-          "paddingBottom": 10,
-          "paddingLeft": 5,
-          "paddingRight": 10,
-          "paddingTop": 10,
-        },
-      ]
-    }
-    underlineColorAndroid="rgba(0,0,0,0)"
-    virtual={undefined}
-  />
-</View>
-`;
-
-exports[`STYLEDTEXT --- Snapshot renders the styled text 1`] = `
+exports[`STYLEDTEXT --- Snapshot renders the styled text with custom font and small font 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -179,29 +179,7 @@ exports[`STYLEDTEXT --- Snapshot renders the styled text 1`] = `
 />
 `;
 
-exports[`STYLEDTEXT --- Snapshot renders the styled text 2`] = `
-<Text
-  accessible={true}
-  allowFontScaling={true}
-  color="red"
-  customFont="Sans"
-  ellipsizeMode="tail"
-  style={
-    Array [
-      Object {
-        "fontFamily": "SinkinSans-200XLight",
-        "fontSize": 12,
-      },
-      Object {
-        "color": "red",
-        "fontFamily": "Sans",
-      },
-    ]
-  }
-/>
-`;
-
-exports[`VALIDATEINPUT --- Snapshot renders the styled text 1`] = `
+exports[`STYLEDTEXT --- Snapshot renders the styled text with small font only 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
@@ -219,6 +197,28 @@ exports[`VALIDATEINPUT --- Snapshot renders the styled text 1`] = `
         "color": "red",
         "fontFamily": "Sans",
         "fontSize": 11,
+      },
+    ]
+  }
+/>
+`;
+
+exports[`STYLEDTEXT --- Snapshot renders the styled text without custom font only 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  color="red"
+  customFont="Sans"
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "fontFamily": "SinkinSans-200XLight",
+        "fontSize": 12,
+      },
+      Object {
+        "color": "red",
+        "fontFamily": "Sans",
       },
     ]
   }

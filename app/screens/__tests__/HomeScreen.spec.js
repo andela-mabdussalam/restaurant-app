@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import ConnectedHome, { HomeScreen } from '../HomeScreen';
 import { addProducts, addTokenToStore, loginFail } from '../../actions';
 
+// Mocked component
 jest.mock('redux-form/lib/Field', () => 'Field');
 
 // Test objects
@@ -53,7 +54,8 @@ const values = {
 const response = {
   data: {
     authenticateUser: {
-      token: 12345678
+      token: 12345678,
+      id: 534534543543
     }
   }
 };
@@ -63,7 +65,6 @@ const rejectedUserMutation = () => Promise.reject(new Error('not found'));
 const resolvedUserMutation = () => response;
 const handleSubmit = jest.fn();
 const LoginFail = jest.fn();
-
 
 // Test suites
 describe('HOMESCREEN --- Snapshot', () => {

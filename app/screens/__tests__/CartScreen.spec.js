@@ -6,11 +6,11 @@ import { shallow } from 'enzyme';
 import thunk from 'redux-thunk';
 import ConnectedCartScreen, { CartScreen } from '../CartScreen';
 import { increaseItemQuantity, decreaseItemQuantity } from '../../actions';
+import { StyledText as Text } from '../../components/StyledText';
 
 // Mocked component
 jest.mock('../CheckOutScreen', () => 'CheckOut');
 jest.mock('redux-form/lib/Field', () => 'Field');
-
 
 // Test objects
 const items = [{
@@ -25,6 +25,7 @@ const items = [{
   Price: 700,
   description: 'the hello is in the world'
 }];
+
 const emptyItem = [];
 
 const navigation = {
@@ -44,9 +45,10 @@ const product = {
   description: 'the rice and beans is dsldks',
   quantity: 4
 };
-// // Test suites
+
+// Test suites
 describe('CARTSCREEN --- Snapshot', () => {
-  it('renders the cart screen if user is logged in', async () => {
+  it('renders the cart screen', async () => {
     const tree = renderer.create(<CartScreen
       items={items}
       navigation={navigation}
@@ -56,23 +58,27 @@ describe('CARTSCREEN --- Snapshot', () => {
     expect(tree.getInstance().redirectToShop()).toMatchSnapshot();
     expect(tree.getInstance().closeModal()).toMatchSnapshot();
     expect(tree.getInstance().openModal()).toMatchSnapshot();
+    expect(CartScreen.navigationOptions.drawerLabel())
+      .toEqual(<Text
+        style={{ fontFamily: 'SinkinSans-200XLight', padding: 15 }}
+        >
+        Cart
+        </Text>);
     expect(tree).toMatchSnapshot();
   });
 
-
-  it('renders a logout/login view is user is not logged in', async () => {
+  it('renders the empty cart screen if cart is empty', async () => {
     const tree = renderer.create(<CartScreen
       items={emptyItem}
       navigation={navigation}
       increaseItemQuantity={increaseItemQuantity}
       decreaseItemQuantity={decreaseItemQuantity}
       />);
-
     expect(tree).toMatchSnapshot();
   });
 });
 
-describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', () => {
+describe('CARTSCREEN --- Shallow rendering + passing the store directly', () => {
   const initialState = {
     cart: {
       items
@@ -112,7 +118,7 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
       .toEqual(initialState.cart.total);
   });
 
-  it('check action on dispatching ', () => {
+  it('checks action on dispatching', () => {
     let action = '';
     store.dispatch(increaseItemQuantity(product));
     store.dispatch(decreaseItemQuantity(product));
