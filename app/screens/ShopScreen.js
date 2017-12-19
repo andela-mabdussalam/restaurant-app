@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Image, Text, ScrollView, TouchableHighlight } from 'react-native';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { graphql, compose } from 'react-apollo';
+import { StyledText as Text } from '../components/StyledText';
 import { ShopStyles as styles } from '../styles/styles';
+import Shop from '../components/Shop';
 
 /*
 * ShopScreen component
@@ -33,53 +34,10 @@ export class ShopScreen extends Component {
   _isLoggedIn = () =>
     this.props.data.loggedInUser && this.props.data.loggedInUser.id !== ''
 
-  sortData(data) {
-    const dataArray = [];
-    data.forEach((element) => {
-      const dataObj = {
-        Name: element[0],
-        Price: element[1],
-        ImageUrl: element[2],
-        Description: element[3]
-      };
-      dataArray.push(dataObj);
-    });
-    dataArray.splice(0, 1);
-    return dataArray;
-  }
-
   render() {
     const { products } = this.props;
     return (
-      <View style={styles.shopView}>
-        <ScrollView>
-          <View style={styles.viewBody}>
-            <View style={styles.foodItems}>
-              <Text style={styles.fiText}>Food Items</Text>
-            </View>
-            <View style={styles.tabs}>
-              <Text style={styles.headerText}> Latest </Text>
-              <Text style={styles.headerText}> New </Text>
-            </View>
-              {products.map((product, index) => (
-                <View key={index} style={styles.shopContainer}>
-                  <View>
-                    <TouchableHighlight onPress={() => this.onClickImage(product)} >
-                      <Image
-                        source={{ uri: product.imageUrl }}
-                        style={styles.Image}
-                      />
-                    </TouchableHighlight>
-                  </View>
-                  <View>
-                    <Text style={styles.fontFamily}>{product.name}</Text>
-                    <Text style={styles.fontFamily}>Price: N{product.price}</Text>
-                  </View>
-                </View>
-              ))}
-          </View>
-        </ScrollView>
-      </View>
+    <Shop products={products} onClickImage={this.onClickImage}/>
     );
   }
 }
