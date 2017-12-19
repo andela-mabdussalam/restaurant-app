@@ -6,3 +6,4 @@ export const SHOW_ITEM_QUANTITY = 'SHOW_ITEM_QUANTITY';
 export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const CHECKOUT = 'CHECKOUT';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const CLEAR_AUTH = 'CLEAR_AUTH';
