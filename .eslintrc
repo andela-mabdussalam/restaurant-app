@@ -16,15 +16,8 @@
   },
   "settings": {
     "import/resolver": {
-      "webpack": {
-        "config": {
-          "resolve": {
-            "extensions": [
-              ".js",
-              ".jsx"
-            ]
-          }
-        }
+      "node": {
+        "extensions": [".js", ".jsx"]
       }
     }
   },
@@ -32,12 +25,6 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "mocha": true,
-    "jquery": true
-  },
-  "globals": {
-    "sinon": true,
-    "expect": true,
     "jest": true
   },
   "rules": {
@@ -58,35 +45,7 @@
     "no-underscore-dangle": 0,
     "comma-dangle": 0,
     "prefer-template": 0,
-    "curly": [
-      1,
-      "multi-line"
-    ],
-    "no-shadow": [
-      1,
-      {
-        "allow": [
-          "req",
-          "res",
-          "err"
-        ]
-      }
-    ],
     "jsx-quotes": 0,
-    "react/display-name": [
-      1,
-      {
-        "ignoreTranspilerName": false
-      }
-    ],
-    "react/forbid-prop-types": [
-      1,
-      {
-        "forbid": [
-          "any"
-        ]
-      }
-    ],
     "react/jsx-boolean-value": 1,
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-curly-spacing": 1,
@@ -105,7 +64,7 @@
     "react/no-did-mount-set-state": 1,
     "react/no-did-update-set-state": 1,
     "react/no-direct-mutation-state": 1,
-    "react/no-multi-comp": 1,
+    "react/no-multi-comp": 0,
     "react/no-set-state": 0,
     "react/no-unknown-property": 1,
     "react/prefer-es6-class": 1,

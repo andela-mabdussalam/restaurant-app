@@ -53,9 +53,7 @@ const Home = ({
       <View>
         <View style={{ flexDirection: 'row' }}>
           <Text style={styles.forgotPassword}>Do not have account?  </Text>
-          <TouchableOpacity
-          onPress={handleSignupPress}
-          >
+          <TouchableOpacity onPress={handleSignupPress}>
             <Text style={styles.signUpText}>Sign Up here</Text>
           </TouchableOpacity>
         </View>
@@ -71,11 +69,21 @@ const Home = ({
       </View>
     </View>
     <View style={styles.buttonsView} >
-      <Button color="#F7C04C" style={styles.facebookLoginBtn} block iconLeft>
+        <Button
+          color="#F7C04C"
+          style={styles.facebookLoginBtn}
+          block
+          iconLeft
+        >
           <Icon name='logo-facebook' />
           <Text style={styles.buttonText}>  Facebook</Text>
       </Button>
-      <Button color="#F7C04C" style={styles.googleLoginBtn} block iconLeft>
+        <Button
+          color="#F7C04C"
+          style={styles.googleLoginBtn}
+          block
+          iconLeft
+        >
           <Icon name='logo-google' />
           <Text style={styles.buttonText}>  Google</Text>
       </Button>

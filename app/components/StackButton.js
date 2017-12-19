@@ -6,13 +6,13 @@ import { Icon } from 'native-base';
 const StackButton = navigation =>
 <TouchableHighlight
   underlayColor='#D57E56'
-  onPress={() => {
-      navigation.navigate('DrawerStack');
-  }
-  }>
+  onPress={() => { navigation.navigate('DrawerStack'); }}
+>
   <Icon
-  style={{ fontSize: 30, color: 'white' }}
-  name='ios-arrow-round-back-outline'/>
+    // Inline styling
+    style={{ fontSize: 30, color: 'white' }}
+    name='ios-arrow-round-back-outline'
+  />
 </TouchableHighlight>;
 
 StackButton.propTypes = {

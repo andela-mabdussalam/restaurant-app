@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 
 export const StyledText = (props) => {
   const styles = StyleSheet.flatten(props.style);
+
   const inlineStyles = styles || {};
+
   const fontFamily = {
     fontFamily: 'SinkinSans-200XLight',
     fontSize: 12
   };
+
+  // StyledText props destructured
   const {
     marginTop,
     color,
@@ -42,8 +46,8 @@ export const StyledText = (props) => {
   }
   return (
     <Text
-    {...props}
-     style={[fontFamily, inlineStyles]}
+      {...props}
+      style={[fontFamily, inlineStyles]}
     />
   );
 };

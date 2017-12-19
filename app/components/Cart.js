@@ -38,19 +38,19 @@ const Cart = ({
         <Card >
           <CardItem style={styles.cardItem}>
             <View style={[styles.cardItemView, styles.flex]}>
-              <Text smallFont >ITEM</Text>
+              <Text smallFont>ITEM</Text>
             </View>
             <View style={[styles.cardItemView, styles.quantity]}>
-              <Text smallFont >No</Text>
+              <Text smallFont>No</Text>
             </View>
             <View style={[styles.cardItemView, styles.price]}>
-              <Text smallFont >Price</Text>
+              <Text smallFont>Price</Text>
             </View>
             <View style={[styles.cardItemView, styles.subTotal]}>
-              <Text smallFont >SubTotal</Text>
+              <Text smallFont>SubTotal</Text>
             </View>
             <View style={styles.removeAdd}>
-              <Icon name="ios-add-outline"/>
+              <Icon name="ios-add-outline" />
             </View>
           </CardItem>
         </Card>
@@ -62,7 +62,10 @@ const Cart = ({
                   source={{ uri: item.imageUrl }}
                   style={styles.Image}
                 />
-                <Text marginTop={15} marginLeft={6}>
+                <Text
+                  marginTop={15}
+                  marginLeft={6}
+                >
                   {item.name}
                 </Text>
               </View>
@@ -96,11 +99,7 @@ const Cart = ({
           <CardItem style={styles.cardItem}>
             <Right>
               <View style={styles.total}>
-                <Text
-                  fontSize={11}
-                >
-                TOTAL:       &#8358;{total}
-                </Text>
+                <Text fontSize={11}>TOTAL:       &#8358;{total}</Text>
               </View>
             </Right>
           </CardItem>
@@ -112,11 +111,14 @@ const Cart = ({
           block
           iconLeft
         >
-            <Icon name='md-checkmark'/>
-            <Text>    CHECKOUT   </Text>
+          <Icon name='md-checkmark'/>
+          <Text>    CHECKOUT   </Text>
         </Button>
         <Modal isVisible={isModalVisible}>
-         <CheckOut closeModal={closeModal} navigation={navigation}/>
+          <CheckOut
+            closeModal={closeModal}
+            navigation={navigation}
+          />
        </Modal>
       </View>
     </ScrollView>}
@@ -127,10 +129,17 @@ const Cart = ({
           <Text fontSize={15} > SORRY, YOUR CART IS EMPTY</Text>
         </CardItem>
         <CardItem style={styles.cardItem}>
-          <Icon name="ios-sad-outline" style={styles.Icon}/>
+          <Icon
+            name="ios-sad-outline"
+            style={styles.Icon}
+          />
         </CardItem>
         <CardItem style={styles.cardItem}>
-        <Button onPress={redirectToShop} color="#F7C04C" style={styles.okButton}>
+          <Button
+            onPress={redirectToShop}
+            color="#F7C04C"
+            style={styles.okButton}
+          >
           <Text>    GO TO SHOP    </Text>
         </Button>
         </CardItem>
