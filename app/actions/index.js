@@ -34,6 +34,10 @@ const decreaseQuantity = product => ({
   product
 });
 
+const clearAuth = () => ({
+  type: types.CLEAR_AUTH,
+});
+
 export const addProducts = products => (dispatch) => {
   dispatch(receiveProducts(products));
 };
@@ -56,6 +60,10 @@ export const decreaseItemQuantity = product => (dispatch) => {
 
 export const clearCart = () => (dispatch) => {
   dispatch(checkOut());
+};
+
+export const removeAuth = () => (dispatch) => {
+  dispatch(clearAuth());
 };
 
 export const loginFail = loginState => (dispatch) => {
