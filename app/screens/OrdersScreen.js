@@ -8,7 +8,7 @@ import { StyledText as Text } from '../components/StyledText';
 import { OrdersScreenStyles as styles } from '../styles/styles';
 import Orders from '../components/Orders';
 
-class OrdersScreen extends React.Component {
+export class OrdersScreen extends React.Component {
   static navigationOptions = {
     title: 'Orders',
     drawerLabel: () => (
@@ -32,13 +32,6 @@ class OrdersScreen extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (!newProps.data.loading) {
-      if (this.subscription) {
-        if (newProps.data.allOrderses !== this.props.data.allOrderses) {
-          this.subscription();
-        } else {
-          return;
-        }
-      }
       this.subscription = newProps.data.subscribeToMore({
         document: gql`
         subscription {
@@ -56,10 +49,8 @@ class OrdersScreen extends React.Component {
         `,
         variables: null,
 
-        // this is where the magic happens
         updateQuery: (previousState, { subscriptionData }) => {
           const newOrder = subscriptionData.data.Orders.node;
-
           return {
             allOrderses: [
               {
@@ -71,8 +62,15 @@ class OrdersScreen extends React.Component {
         },
         onError: err => err,
       });
+
+      if (this.subscription) {
+        if (newProps.data.allOrderses !== this.props.data.allOrderses) {
+          this.subscription();
+        }
+      }
     }
   }
+
   _isLoggedIn = () => this.props.data.loggedInUser && this.props.data.loggedInUser.id !== '';
 
   render() {
