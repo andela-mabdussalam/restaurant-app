@@ -21,12 +21,18 @@ export class OrdersScreen extends React.Component {
     total: PropTypes.number,
     closeModal: PropTypes.func,
     navigation: PropTypes.object,
-    data: PropTypes.object
+    data: PropTypes.object,
+    userId: PropTypes.number,
+    addReview: PropTypes.func
+
   }
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      values: {},
+      isModalVisible: false,
+      selectedOrder: [],
+      ratingStarCount: {}
     };
   }
 
@@ -35,7 +41,7 @@ export class OrdersScreen extends React.Component {
       this.subscription = newProps.data.subscribeToMore({
         document: gql`
         subscription {
-          Orders(filter: {
+          Order(filter: {
             mutation_in: [CREATED]
           }) {
             node {
@@ -50,13 +56,13 @@ export class OrdersScreen extends React.Component {
         variables: null,
 
         updateQuery: (previousState, { subscriptionData }) => {
-          const newOrder = subscriptionData.data.Orders.node;
+          const newOrder = subscriptionData.data.Order.node;
           return {
-            allOrderses: [
+            allOrders: [
               {
                 ...newOrder
               },
-              ...previousState.allOrderses
+              ...previousState.allOrders
             ]
           };
         },
@@ -64,7 +70,7 @@ export class OrdersScreen extends React.Component {
       });
 
       if (this.subscription) {
-        if (newProps.data.allOrderses !== this.props.data.allOrderses) {
+        if (newProps.data.allOrders !== this.props.data.allOrders) {
           this.subscription();
         }
       }
@@ -73,13 +79,62 @@ export class OrdersScreen extends React.Component {
 
   _isLoggedIn = () => this.props.data.loggedInUser && this.props.data.loggedInUser.id !== '';
 
+  onChangeText = (value, name) => {
+    const stateCopy = Object.assign({}, this.state);
+    stateCopy.values[name] = value;
+    this.setState(stateCopy);
+  }
+
+  closeModal= () => {
+    this.setState({ isModalVisible: false });
+  }
+
+  openModal= (order) => {
+    this.setState({ isModalVisible: true, selectedOrder: order[0] });
+  }
+
+  onReviewStarRatingPress = (rating, id) => {
+    const stateCopy = Object.assign({}, this.state);
+    stateCopy.ratingStarCount[id] = rating;
+    this.setState(stateCopy);
+  }
+
+  addReview = () => {
+    const { values } = this.state;
+    Object.keys(values).forEach((key) => {
+      const { userId } = this.props;
+      const productId = key;
+      const review = values[key];
+      const rating = this.state.ratingStarCount[key];
+      this.props.addReview({
+        variables: {
+          review,
+          productId,
+          userId,
+          rating
+        }
+      });
+      this.setState({ isModalVisible: false });
+    });
+  }
+
   render() {
     if (this.props.data.loading) {
       return (<View><Text>Loading</Text></View>);
     }
-    const { allOrderses } = this.props.data;
+    const { allOrders } = this.props.data;
+    const { ratingStarCount, selectedOrder, isModalVisible } = this.state;
     return (
-      <Orders allOrderses={allOrderses}/>
+      <Orders
+      allOrders={allOrders}
+      openModal={this.openModal}
+      closeModal={this.closeModal}
+      ratingStarCount={ratingStarCount}
+      addReview={this.addReview}
+      onReviewStarRatingPress={this.onReviewStarRatingPress}
+      onChangeText={this.onChangeText}
+      selectedOrder={selectedOrder}
+      isModalVisible={isModalVisible} />
     );
   }
 }
@@ -95,7 +150,7 @@ const mapStateToProps = (state) => {
 
 const ORDERS_QUERY = gql`
 query allOrders($userId: ID) {
-  allOrderses(filter: {
+  allOrders(filter: {
     user:  {
       id_contains: $userId
     }
@@ -108,14 +163,37 @@ query allOrders($userId: ID) {
 }
 `;
 
-const OrdersWithQuery = compose(graphql(
-  ORDERS_QUERY,
-  {
-    options: {
-      forcePolicy: 'cache-and-network'
-    }
+const ADD_REVIEW = gql`
+mutation addReview(
+  $review: String!
+  $productId: ID
+  $userId: ID
+  $rating: Int
+){
+  createReview(
+    review: $review,
+    productId: $productId,
+    userId: $userId,
+    rating: $rating
+  )
+    {
+    id
+    review
   }
-))(OrdersScreen);
+}`;
+
+const OrdersWithQuery = compose(
+  graphql(
+    ORDERS_QUERY,
+    {
+      options: { forcePolicy: 'cache-and-network' }
+    }
+  ),
+  graphql(
+    ADD_REVIEW,
+    { name: 'addReview' }
+  )
+)(OrdersScreen);
 
 export default connect(
   mapStateToProps,
