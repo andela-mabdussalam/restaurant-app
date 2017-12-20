@@ -53,9 +53,7 @@ const Home = ({
       <View>
         <View style={{ flexDirection: 'row' }}>
           <Text style={styles.forgotPassword}>Do not have account?  </Text>
-          <TouchableOpacity
-          onPress={handleSignupPress}
-          >
+          <TouchableOpacity onPress={handleSignupPress}>
             <Text style={styles.signUpText}>Sign Up here</Text>
           </TouchableOpacity>
         </View>
