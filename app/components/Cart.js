@@ -38,19 +38,19 @@ const Cart = ({
         <Card >
           <CardItem style={styles.cardItem}>
             <View style={[styles.cardItemView, styles.flex]}>
-              <Text smallFont >ITEM</Text>
+              <Text smallFont>ITEM</Text>
             </View>
             <View style={[styles.cardItemView, styles.quantity]}>
-              <Text smallFont >No</Text>
+              <Text smallFont>No</Text>
             </View>
             <View style={[styles.cardItemView, styles.price]}>
-              <Text smallFont >Price</Text>
+              <Text smallFont>Price</Text>
             </View>
             <View style={[styles.cardItemView, styles.subTotal]}>
-              <Text smallFont >SubTotal</Text>
+              <Text smallFont>SubTotal</Text>
             </View>
             <View style={styles.removeAdd}>
-              <Icon name="ios-add-outline"/>
+              <Icon name="ios-add-outline" />
             </View>
           </CardItem>
         </Card>
@@ -96,10 +96,8 @@ const Cart = ({
           <CardItem style={styles.cardItem}>
             <Right>
               <View style={styles.total}>
-                <Text
-                  fontSize={11}
-                >
-                TOTAL:       &#8358;{total}
+                <Text fontSize={11}>
+                  TOTAL:       &#8358;{total}
                 </Text>
               </View>
             </Right>
@@ -112,8 +110,8 @@ const Cart = ({
           block
           iconLeft
         >
-            <Icon name='md-checkmark'/>
-            <Text>    CHECKOUT   </Text>
+          <Icon name='md-checkmark'/>
+          <Text>    CHECKOUT   </Text>
         </Button>
         <Modal isVisible={isModalVisible}>
          <CheckOut closeModal={closeModal} navigation={navigation}/>

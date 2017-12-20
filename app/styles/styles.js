@@ -12,6 +12,9 @@ export const ShopStyles = StyleSheet.create({
     backgroundColor: 'white',
     height: '100%'
   },
+  reviewText: {
+    marginTop: 5
+  },
   productName: {
     fontSize: 17,
     marginTop: 10,
@@ -85,6 +88,12 @@ export const ShopStyles = StyleSheet.create({
     flexDirection: 'row'
   }
 });
+export const StackButtonStyles = StyleSheet.create({
+  icon: {
+    fontSize: 30,
+    color: 'white'
+  }
+});
 
 export const HomeScreenStyles = StyleSheet.create({
   container: {
@@ -94,10 +103,18 @@ export const HomeScreenStyles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30,
   },
+  signupIcon: {
+    color: 'white',
+    fontSize: 60
+  },
   loginFail: {
     color: 'red',
     fontSize: 14,
     marginLeft: 10
+  },
+  card: {
+    flex: 0,
+    padding: 25
   },
   loginFailText: {
     color: 'red',
@@ -296,12 +313,26 @@ export const OrdersScreenStyles = StyleSheet.create({
   card: {
     padding: 20
   },
+  Image: {
+    width: 90,
+    height: 100,
+    marginTop: 5
+  },
   cardItem: {
     paddingLeft: 0,
     paddingBottom: 0,
     paddingTop: 0,
     paddingRight: 5,
-    alignSelf: 'center'
+    alignSelf: 'center',
+  },
+  reviewCardItem: {
+    paddingLeft: 0,
+    paddingBottom: 0,
+    paddingTop: 0,
+    paddingRight: 5,
+    alignSelf: 'center',
+    width: '90%',
+    marginBottom: 20
   },
   viewStyle: {
     width: '90%',
@@ -310,6 +341,21 @@ export const OrdersScreenStyles = StyleSheet.create({
     borderBottomColor: '#B2BEB5',
     marginTop: 15,
     marginBottom: 10
+  },
+  textInput: {
+    marginTop: 11,
+    height: 50,
+    borderColor: '#848482',
+    width: '100%',
+    fontFamily: 'SinkinSans-200XLight',
+    fontSize: 12,
+    borderWidth: 0.5,
+    textAlignVertical: 'top',
+    padding: 5,
+  },
+  reviewText: {
+    textAlign: 'center',
+    width: '100%'
   },
   textStyle: {
     width: '33%',
@@ -332,6 +378,16 @@ export const OrdersScreenStyles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     marginTop: 15,
+    borderWidth: 0.5,
+    borderColor: '#F7C04C'
+  },
+  reviewButton: {
+    width: '100%',
+    backgroundColor: '#F7C04C',
+    height: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
     borderWidth: 0.5,
     borderColor: '#F7C04C'
   },

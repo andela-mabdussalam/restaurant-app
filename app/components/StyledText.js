@@ -42,8 +42,8 @@ export const StyledText = (props) => {
   }
   return (
     <Text
-    {...props}
-     style={[fontFamily, inlineStyles]}
+      {...props}
+      style={[fontFamily, inlineStyles]}
     />
   );
 };

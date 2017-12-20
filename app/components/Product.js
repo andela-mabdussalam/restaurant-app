@@ -1,13 +1,15 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import { Icon, Button } from 'native-base';
 import Modal from 'react-native-modal';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import { ShopStyles as styles, ModalStyle } from '../styles/styles';
-
+import { StyledText as Text } from '../components/StyledText';
 
 const Product = ({
+  allReviews,
   params,
   imgWidth,
   imgHeight,
@@ -22,6 +24,7 @@ const Product = ({
   disabled
 }) =>
 <View style={styles.productView}>
+<ScrollView>
   <View>
     <Image
     source={{ uri: params.imageUrl }}
@@ -94,6 +97,29 @@ const Product = ({
   <View style={styles.hr} />
   <Text style={styles.description}> Description </Text>
   <Text style={styles.descriptionText}>{params.description}</Text>
+  <View style={styles.hr} />
+  <Text style={styles.description}> All Reviews </Text>
+
+  { allReviews && allReviews.map((items, index) =>
+    <View style={{ flexDirection: 'row', marginTop: 10 }} key={index}>
+    <View style={{ width: '40%', borderRightWidth: 0.2 }}>
+      <Text>{items.user.firstName}</Text>
+      <Text style={styles.reviewText}>{moment(items.createdAt).format('Do MMMM YYYY')}</Text>
+    </View>
+    <View style={{ marginLeft: 15 }}>
+    <View style={{ width: '30%' }}>
+    <StarRating
+          disabled
+          maxStars={5}
+          rating={items.rating}
+          starSize={16}
+          starColor={'#F7C04C'}
+        />
+      </View>
+      <Text style={styles.reviewText}>{items.review}</Text>
+    </View>
+    </View>)}
+    </ScrollView>
 </View>;
 
 Product.propTypes = {
@@ -108,8 +134,8 @@ Product.propTypes = {
   hideAddModal: PropTypes.func,
   redirectToCart: PropTypes.func,
   hideCancelModal: PropTypes.func,
-  disabled: PropTypes.bool
-
+  disabled: PropTypes.bool,
+  allReviews: PropTypes.array
 };
 
 export default Product;

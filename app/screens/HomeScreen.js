@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
 import { validate } from '../utils';
-import { addProducts, addTokenToStore, loginFail } from '../actions';
+import { addProducts, addTokenToStore, loginFail, removeProducts } from '../actions';
 import Home from '../components/Home';
 
 export class HomeScreen extends React.Component {
@@ -24,7 +24,8 @@ export class HomeScreen extends React.Component {
     navigation: PropTypes.object,
     addProducts: PropTypes.func,
     productQuery: PropTypes.object,
-    addTokenToStore: PropTypes.func
+    addTokenToStore: PropTypes.func,
+    removeProducts: PropTypes.func
   }
 
   loginUser = async (values) => {
@@ -32,6 +33,7 @@ export class HomeScreen extends React.Component {
     try {
       const response = await
         this.props.authenticateUserMutation({ variables: { email, password } });
+      this.props.removeProducts();
       this.props.addProducts(this.props.productQuery.allProducts);
       const { navigate } = this.props.navigation;
       this.props.addTokenToStore({
@@ -51,7 +53,7 @@ export class HomeScreen extends React.Component {
 
   handleSignupPress = () => {
     const { navigate } = this.props.navigation;
-    navigate('DrawerStack');
+    navigate('SignupPage');
   }
 
   storeAuthTokensLocally = async (token, userId) => {
@@ -82,6 +84,7 @@ mutation AuthenticateUser($email: String!, $password: String!) {
 const PRODUCTS_QUERY = gql`
 query allProducts {
   allProducts {
+    id,
     name,
     description,
     imageUrl,
@@ -117,5 +120,10 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { addProducts, addTokenToStore, loginFail }
+  {
+    addProducts,
+    addTokenToStore,
+    loginFail,
+    removeProducts
+  }
 )(LoginWithMutation);

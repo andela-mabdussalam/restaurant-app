@@ -27,6 +27,20 @@ const product = {
   description: 'the rice and beans is dsldks',
   quantity: 4
 };
+const data = {
+  allReviews: [
+    {
+      review: 'This works',
+      userId: 234564325,
+      productId: 234532523,
+      rating: 5,
+      createdAt: '2014-02-06T10:57Z',
+      user: {
+        firstName: 'mariam'
+      }
+    }
+  ]
+};
 
 const navigation = {
   navigate: jest.fn(),
@@ -46,11 +60,11 @@ const navigationWithoutValue = {
       name: 'topeez',
       ImageUrl: 'jandus',
       Price: 800,
-      description: 'the hello is in the world right heer '
+      description: 'the hello is in the world right heer ',
+      id: 435678,
     }
   }
 };
-
 
 // Test suites
 describe('PRODUCTSCREEN --- Snapshot', () => {
@@ -58,6 +72,7 @@ describe('PRODUCTSCREEN --- Snapshot', () => {
     const tree = renderer.create(<ProductScreen
       items={items}
       navigation={navigation}
+      data={data}
       addToCart={addToCart}
       />);
     expect(tree.getInstance().toggleModal()).toMatchSnapshot();
@@ -74,6 +89,7 @@ describe('PRODUCTSCREEN --- Snapshot', () => {
   it('renders the product screen', async () => {
     const tree = renderer.create(<ProductScreen
       navigation={navigationWithoutValue}
+      data={data}
       addToCart={addToCart}
       items={items}
       />);

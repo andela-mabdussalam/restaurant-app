@@ -10,7 +10,7 @@ const Signout = ({
 }) =>
   <Container>
     <Content>
-      <Card style={{ flex: 0, padding: 25 }}>
+      <Card style={styles.card}>
         <Body>
           <Text style={styles.logoutBody}>
             Are you sure you want to logout?

@@ -1,5 +1,5 @@
 import InitialState from '../constants/InitialState';
-import { RECEIVE_PRODUCTS } from '../constants/Actiontypes';
+import { RECEIVE_PRODUCTS, REMOVE_PRODUCTS } from '../constants/Actiontypes';
 
 
 export const ProductReducer = (state = InitialState.products, action) => {
@@ -8,6 +8,10 @@ export const ProductReducer = (state = InitialState.products, action) => {
       return [
         ...state, ...action.products
       ];
+
+    case REMOVE_PRODUCTS:
+      return [];
+
 
     default:
       return state;
