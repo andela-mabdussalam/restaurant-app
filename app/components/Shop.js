@@ -20,7 +20,9 @@ const Shop = ({
       {products.map((product, index) => (
         <View key={index} style={styles.shopContainer}>
           <View>
-            <TouchableHighlight onPress={() => onClickImage(product)} >
+            <TouchableHighlight
+            underlayColor="#f5f5f5"
+            onPress={() => onClickImage(product)} >
               <Image
                 source={{ uri: product.imageUrl }}
                 style={styles.Image}
