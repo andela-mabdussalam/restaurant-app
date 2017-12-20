@@ -7,3 +7,4 @@ export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS';
 export const CHECKOUT = 'CHECKOUT';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const CLEAR_AUTH = 'CLEAR_AUTH';
+export const REMOVE_PRODUCTS = 'REMOVE_PRODUCTS';
