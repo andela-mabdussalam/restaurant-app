@@ -18,7 +18,7 @@ const Signup = ({ handleSubmit, handlePress }) =>
   <View style={styles.container}>
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.main}>
-        <Icon name='md-person-add' style={{ color: 'white', fontSize: 60 }}/>
+        <Icon name='md-person-add' style={styles.signupIcon}/>
         <Field
           name="firstName"
           component={RenderInput}
