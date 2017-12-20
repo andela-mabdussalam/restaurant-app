@@ -22,7 +22,7 @@ export class OrdersScreen extends React.Component {
     closeModal: PropTypes.func,
     navigation: PropTypes.object,
     data: PropTypes.object,
-    userId: PropTypes.number,
+    userId: PropTypes.string,
     addReview: PropTypes.func
 
   }
@@ -154,7 +154,7 @@ query allOrders($userId: ID) {
     user:  {
       id_contains: $userId
     }
-  } ) {
+  }, orderBy: createdAt_DESC ) {
     id
     items
     total
