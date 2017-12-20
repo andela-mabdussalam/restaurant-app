@@ -67,12 +67,12 @@ const mapStateToProps = (state) => {
 };
 
 const CHECKOUT_MUTATION = gql`
-mutation createOrders(
+mutation createOrder(
   $items: [Json!]
   $total: Int!
   $userId: ID
   ){
-    createOrders(
+    createOrder(
       items: $items,
       total: $total,
       userId: $userId,
