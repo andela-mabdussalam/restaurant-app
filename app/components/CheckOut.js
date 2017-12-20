@@ -14,7 +14,7 @@ import { CartScreenStyles as styles } from '../styles/styles';
 const CheckOut = ({
   items,
   closeModal,
-  value,
+  onChangeText,
   total,
   completed
 }) =>
@@ -70,17 +70,12 @@ const CheckOut = ({
         </Text>
       </CardItem>
       <CardItem style={styles.cardItem}>
-        <Text
-        fontSize={10}
-        > (If different from saved address)
-        </Text>
-      </CardItem>
-      <CardItem style={styles.cardItem}>
         <TextInput
           underlineColorAndroid='rgba(0,0,0,0)'
           multiline
           style={styles.textInput}
-          value={value}
+          placeholde={'Enter the delivery address'}
+          onChangeText={text => onChangeText(text)}
         />
       </CardItem>
       <CardItem style={styles.cardItem}>
@@ -103,7 +98,7 @@ const CheckOut = ({
 CheckOut.propTypes = {
   items: PropTypes.array,
   total: PropTypes.number,
-  value: PropTypes.string,
+  onChangeText: PropTypes.func,
   closeModal: PropTypes.func,
   completed: PropTypes.func
 };

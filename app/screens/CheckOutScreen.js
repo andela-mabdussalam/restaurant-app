@@ -24,23 +24,36 @@ export class CheckOutScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      address: ''
     };
   }
 
   _isLoggedIn = () => this.props.data.loggedInUser && this.props.data.loggedInUser.id !== '';
+
+  onChangeText = (address) => {
+    this.setState({ address });
+  }
 
   completed = () => {
     const {
       total,
       data: { loggedInUser: { id } }
     } = this.props;
-    const items = JSON.stringify(this.props.items);
     this.props.navigation.navigate('Shop');
+    const items = JSON.stringify(this.props.items);
     const userId = id;
-    this.props.checkOutMutation({ variables: { items, total, userId } });
+    const { address } = this.state;
+    this.props.checkOutMutation({
+      variables: {
+        items,
+        total,
+        userId,
+        address
+      }
+    });
     this.props.clearCart();
   }
+
   render() {
     const { items, total } = this.props;
     if (this._isLoggedIn()) {
@@ -49,6 +62,7 @@ export class CheckOutScreen extends React.Component {
       closeModal={this.props.closeModal.bind(this)}
       total={total}
       value={this.state.value}
+      onChangeText={this.onChangeText}
       completed={this.completed}
     />;
     }
@@ -71,11 +85,13 @@ mutation createOrder(
   $items: [Json!]
   $total: Int!
   $userId: ID
+  $address: String
   ){
     createOrder(
       items: $items,
       total: $total,
       userId: $userId,
+      address: $address
     ){
       id
     }
