@@ -561,53 +561,11 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
             }
             virtual={undefined}
           >
-            <Text
-              accessible={true}
-              allowFontScaling={true}
-              ellipsizeMode="tail"
-              fontSize={10}
-              style={
-                Array [
-                  Object {
-                    "fontFamily": "SinkinSans-200XLight",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "fontSize": 10,
-                  },
-                ]
-              }
-            >
-               (If different from saved address)
-            </Text>
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#fff",
-                  "borderRadius": 2,
-                  "flexDirection": "row",
-                  "paddingBottom": 10,
-                  "paddingLeft": 15,
-                  "paddingRight": 15,
-                  "paddingTop": 10,
-                },
-                Object {
-                  "alignSelf": "center",
-                  "paddingBottom": 0,
-                  "paddingLeft": 0,
-                  "paddingRight": 5,
-                  "paddingTop": 0,
-                },
-              ]
-            }
-            virtual={undefined}
-          >
             <TextInput
               allowFontScaling={true}
               multiline={true}
+              onChangeText={[Function]}
+              placeholde="Enter the delivery address"
               style={
                 Object {
                   "borderColor": "gray",
@@ -622,7 +580,6 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
                 }
               }
               underlineColorAndroid="rgba(0,0,0,0)"
-              value=""
             />
           </View>
           <View

@@ -1701,10 +1701,10 @@ exports[`ORDERSSCREEN --- Snapshot renders the orders screen 6`] = `
                           "borderColor": "#848482",
                           "borderWidth": 0.5,
                           "fontFamily": "SinkinSans-200XLight",
-                          "fontSize": 10,
+                          "fontSize": 12,
                           "height": 50,
                           "marginTop": 11,
-                          "padding": 0,
+                          "padding": 5,
                           "textAlignVertical": "top",
                           "width": "100%",
                         }

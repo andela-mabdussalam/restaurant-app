@@ -81,7 +81,7 @@ const order = [[{
 
 const addReview = review => review;
 
-const userId = 324567;
+const userId = '324567';
 
 // Test suites
 describe('ORDERSSCREEN --- Snapshot', () => {
