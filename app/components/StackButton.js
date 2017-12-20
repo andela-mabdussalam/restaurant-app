@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TouchableHighlight } from 'react-native';
 import { Icon } from 'native-base';
+import { StackButtonStyles as styles } from '../styles/styles';
 
 const StackButton = navigation =>
 <TouchableHighlight
@@ -11,7 +12,7 @@ const StackButton = navigation =>
   }
   }>
   <Icon
-  style={{ fontSize: 30, color: 'white' }}
+  style={styles.icon}
   name='ios-arrow-round-back-outline'/>
 </TouchableHighlight>;
 
