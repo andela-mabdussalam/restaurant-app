@@ -348,10 +348,10 @@ export const OrdersScreenStyles = StyleSheet.create({
     borderColor: '#848482',
     width: '100%',
     fontFamily: 'SinkinSans-200XLight',
-    fontSize: 10,
+    fontSize: 12,
     borderWidth: 0.5,
     textAlignVertical: 'top',
-    padding: 0,
+    padding: 5,
   },
   reviewText: {
     textAlign: 'center',
