@@ -22,6 +22,7 @@
    total: Int!
    items: [Json!]
    user: User @relation(name: "UseronOrder")
+   address: String
    createdAt: DateTime! # read-only (managed by Graphcool)
    updatedAt: DateTime! # read-only (managed by Graphcool)
  }
