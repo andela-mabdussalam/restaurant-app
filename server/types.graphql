@@ -13,10 +13,11 @@
    password: String
    phoneNum: String
    email: String @isUnique
-   orders: [Orders!]! @relation(name: "UseronOrder")
+   reviews: [Review!]! @relation(name: "UseronReview")
+   orders: [Order!]! @relation(name: "UseronOrder")
  }
 
- type Orders @model {
+ type Order @model {
    id: ID! @isUnique # read-only (managed by Graphcool)
    total: Int!
    items: [Json!]
@@ -31,6 +32,17 @@
    description: String!
    price: Int!
    imageUrl: String!
+   reviews: [Review!]! @relation(name: "ProductonReview")
+   createdAt: DateTime! # read-only (managed by Graphcool)
+   updatedAt: DateTime! # read-only (managed by Graphcool)
+ }
+
+  type Review @model {
+   id: ID! @isUnique # read-only (managed by Graphcool)
+   product: Product @relation(name: "ProductonReview")
+   user: User @relation(name: "UseronReview")
+   rating: Int
+   review: String!
    createdAt: DateTime! # read-only (managed by Graphcool)
    updatedAt: DateTime! # read-only (managed by Graphcool)
  }
