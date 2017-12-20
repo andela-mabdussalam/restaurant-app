@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { Image, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
+import { graphql, compose } from 'react-apollo';
 import { addToCart } from '../actions';
 import StackButton from '../components/StackButton';
 import Product from '../components/Product';
+
 /*
 * ProductScreen component
 */
@@ -18,7 +21,8 @@ export class ProductScreen extends Component {
   static propTypes = {
     navigation: PropTypes.object,
     addToCart: PropTypes.func,
-    items: PropTypes.array
+    items: PropTypes.array,
+    data: PropTypes.object
   }
 
   constructor(props) {
@@ -80,6 +84,7 @@ export class ProductScreen extends Component {
 
   render() {
     const { params } = this.props.navigation.state;
+    const { allReviews } = this.props.data;
     const {
       imgWidth,
       imgHeight,
@@ -89,6 +94,7 @@ export class ProductScreen extends Component {
     } = this.state;
     return (
       <Product
+        allReviews={allReviews}
         params={params}
         imgWidth={imgWidth}
         imgHeight={imgHeight}
@@ -110,7 +116,35 @@ const mapStateToProps = state => ({
   items: state.cart.items
 });
 
+const REVIEWS_QUERY = gql`
+query reviews($productId: ID){
+  allReviews(filter: {
+    product: {
+      id_contains: $productId
+    }
+  }){
+    review
+    createdAt
+    rating
+    user {
+      firstName
+    }
+  }
+}
+`;
+
+const ProductWithReviews = compose(graphql(
+  REVIEWS_QUERY,
+  {
+    options: props => ({
+      variables: {
+        productId: props.navigation.state.params.id,
+      },
+    }),
+  }
+))(ProductScreen);
+
 export default connect(
   mapStateToProps,
   { addToCart }
-)(ProductScreen);
+)(ProductWithReviews);
