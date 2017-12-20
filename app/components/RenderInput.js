@@ -13,12 +13,12 @@ const RenderInput = ({
       [styles.inputView, styles.errorStyle] : styles.inputView}>
       {(touched && error) && <Icon style={styles.searchIcon} name='alert'/>}
       <Input
-      style={styles.input}
-      onChangeText={onChange}
-      secureTextEntry={secureTextEntry}
-      {...restInput}
-      placeholder={placeholder}
-      placeholderTextColor="white"/>
+        style={styles.input}
+        onChangeText={onChange}
+        secureTextEntry={secureTextEntry}
+        {...restInput}
+        placeholder={placeholder}
+        placeholderTextColor="white"/>
     </Item>;
 
 RenderInput.propTypes = {
