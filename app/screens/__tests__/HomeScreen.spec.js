@@ -43,7 +43,9 @@ const state = {
 };
 
 const productQuery = {
-  allProducts: {}
+  allProducts: [{
+    name: 'manny'
+  }]
 };
 
 const values = {
@@ -91,8 +93,11 @@ describe('HOMESCREEN --- Snapshot', () => {
     state={state}
     loginState
     loginFail={LoginFail}
+    addProducts={addProducts}
+    addTokenToStore={addTokenToStore}
     handleSubmit={handleSubmit}
     navigation={navigation}
+    productQuery={productQuery}
     authenticateUserMutation={resolvedUserMutation}
 />);
     expect(tree.getInstance().loginUser(values)).toMatchSnapshot();

@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import { shallow, } from 'enzyme';
 import ConnectedSignup, { SignupPage } from '../SignupScreen';
+import { addTokenToStore, addProducts } from '../../actions/index';
 
 // Mocked component
 jest.mock('redux-form/lib/Field', () => 'Field');
@@ -38,6 +39,7 @@ const response = {
   data: {
     signupUser: {
       token: 12345678,
+      id: 324567,
       firstName: 'mariam'
     }
   }
@@ -54,7 +56,11 @@ const values = {
 const handleSubmit = jest.fn();
 const rejectedSignupMutation = () => Promise.reject(new Error('not found'));
 const resolvedsignupMutation = () => response;
-
+const productQuery = {
+  allProducts: [{
+    name: 'mariam'
+  }]
+};
 // Test suites
 describe('SIGNUPSCREEN --- Snapshot', () => {
   it('renders the sign up screen with rejected promise', async () => {
@@ -62,6 +68,9 @@ describe('SIGNUPSCREEN --- Snapshot', () => {
       navigation={navigation}
       handleSubmit={handleSubmit}
       signupUserMutation={rejectedSignupMutation}
+      addTokenToStore={addTokenToStore}
+      addProducts={addProducts}
+      productQuery={productQuery}
       />);
     expect(tree.getInstance().handlePress(values)).toMatchSnapshot();
     expect(tree).toMatchSnapshot();
@@ -71,6 +80,9 @@ describe('SIGNUPSCREEN --- Snapshot', () => {
     const tree = renderer.create(<SignupPage
       navigation={navigation}
       handleSubmit={handleSubmit}
+      addTokenToStore={addTokenToStore}
+      addProducts={addProducts}
+      productQuery={productQuery}
       signupUserMutation={resolvedsignupMutation}
       />);
     expect(tree.getInstance().handlePress(values)).toMatchSnapshot();
