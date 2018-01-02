@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store';
 import { shallow, } from 'enzyme';
 import thunk from 'redux-thunk';
 import ConnectedHome, { HomeScreen } from '../HomeScreen';
-import { addProducts, addTokenToStore, loginFail } from '../../actions';
+import { addProducts, addTokenToStore, loginFail, removeProducts } from '../../actions';
 
 // Mocked component
 jest.mock('redux-form/lib/Field', () => 'Field');
@@ -62,6 +62,12 @@ const response = {
   }
 };
 
+const e = {
+  endCoordinates: {
+    height: 350
+  }
+};
+
 // Mocked functions
 const rejectedUserMutation = () => Promise.reject(new Error('not found'));
 const resolvedUserMutation = () => response;
@@ -77,9 +83,11 @@ describe('HOMESCREEN --- Snapshot', () => {
     loginFail={LoginFail}
     handleSubmit={handleSubmit}
     navigation={navigation}
-    addProducts={addProducts}
+    addProducts={jest.fn()}
+    removeProducts={removeProducts}
     authenticateUserMutation={rejectedUserMutation}
     addTokenToStore={addTokenToStore}
+    dispatch={jest.fn()}
     productQuery={productQuery}
     />);
     expect(tree.getInstance().loginUser(values)).toMatchSnapshot();
@@ -96,11 +104,14 @@ describe('HOMESCREEN --- Snapshot', () => {
     addProducts={addProducts}
     addTokenToStore={addTokenToStore}
     handleSubmit={handleSubmit}
+    removeProducts={removeProducts}
     navigation={navigation}
     productQuery={productQuery}
+    dispatch={jest.fn()}
     authenticateUserMutation={resolvedUserMutation}
 />);
     expect(tree.getInstance().loginUser(values)).toMatchSnapshot();
+    expect(tree.getInstance().keyboardDidShow(e)).toMatchSnapshot();
     expect(tree.toJSON()).toMatchSnapshot();
   });
 });
@@ -120,7 +131,9 @@ describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => 
 
   beforeEach(() => {
     store = mockStore(initialState);
-    container = shallow(<ConnectedHome store={store}/>);
+    container = shallow(<ConnectedHome
+      removeProducts={removeProducts}
+      store={store}/>);
   });
 
   it('renders the connected component', () => {
@@ -136,9 +149,11 @@ describe('HOMESCREEN --- Shallow rendering + passing the store directly', () => 
     store.dispatch(addProducts(products));
     store.dispatch(addTokenToStore('klmkmkl67890'));
     store.dispatch(loginFail(true));
+    store.dispatch(removeProducts());
     action = store.getActions();
     expect(action[0].type).toBe('RECEIVE_PRODUCTS');
     expect(action[1].type).toBe('ADD_TOKEN');
     expect(action[2].type).toBe('LOGIN_FAIL');
+    expect(action[3].type).toBe('REMOVE_PRODUCTS');
   });
 });
