@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { StyledText as Text } from '../../components/StyledText';
 import ConnectedOrders, { OrdersScreen } from '../OrdersScreen';
 import Orders from '../../components/Orders';
+
 // Test objects
 
 const items = [{
@@ -25,7 +26,7 @@ const items = [{
 const data = {
   loading: true,
   Orders: {
-    node: 'tewtwetwewe'
+    node: 'node1'
   }
 };
 const returned = () => 'hello';
@@ -40,7 +41,7 @@ const newPropsWithoutOrderses = {
   data: {
     subscribeToMore: subscribe,
     Orders: {
-      node: 'tewtwetwewe'
+      node: 'node2'
     },
     allOrders: [{
       name: 'beans',
