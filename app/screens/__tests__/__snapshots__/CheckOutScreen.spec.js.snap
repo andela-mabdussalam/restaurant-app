@@ -4,7 +4,9 @@ exports[`CHECKOUTSCREEN --- Snapshot renders a logout/login view is user is not 
 
 exports[`CHECKOUTSCREEN --- Snapshot renders a logout/login view is user is not logged in 2`] = `undefined`;
 
-exports[`CHECKOUTSCREEN --- Snapshot renders a logout/login view is user is not logged in 3`] = `
+exports[`CHECKOUTSCREEN --- Snapshot renders a logout/login view is user is not logged in 3`] = `undefined`;
+
+exports[`CHECKOUTSCREEN --- Snapshot renders a logout/login view is user is not logged in 4`] = `
 <View>
   <Text
     accessible={true}
@@ -20,13 +22,15 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
 
 exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logged in 2`] = `undefined`;
 
-exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logged in 3`] = `
+exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logged in 3`] = `undefined`;
+
+exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logged in 4`] = `
 Object {
   "title": "Order Detail",
 }
 `;
 
-exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logged in 4`] = `
+exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logged in 5`] = `
 <RCTScrollView>
   <View>
     <RCTScrollView
@@ -565,7 +569,7 @@ exports[`CHECKOUTSCREEN --- Snapshot renders the checkout screen if user is logg
               allowFontScaling={true}
               multiline={true}
               onChangeText={[Function]}
-              placeholde="Enter the delivery address"
+              placeholder="Enter the delivery address"
               style={
                 Object {
                   "borderColor": "gray",

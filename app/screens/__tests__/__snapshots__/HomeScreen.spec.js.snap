@@ -25,22 +25,12 @@ exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with rejected a
   style={
     Object {
       "backgroundColor": "#D57E56",
-      "flex": 1,
+      "height": 1334,
     }
   }
 >
   <RCTScrollView
-    contentContainerStyle={
-      Object {
-        "paddingTop": 30,
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#D57E56",
-        "flex": 1,
-      }
-    }
+    keyboardShouldPersistTaps="handled"
   >
     <View>
       <View
@@ -506,6 +496,54 @@ exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with rejected a
           </Text>
         </View>
       </View>
+      <View
+        style={
+          Object {
+            "height": "20%",
+            "marginTop": 20,
+          }
+        }
+      />
+      <Modal
+        animationType="slide"
+        hardwareAccelerated={false}
+        onRequestClose={[Function]}
+        transparent={true}
+        visible={true}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00000044",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#DEB887",
+                "borderRadius": 10,
+                "display": "flex",
+                "height": 100,
+                "justifyContent": "space-around",
+                "width": 100,
+              }
+            }
+          >
+            <ActivityIndicator
+              animating={true}
+              color="#F0E68C"
+              hidesWhenStopped={true}
+              size="large"
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   </RCTScrollView>
 </View>
@@ -520,27 +558,19 @@ Promise {
 }
 `;
 
-exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with resolved auth promise 2`] = `
+exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with resolved auth promise 2`] = `undefined`;
+
+exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with resolved auth promise 3`] = `
 <View
   style={
     Object {
       "backgroundColor": "#D57E56",
-      "flex": 1,
+      "height": 956,
     }
   }
 >
   <RCTScrollView
-    contentContainerStyle={
-      Object {
-        "paddingTop": 30,
-      }
-    }
-    style={
-      Object {
-        "backgroundColor": "#D57E56",
-        "flex": 1,
-      }
-    }
+    keyboardShouldPersistTaps="handled"
   >
     <View>
       <View
@@ -1124,6 +1154,54 @@ exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with resolved a
           </Text>
         </View>
       </View>
+      <View
+        style={
+          Object {
+            "height": "20%",
+            "marginTop": 20,
+          }
+        }
+      />
+      <Modal
+        animationType="slide"
+        hardwareAccelerated={false}
+        onRequestClose={[Function]}
+        transparent={true}
+        visible={true}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#00000044",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#DEB887",
+                "borderRadius": 10,
+                "display": "flex",
+                "height": 100,
+                "justifyContent": "space-around",
+                "width": 100,
+              }
+            }
+          >
+            <ActivityIndicator
+              animating={true}
+              color="#F0E68C"
+              hidesWhenStopped={true}
+              size="large"
+            />
+          </View>
+        </View>
+      </Modal>
     </View>
   </RCTScrollView>
 </View>

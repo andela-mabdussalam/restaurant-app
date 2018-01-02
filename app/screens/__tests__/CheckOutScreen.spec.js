@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { shallow, } from 'enzyme';
+import { shallow } from 'enzyme';
 import ConnectedCheckOut, { CheckOutScreen } from '../CheckOutScreen';
 import { clearCart } from '../../actions';
 
@@ -61,6 +61,7 @@ describe('CHECKOUTSCREEN --- Snapshot', () => {
       closeModal={closeModal}
       />);
     expect(tree.getInstance()._isLoggedIn()).toMatchSnapshot();
+    expect(tree.getInstance().onChangeText()).toMatchSnapshot();
     expect(tree.getInstance().completed()).toMatchSnapshot();
     expect(CheckOutScreen.navigationOptions(navigation)).toMatchSnapshot();
     expect(tree).toMatchSnapshot();
@@ -76,6 +77,7 @@ describe('CHECKOUTSCREEN --- Snapshot', () => {
       closeModal={closeModal}
       />);
     expect(tree.getInstance()._isLoggedIn()).toMatchSnapshot();
+    expect(tree.getInstance().onChangeText()).toMatchSnapshot();
     expect(tree.getInstance().completed()).toMatchSnapshot();
     expect(tree).toMatchSnapshot();
   });
@@ -94,10 +96,23 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
 
   beforeEach(() => {
     store = mockStore(initialState);
-    container = shallow(<ConnectedCheckOut store={store}/>);
+    container = shallow(<ConnectedCheckOut
+      data={data}
+      store={store}/>);
   });
 
   it('renders the connected component', () => {
+    container = shallow(<CheckOutScreen
+      data={data}
+      items={items}
+      closeModal={closeModal}
+      />);
+    container.find('CheckOut').dive().find('TextInput')
+      .simulate('changeText', 'tonia');
+    expect(container.length).toEqual(1);
+  });
+
+  it('renders the connected component gfgf', () => {
     expect(container.length).toEqual(1);
   });
 
