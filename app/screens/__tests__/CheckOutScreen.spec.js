@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import ConnectedCheckOut, { CheckOutScreen } from '../CheckOutScreen';
 import { clearCart } from '../../actions';
 
@@ -109,9 +109,6 @@ describe('CHECKOUTSCREEN --- Shallow rendering + passing the store directly', ()
       />);
     container.find('CheckOut').dive().find('TextInput')
       .simulate('changeText', 'tonia');
-
-
-      // .simulate('change', { target: { value: 'My new value' } });
     expect(container.length).toEqual(1);
   });
 
