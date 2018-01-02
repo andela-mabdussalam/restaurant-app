@@ -95,13 +95,48 @@ export const StackButtonStyles = StyleSheet.create({
   }
 });
 
+export const LoaderStyles = StyleSheet.create({
+  modalBackground: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    backgroundColor: '#00000044',
+
+  },
+  activityIndicatorWrapper: {
+    backgroundColor: '#DEB887',
+    height: 100,
+    width: 100,
+    borderRadius: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around'
+  }
+});
+
 export const HomeScreenStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '100%',
+    alignItems: 'center',
     backgroundColor: '#D57E56',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
+  },
+  paddingView: {
+    height: '20%',
+    marginTop: 20
+  },
+  loading: {
+    backgroundColor: '#F5FCFF88',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   signupIcon: {
     color: 'white',
@@ -160,8 +195,6 @@ export const HomeScreenStyles = StyleSheet.create({
     marginTop: '3%',
     backgroundColor: '#E0956D',
     height: 40,
-    flex: 1,
-    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -171,7 +204,6 @@ export const HomeScreenStyles = StyleSheet.create({
     color: 'red'
   },
   input: {
-    flex: 1,
     paddingTop: 10,
     paddingRight: 10,
     paddingBottom: 10,
@@ -548,7 +580,6 @@ export const CartScreenStyles = StyleSheet.create({
   },
   okButton: {
     backgroundColor: '#F7C04C',
-    // marginTop: '4%',
     height: 35,
     justifyContent: 'center',
     alignItems: 'center',
