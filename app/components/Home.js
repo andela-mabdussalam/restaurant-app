@@ -13,15 +13,18 @@ import { Field } from 'redux-form';
 import { HomeScreenStyles as styles } from '../styles/styles';
 import RenderInput from '../components/RenderInput';
 import { StyledText as Text } from './StyledText';
+import Loader from './Loader';
 
 const Home = ({
   handleSubmit,
   loginUser,
   handleSignupPress,
-  loginFail
+  loginFail,
+  loading,
+  visibleHeight
 }) =>
-<View style={styles.container}>
-  <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+<View style={{ height: visibleHeight, backgroundColor: '#D57E56' }}>
+<ScrollView keyboardShouldPersistTaps={'handled'}>
     <View style={styles.main}>
       <View style={styles.logoContainer}>
         <Text style={styles.largeText}>Sign  In</Text>
@@ -78,14 +81,19 @@ const Home = ({
           <Text style={styles.buttonText}>  Google</Text>
       </Button>
     </View>
-  </ScrollView>
+    <View style={styles.paddingView}/>
+    { loading && <Loader loading={loading} />
+}
+    </ScrollView>
 </View>;
 
 Home.propTypes = {
   handleSubmit: PropTypes.func,
   loginUser: PropTypes.func,
   handleSignupPress: PropTypes.func,
-  loginFail: PropTypes.bool
+  loginFail: PropTypes.bool,
+  loading: PropTypes.bool,
+  visibleHeight: PropTypes.number
 };
 
 export default Home;
