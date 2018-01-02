@@ -115,7 +115,7 @@ exports[`ORDERSSCREEN --- Snapshot renders the loading screen if loading 1`] = `
               }
             >
               DATE ORDERED: 
-              20th December 2017
+              2nd January 2018
                
             </Text>
           </View>
@@ -897,7 +897,7 @@ exports[`ORDERSSCREEN --- Snapshot renders the orders screen 6`] = `
               }
             >
               DATE ORDERED: 
-              20th December 2017
+              2nd January 2018
                
             </Text>
           </View>

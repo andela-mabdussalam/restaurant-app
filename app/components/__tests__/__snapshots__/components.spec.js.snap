@@ -26,7 +26,6 @@ exports[`RENDERINPUT --- Snapshot renders the input with error if touched and er
       "borderLeftWidth": 0,
       "borderRightWidth": 0,
       "borderTopWidth": 0,
-      "flex": 1,
       "flexDirection": "row",
       "height": 40,
       "justifyContent": "center",
@@ -59,7 +58,6 @@ exports[`RENDERINPUT --- Snapshot renders the input with error if touched and er
         },
         Object {
           "color": "#424242",
-          "flex": 1,
           "fontFamily": "SinkinSans-200XLight",
           "fontSize": 12,
           "paddingBottom": 10,
@@ -101,7 +99,6 @@ exports[`RENDERINPUT --- Snapshot renders the input with error if touched and er
       "borderLeftWidth": 0,
       "borderRightWidth": 0,
       "borderTopWidth": 0,
-      "flex": 1,
       "flexDirection": "row",
       "height": 40,
       "justifyContent": "center",
@@ -139,7 +136,6 @@ exports[`RENDERINPUT --- Snapshot renders the input with error if touched and er
         },
         Object {
           "color": "#424242",
-          "flex": 1,
           "fontFamily": "SinkinSans-200XLight",
           "fontSize": 12,
           "paddingBottom": 10,
