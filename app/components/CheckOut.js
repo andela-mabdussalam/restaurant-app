@@ -74,7 +74,7 @@ const CheckOut = ({
           underlineColorAndroid='rgba(0,0,0,0)'
           multiline
           style={styles.textInput}
-          placeholde={'Enter the delivery address'}
+          placeholder={'Enter the delivery address'}
           onChangeText={text => onChangeText(text)}
         />
       </CardItem>
