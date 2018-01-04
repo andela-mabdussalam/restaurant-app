@@ -87,6 +87,7 @@ export class HomeScreen extends React.Component {
       this.closeModal();
       navigate('DrawerStack');
     } catch (e) {
+      this.setState({ loading: false });
       this.props.loginFail(true);
       return ('An error occured');
     }
