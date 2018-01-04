@@ -40,6 +40,13 @@ functions:
      handler:
        code: src/email-password/loggedInUser.ts
 
+    facebookAuthentication:
+      handler:
+        code:
+          src: ./src/facebook/facebookAuthentication.ts
+      type: resolver
+      schema: ./src/facebook/facebookAuthentication.graphql
+
 
 
 # Model/Relation permissions are used to limit the API access
