@@ -70,7 +70,7 @@ export class HomeScreen extends React.Component {
   handleFacebookLogin = async () => {
     try {
       const { navigate } = this.props.navigation;
-      const { type, token, expires } = await Facebook.logInWithReadPermissionsAsync(
+      const { type, token } = await Facebook.logInWithReadPermissionsAsync(
         '1548552298543471',
         { permissions: ['public_profile', 'email', 'user_friends'], behavior: 'native' }
       );
