@@ -51,7 +51,7 @@ export default async (event: FunctionEvent<EventData>) => {
 }
 
 async function getFacebookUser(facebookToken: string): Promise<FacebookUser> {
-  const endpoint = `https://graph.facebook.com/v2.9/me?fields=id%2Cemail&access_token=${facebookToken}`
+  const endpoint = `https://graph.facebook.com/v2.9/me?fields=id%2Cemail%2Cname&access_token=${facebookToken}`
   const data = await fetch(endpoint)
     .then(response => response.json())
 
