@@ -2,7 +2,7 @@ import React from 'react';
 import { AsyncStorage, Alert, Dimensions, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
 import { reduxForm, destroy } from 'redux-form';
-import { Facebook } from 'expo';
+import { Facebook, Google } from 'expo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { graphql, compose } from 'react-apollo';
@@ -24,6 +24,8 @@ export class HomeScreen extends React.Component {
     loginState: PropTypes.bool,
     loginFail: PropTypes.func,
     authenticateUserMutation: PropTypes.func,
+    authenticateGoogleUserMutation: PropTypes.func,
+    authenticateFacebookUserMutation: PropTypes.func,
     navigation: PropTypes.object,
     addProducts: PropTypes.func,
     productQuery: PropTypes.object,
@@ -67,9 +69,41 @@ export class HomeScreen extends React.Component {
     this.setState({ loading: false });
   }
 
+  handleGoogleLogin = async () => {
+    const { navigate } = this.props.navigation;
+    this.setState({ loading: true });
+    try {
+      const { type, idToken } = await Google.logInAsync({
+        androidClientId: '503598624610-g0jc53rgs0fkgj43jj4o3mqftu8bsn0u.apps.googleusercontent.com',
+        iosClientId: '503598624610-mbe0289qv45e534p71eng7q2uei9o52c.apps.googleusercontent.com',
+        scopes: ['profile', 'email'],
+      });
+      if (type === 'success') {
+        try {
+          const response = await this.props.authenticateGoogleUserMutation({
+            variables: { googleToken: idToken }
+          });
+          this.loadApp(response.data.authenticateGoogleUser);
+          navigate('DrawerStack');
+          this.setState({ loading: false });
+        } catch (error) {
+          this.setState({ loading: false });
+          Alert.alert(
+            'Cancelled!',
+            'User already exists!',
+          );
+          return { error };
+        }
+        return idToken;
+      }
+      return { cancelled: true };
+    } catch (error) {
+      return { error };
+    }
+  }
+
   handleFacebookLogin = async () => {
     try {
-      const { navigate } = this.props.navigation;
       const { type, token } = await Facebook.logInWithReadPermissionsAsync(
         '1548552298543471',
         { permissions: ['public_profile', 'email', 'user_friends'], behavior: 'native' }
@@ -82,10 +116,8 @@ export class HomeScreen extends React.Component {
               variables: { facebookToken: token }
             });
             this.loadApp(response.data.authenticateFacebookUser);
-            this.closeModal();
-            navigate('DrawerStack');
-          } catch (e) {
-            console.log('the error is ', e);
+          } catch (error) {
+            return { error };
           }
 
           break;
@@ -104,16 +136,18 @@ export class HomeScreen extends React.Component {
           );
         }
       }
-    } catch (e) {
-      console.log('the error is', e);
+    } catch (error) {
+      this.setState({ loading: false });
       Alert.alert(
         'Oops!',
         'Login failed!',
       );
+      return { error };
     }
   };
 
   loadApp = (auth) => {
+    const { navigate } = this.props.navigation;
     this.props.removeProducts();
     this.props.addProducts(this.props.productQuery.allProducts);
     this.props.addTokenToStore({
@@ -123,6 +157,8 @@ export class HomeScreen extends React.Component {
     const tokenToString = auth.token.toString();
     const userId = auth.id.toString();
     this.storeAuthTokensLocally(tokenToString, userId);
+    this.setState({ loading: false });
+    navigate('DrawerStack');
   }
 
   loginUser = async (values) => {
@@ -164,6 +200,7 @@ export class HomeScreen extends React.Component {
         loading={this.state.loading}
         visibleHeight={this.state.visibleHeight}
         handleFacebookLogin={this.handleFacebookLogin}
+        handleGoogleLogin={this.handleGoogleLogin}
         handleSignupPress= {this.handleSignupPress}
       />
     );
@@ -178,9 +215,18 @@ mutation AuthenticateUser($email: String!, $password: String!) {
   }
 }
 `;
+
 const AUTH_FB_USER = gql`
 mutation AuthenticateUserMutation($facebookToken: String!) {
   authenticateFacebookUser(facebookToken: $facebookToken) {
+    token,
+    id
+  }
+}`;
+
+const AUTH_GOOGLE_USER = gql`
+mutation AuthenticateGoogleUserMutation($googleToken: String!) {
+  authenticateGoogleUser(googleToken: $googleToken) {
     token,
     id
   }
@@ -213,6 +259,10 @@ const LoginWithMutation = compose(
   graphql(
     AUTH_FB_USER,
     { name: 'authenticateFacebookUserMutation' }
+  ),
+  graphql(
+    AUTH_GOOGLE_USER,
+    { name: 'authenticateGoogleUserMutation' }
   ),
   graphql(
     PRODUCTS_QUERY,
