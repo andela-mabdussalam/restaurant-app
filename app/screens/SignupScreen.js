@@ -1,14 +1,15 @@
-/* eslint-disable no-console */
 import React, { Component } from 'react';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Dimensions, Keyboard } from 'react-native';
 import PropTypes from 'prop-types';
-import { reduxForm, destroy } from 'redux-form';
+import { reduxForm, destroy, SubmissionError } from 'redux-form';
 import { graphql, compose } from 'react-apollo';
 import gql from 'graphql-tag';
 import { connect } from 'react-redux';
 import { validate } from '../utils';
 import Signup from '../components/Signup';
-import { addProducts, addTokenToStore, loginFail } from '../actions';
+import { addProducts, addTokenToStore, loginFail, removeProducts } from '../actions';
+
+const window = Dimensions.get('window');
 
 export class SignupPage extends Component {
   static navigationOptions = {
@@ -25,21 +26,56 @@ export class SignupPage extends Component {
     addProducts: PropTypes.func,
     addTokenToStore: PropTypes.func,
     dispatch: PropTypes.func,
-    productQuery: PropTypes.object
+    productQuery: PropTypes.object,
+    removeProducts: PropTypes.func,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: null,
+      visibleHeight: window.height,
+    };
+  }
+
+  componentWillMount() {
+    this.props.dispatch(destroy('login'));
+    this.keyboardWillShowSub = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
+    this.keyboardWillHideSub = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
+  }
+
+  componentWillUnmount() {
+    this.keyboardWillShowSub.remove();
+    this.keyboardWillHideSub.remove();
+  }
+
+  keyboardDidShow = (e) => {
+    const newSize = window.height - (e.endCoordinates.height * 1.3);
+    this.setState({
+      visibleHeight: newSize,
+    });
+  }
+
+  keyboardDidHide = () => {
+    this.setState({
+      visibleHeight: window.height,
+    });
   }
 
   handlePress = async (values) => {
     const {
       firstName, lastName, email, password, phoneNum
     } = values;
+    const { navigate } = this.props.navigation;
+    this.setState({ loading: true });
     try {
       const response = await this.props.signupUserMutation({
         variables: {
           firstName, lastName, email, password, phoneNum
         }
       });
+      this.props.removeProducts();
       this.props.addProducts(this.props.productQuery.allProducts);
-      const { navigate } = this.props.navigation;
       this.props.addTokenToStore({
         token: response.data.signupUser.token,
         userId: response.data.signupUser.id
@@ -47,10 +83,16 @@ export class SignupPage extends Component {
       const tokenToString = response.data.signupUser.token.toString();
       const userId = response.data.signupUser.id.toString();
       this.storeAuthTokensLocally(tokenToString, userId);
+      this.props.dispatch(destroy('signup'));
+      this.setState({ loading: false });
       navigate('DrawerStack');
-      this.props.dispatch(destroy('login'));
     } catch (e) {
-      return ('An error occurred: ', e);
+      if (e.message.includes('Email')) {
+        this.setState({ loading: false });
+        throw new SubmissionError({ email: 'Invalid credentials' });
+      } else {
+        return ('An error occurred: ');
+      }
     }
   }
 
@@ -61,7 +103,11 @@ export class SignupPage extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <Signup handleSubmit={handleSubmit} handlePress={this.handlePress} />
+      <Signup
+      handleSubmit={handleSubmit}
+      handlePress={this.handlePress}
+      loading={this.state.loading}
+      visibleHeight={this.state.visibleHeight} />
     );
   }
 }
@@ -116,14 +162,12 @@ const SignupWithMutation = compose(
   )
 )(SignupScreen);
 
-const mapStateToProps = (state) => {
-  const { loginState } = state.user;
-  return {
-    loginState
-  };
-};
-
 export default connect(
-  mapStateToProps,
-  { addProducts, addTokenToStore, loginFail }
+  null,
+  {
+    addProducts,
+    addTokenToStore,
+    loginFail,
+    removeProducts
+  }
 )(SignupWithMutation);
