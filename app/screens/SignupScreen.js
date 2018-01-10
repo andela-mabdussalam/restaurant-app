@@ -39,7 +39,6 @@ export class SignupPage extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(destroy('login'));
     this.keyboardWillShowSub = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow);
     this.keyboardWillHideSub = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide);
   }
