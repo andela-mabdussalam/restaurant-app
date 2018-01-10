@@ -25,7 +25,7 @@ export const ShopStyles = StyleSheet.create({
     fontFamily: 'SinkinSans-200XLight',
   },
   justifyView: {
-    display: 'flex',
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
