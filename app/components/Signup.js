@@ -12,11 +12,17 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import { HomeScreenStyles as styles } from '../styles/styles';
 import RenderInput from '../components/RenderInput';
+import Loader from './Loader';
 
 
-const Signup = ({ handleSubmit, handlePress }) =>
-  <View style={styles.container}>
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+const Signup = ({
+  handleSubmit,
+  handlePress,
+  visibleHeight,
+  loading
+}) =>
+  <View style={{ height: visibleHeight, backgroundColor: '#D57E56' }}>
+    <ScrollView keyboardShouldPersistTaps={'handled'} style={styles.container} contentContainerStyle={styles.contentContainer}>
       <View style={styles.main}>
         <Icon name='md-person-add' style={styles.signupIcon}/>
         <Field
@@ -56,12 +62,16 @@ const Signup = ({ handleSubmit, handlePress }) =>
           <Text style={styles.buttonText}>    Submit</Text>
         </Button>
       </View>
+          <View style={styles.paddingView}/>
+          { loading && <Loader loading={loading} /> }
     </ScrollView>
   </View>;
 
 Signup.propTypes = {
   handleSubmit: PropTypes.func,
-  handlePress: PropTypes.func
+  handlePress: PropTypes.func,
+  visibleHeight: PropTypes.number,
+  loading: PropTypes.bool
 };
 
 export default Signup;
