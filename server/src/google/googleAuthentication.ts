@@ -9,6 +9,8 @@ interface User {
 interface GoogleUser {
   id: string
   email: string | null
+  given_name: string | null
+  family_name: string | null
 }
 
 interface EventData {
@@ -23,10 +25,9 @@ export default async (event: FunctionEvent<EventData>) => {
     const api = graphcool.api('simple/v1')
 
     const { googleToken } = event.data
-
     // call google API to obtain user data
     const googleUser = await getGoogleUser(googleToken)
-    
+
     // get graphcool user by google id
     const user: User = await getGraphcoolUser(api, googleUser.sub)
       .then(r => r.User)
@@ -35,7 +36,7 @@ export default async (event: FunctionEvent<EventData>) => {
     let userId: string | null = null
 
     if (!user) {
-      userId = await createGraphcoolUser(api, googleUser.sub)
+      userId = await createGraphcoolUser(api, googleUser)
     } else {
       userId = user.id
     }
@@ -45,8 +46,7 @@ export default async (event: FunctionEvent<EventData>) => {
 
     return { data: { id: userId, token} }
   } catch (e) {
-    console.log(e)
-    return { error: 'An unexpected error occured during authentication.' }
+    return { error: e }
   }
 }
 
@@ -58,7 +58,6 @@ async function getGoogleUser(googleToken: string): Promise<GoogleUser> {
   if (data.error_description) {
     throw new Error(data.error_description)
   }
-
   return data
 }
 
@@ -78,11 +77,14 @@ async function getGraphcoolUser(api: GraphQLClient, googleUserId: string): Promi
   return api.request<{ User }>(query, variables)
 }
 
-async function createGraphcoolUser(api: GraphQLClient, googleUserId: string): Promise<string> {
+async function createGraphcoolUser(api: GraphQLClient, googleUser: GoogleUser): Promise<string> {
   const mutation = `
-    mutation createUser($googleUserId: String!) {
+    mutation createUser($googleUserId: String!, $email: String!, $firstName: String, $lastName: String) {
       createUser(
         googleUserId: $googleUserId
+        email: $email
+        firstName: $firstName
+        lastName: $lastName
       ) {
         id
       }
@@ -90,7 +92,10 @@ async function createGraphcoolUser(api: GraphQLClient, googleUserId: string): Pr
   `
 
   const variables = {
-    googleUserId,
+    googleUserId: googleUser.sub,
+    email: googleUser.email,
+    firstName: googleUser.given_name,
+    lastName: googleUser.family_name
   }
 
   return api.request<{ createUser: User }>(mutation, variables)

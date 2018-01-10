@@ -20,6 +20,7 @@ types: ./types.graphql
 
 functions:
 
+
 # added by email-password template: (please uncomment)
 #
    signup:
@@ -46,6 +47,13 @@ functions:
           src: ./src/facebook/facebookAuthentication.ts
       type: resolver
       schema: ./src/facebook/facebookAuthentication.graphql
+
+   googleAuthentication:
+      handler:
+        code:
+          src: ./src/google/googleAuthentication.ts
+      type: resolver
+      schema: ./src/google/googleAuthentication.graphql
 
 
 
