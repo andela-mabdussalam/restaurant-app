@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import configureMockStore from 'redux-mock-store';
 import { shallow, } from 'enzyme';
 import ConnectedSignup, { SignupPage } from '../SignupScreen';
-import { addTokenToStore, addProducts } from '../../actions/index';
+import { addTokenToStore, addProducts, removeProducts } from '../../actions/index';
 
 // Mocked component
 jest.mock('redux-form/lib/Field', () => 'Field');
@@ -45,6 +45,12 @@ const response = {
   }
 };
 
+const e = {
+  endCoordinates: {
+    height: 350
+  }
+};
+
 const values = {
   firstName: 'mariam',
   lastName: 'tonia',
@@ -54,7 +60,8 @@ const values = {
 };
 // Mocked functions
 const handleSubmit = jest.fn();
-const rejectedSignupMutation = () => Promise.reject(new Error('not found'));
+const rejectedSignupMutation = () => Promise.reject(new Error('Email'));
+const rejectedSignup = () => Promise.reject(new Error('Other error'));
 const resolvedsignupMutation = () => response;
 const productQuery = {
   allProducts: [{
@@ -70,6 +77,23 @@ describe('SIGNUPSCREEN --- Snapshot', () => {
       signupUserMutation={rejectedSignupMutation}
       addTokenToStore={addTokenToStore}
       addProducts={addProducts}
+      dispatch={jest.fn()}
+      removeProducts={removeProducts}
+      productQuery={productQuery}
+      />);
+    expect(tree.getInstance().handlePress(values)).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders the sign up screen with rejected promise with other error message', async () => {
+    const tree = renderer.create(<SignupPage
+      navigation={navigation}
+      handleSubmit={handleSubmit}
+      signupUserMutation={rejectedSignup}
+      addTokenToStore={addTokenToStore}
+      addProducts={addProducts}
+      dispatch={jest.fn()}
+      removeProducts={removeProducts}
       productQuery={productQuery}
       />);
     expect(tree.getInstance().handlePress(values)).toMatchSnapshot();
@@ -83,8 +107,11 @@ describe('SIGNUPSCREEN --- Snapshot', () => {
       addTokenToStore={addTokenToStore}
       addProducts={addProducts}
       productQuery={productQuery}
+      dispatch={jest.fn()}
+      removeProducts={removeProducts}
       signupUserMutation={resolvedsignupMutation}
       />);
+    expect(tree.getInstance().keyboardDidShow(e)).toMatchSnapshot();
     expect(tree.getInstance().handlePress(values)).toMatchSnapshot();
     expect(tree).toMatchSnapshot();
   });

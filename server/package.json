@@ -9,6 +9,7 @@
     "graphcool-lib": "^0.1.0",
     "graphql-request": "^1.4.0",
     "graphql-tag": "^2.6.0",
-    "validator": "^9.0.0"
+    "validator": "^9.0.0",
+    "isomorphic-fetch": "^2.2.1"
   }
 }

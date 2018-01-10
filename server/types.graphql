@@ -12,7 +12,9 @@
    lastName: String
    password: String
    phoneNum: String
-   email: String @isUnique
+   email: String! @isUnique
+   googleUserId: String @isUnique
+   facebookUserId: String @isUnique
    reviews: [Review!]! @relation(name: "UseronReview")
    orders: [Order!]! @relation(name: "UseronOrder")
  }

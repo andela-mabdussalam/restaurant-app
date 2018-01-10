@@ -104,7 +104,7 @@ exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with rejected a
         <View
           style={
             Object {
-              "flex": 1,
+              "display": "flex",
               "flexDirection": "row",
               "marginTop": 5,
             }
@@ -127,6 +127,7 @@ exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with rejected a
                 },
                 Object {
                   "color": "red",
+                  "fontFamily": "SinkinSans-200XLight",
                   "fontSize": 12,
                   "marginLeft": 10,
                 },
@@ -644,7 +645,7 @@ exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with resolved a
         <View
           style={
             Object {
-              "flex": 1,
+              "display": "flex",
               "flexDirection": "row",
               "marginTop": 5,
             }
@@ -698,6 +699,7 @@ exports[`HOMESCREEN --- Snapshot captures snapshot of homescreen with resolved a
                 },
                 Object {
                   "color": "red",
+                  "fontFamily": "SinkinSans-200XLight",
                   "fontSize": 12,
                   "marginLeft": 10,
                 },

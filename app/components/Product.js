@@ -34,7 +34,7 @@ const Product = ({
   <View>
     <Text style={styles.productName}>{ params.name }</Text>
   </View>
-  <View style={{ flexDirection: 'row', display: 'flex' }}>
+  <View style={styles.flex}>
     <View>
       <Text style={styles.productPrice}>Price: N{ params.price }</Text>
       <View style={{ marginTop: 10 }}>
@@ -48,7 +48,7 @@ const Product = ({
         />
       </View>
   </View>
-  <View style={{ flexDirection: 'row', flex: 1, justifyContent: 'flex-end' }}>
+  <View style={styles.justifyView}>
     <TouchableOpacity
       onPress={toggleModal}
       underlayColor='fffff'
@@ -101,9 +101,9 @@ const Product = ({
   <Text style={styles.description}> All Reviews </Text>
 
   { allReviews && allReviews.map((items, index) =>
-    <View style={{ flexDirection: 'row', marginTop: 10 }} key={index}>
-    <View style={{ width: '40%', borderRightWidth: 0.2 }}>
-      <Text>{items.user.firstName}</Text>
+    <View style={styles.review} key={index}>
+    <View style={styles.leftReview}>
+      {items.user.firstName && <Text>{items.user.firstName}</Text>}
       <Text style={styles.reviewText}>{moment(items.createdAt).format('Do MMMM YYYY')}</Text>
     </View>
     <View style={{ marginLeft: 15 }}>

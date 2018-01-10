@@ -21,7 +21,9 @@ const Home = ({
   handleSignupPress,
   loginFail,
   loading,
-  visibleHeight
+  visibleHeight,
+  handleFacebookLogin,
+  handleGoogleLogin
 }) =>
 <View style={{ height: visibleHeight, backgroundColor: '#D57E56' }}>
 <ScrollView keyboardShouldPersistTaps={'handled'}>
@@ -72,11 +74,21 @@ const Home = ({
       </View>
     </View>
     <View style={styles.buttonsView} >
-      <Button color="#F7C04C" style={styles.facebookLoginBtn} block iconLeft>
+      <Button
+      onPress={handleFacebookLogin}
+      style={styles.facebookLoginBtn}
+      color="#F7C04C"
+      block
+      iconLeft>
           <Icon name='logo-facebook' />
           <Text style={styles.buttonText}>  Facebook</Text>
       </Button>
-      <Button color="#F7C04C" style={styles.googleLoginBtn} block iconLeft>
+      <Button
+      onPress={handleGoogleLogin}
+      color="#F7C04C"
+      style={styles.googleLoginBtn}
+      block
+      iconLeft>
           <Icon name='logo-google' />
           <Text style={styles.buttonText}>  Google</Text>
       </Button>
@@ -91,6 +103,8 @@ Home.propTypes = {
   handleSubmit: PropTypes.func,
   loginUser: PropTypes.func,
   handleSignupPress: PropTypes.func,
+  handleFacebookLogin: PropTypes.func,
+  handleGoogleLogin: PropTypes.func,
   loginFail: PropTypes.bool,
   loading: PropTypes.bool,
   visibleHeight: PropTypes.number
