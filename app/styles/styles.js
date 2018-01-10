@@ -7,6 +7,10 @@ export const ShopStyles = StyleSheet.create({
     padding: 15,
     backgroundColor: 'white',
   },
+  flex: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
   productView: {
     padding: 4,
     backgroundColor: 'white',
@@ -20,11 +24,24 @@ export const ShopStyles = StyleSheet.create({
     marginTop: 10,
     fontFamily: 'SinkinSans-200XLight',
   },
+  justifyView: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+  },
   productPrice: {
     fontSize: 12,
     marginTop: 12,
     color: '#848482',
     fontFamily: 'SinkinSans-200XLight',
+  },
+  review: {
+    flexDirection: 'row',
+    marginTop: 10,
+  },
+  leftReview: {
+    width: '40%',
+    borderRightWidth: 0.2
   },
   description: {
     fontSize: 15,
@@ -118,10 +135,10 @@ export const LoaderStyles = StyleSheet.create({
 export const HomeScreenStyles = StyleSheet.create({
   container: {
     height: '100%',
-    alignItems: 'center',
     backgroundColor: '#D57E56',
   },
   contentContainer: {
+    alignItems: 'center',
     paddingTop: 10,
   },
   paddingView: {
@@ -154,11 +171,12 @@ export const HomeScreenStyles = StyleSheet.create({
   loginFailText: {
     color: 'red',
     fontSize: 12,
-    marginLeft: 10
+    marginLeft: 10,
+    fontFamily: 'SinkinSans-200XLight',
   },
   loginFailView: {
     marginTop: 5,
-    flex: 1,
+    display: 'flex',
     flexDirection: 'row'
   },
   main: {
@@ -439,6 +457,11 @@ export const CartScreenStyles = StyleSheet.create({
     backgroundColor: '#F7C04C',
     marginTop: '4%',
     height: 40
+  },
+  Icon: {
+    fontSize: 150,
+    color: '#F7C04C',
+    width: '36%'
   },
   checkoutIcon: {
     fontSize: 60,
