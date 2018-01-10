@@ -172,7 +172,7 @@ Orders.propTypes = {
   closeModal: PropTypes.func,
   isModalVisible: PropTypes.bool,
   onChangeText: PropTypes.func,
-  selectedOrder: PropTypes.array
+  selectedOrder: PropTypes.array,
 };
 
 export default Orders;
