@@ -286,7 +286,7 @@ exports[`PRODUCTSCREEN --- Snapshot renders the product screen 9`] = `
         <View
           style={
             Object {
-              "flex": 1,
+              "display": "flex",
               "flexDirection": "row",
               "justifyContent": "flex-end",
             }
@@ -1389,7 +1389,7 @@ exports[`PRODUCTSCREEN --- Snapshot renders the product screen 12`] = `
         <View
           style={
             Object {
-              "flex": 1,
+              "display": "flex",
               "flexDirection": "row",
               "justifyContent": "flex-end",
             }

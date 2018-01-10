@@ -1168,6 +1168,11 @@ exports[`CARTSCREEN --- Snapshot renders the empty cart screen if cart is empty 
                     "fontSize": 28,
                     "width": 35,
                   },
+                  Object {
+                    "color": "#F7C04C",
+                    "fontSize": 150,
+                    "width": "36%",
+                  },
                 ],
                 Object {
                   "fontFamily": "ionicons",
