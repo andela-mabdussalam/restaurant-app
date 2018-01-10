@@ -8,6 +8,7 @@ import {
 import {
   Button,
   Card,
+  Icon,
   CardItem,
   Content
 } from 'native-base';
@@ -147,6 +148,18 @@ const Orders = ({
         </Card>
       </Content>
     </Modal>
+    {allOrders.length === 0 &&
+    <Content>
+      <Card style={styles.card}>
+        <CardItem style={styles.cardItem}>
+          <Text fontSize={15} > SORRY, YOU HAVE NO ORDERS</Text>
+        </CardItem>
+        <CardItem style={styles.cardItem}>
+          <Icon name="ios-sad-outline" style={styles.Icon}/>
+        </CardItem>
+      </Card>
+    </Content>
+    }
   </ScrollView>
 </View>;
 
@@ -160,7 +173,6 @@ Orders.propTypes = {
   isModalVisible: PropTypes.bool,
   onChangeText: PropTypes.func,
   selectedOrder: PropTypes.array
-
 };
 
 export default Orders;
